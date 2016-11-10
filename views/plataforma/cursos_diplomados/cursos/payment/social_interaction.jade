@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+html(lang="es")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+
+	section
+		p Servicio: #{servicio}
+		div
+			h1 Accede Gratis a Todos los #{servicio}
+			p 1) Dale Like a Nuestra Pagina en Facebook
+				div
+					//-iframe(src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAscentPeru&width=500&layout=standard&action=like&show_faces=true&share=true&height=80&appId=1721434554779528", width="500", height="80", style="border:none;overflow:hidden", scrolling="no", frameborder="0", allowTransparency="true")
+					
+
+					iframe(src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAscentPeru&width=450&layout=standard&action=like&show_faces=true&share=true&height=80&appId=1721434554779528", width="450", height="80", style="border:none;overflow:hidden", scrolling="no", frameborder="0", allowTransparency="true")
+
+					//-iframe(src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAscentPeru&width=500&layout=button&action=like&show_faces=true&share=true&height=65&appId=1721434554779528", width="500", height="65", style="border:none;overflow:hidden", scrolling="no", frameborder="0", allowTransparency="true")
+
+					//-iframe(src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAscentPeru&width=500&layout=button_count&action=like&show_faces=true&share=true&height=46&appId=1721434554779528", width="500", height="46", style="border:none;overflow:hidden", scrolling="no", frameborder="0", allowTransparency="true")
+
+
+					//-<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAscentPeru&width=500&layout=button_count&action=like&show_faces=true&share=true&height=46&appId=1721434554779528" width="500" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		p
+
+		div
+			p 2) Invita minimo a 3 amigos a Ascent
+				div
+					p Lista de Amigos en Facebook
+
+					div(id="list_friend_facebook")
+
+					a(href='#', id="btn_send") Facebook Invite Friends Link
+
+		div
+			form(action="/plataforma/payment/facebook_invites/#{user._id}/textos?_method=put", method="post")
+				button(style="display: block; background: #0dab0e; color: white; width: 150px; text-decoration: none;", href="") Acceder a Todos los #{servicio}
+
+
+script(src="https://code.jquery.com/jquery-1.12.4.min.js")
+script(src="http://connect.facebook.net/en_US/all.js")
+script(src="/js/facebook_friends.js")
+
+	

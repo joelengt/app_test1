@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+		h2 Textos
+		article
+			h3 Curso: #{curso.title}
+			div
+				div
+					strong 1)Marcar Nuevo Texto
+					form(action="/plataforma/notas/cursos/#{curso._id}/notas-textos-marcado", method="post")
+						div
+							label curso id:
+							div
+								input(text="text", value="#{curso._id}", name="topic_id")
+						div
+							label contenido de texto a marcar
+							div
+								textarea(name="texto_marcado")
+
+						button Crear texto marcado
+				div(style="border-top:1px solid blue;")
+					strong 2)Marcar Nuevo texto y comentar
+					form(action="/plataforma/notas/cursos/#{curso._id}/notas-textos-comentario", method="post")
+						div
+							label curso id:
+							div
+								input(text="text", value="#{curso._id}", name="topic_id")
+						div
+							label contenido de texto a marcar
+							div
+								label texto marcado
+								textarea(name="texto_marcado")
+							div
+								label comentario de texto
+								textarea(name="content_comment")
+
+						button Crear text comentado
+
+				h3 Notas en el texto
+				each nota in notas
+					article(style="border-top: 1px solid red;")
+						p user_id: #{nota.user_id}
+						p tipo de categoria: #{nota.type_categority}
+						p topic_id: #{nota.topic_id}
+						p texto marcado : #{nota.texto_marcado}
+						strong color: #{nota.color}  
+						br
+						strong tiene comentario: #{nota.have_comment}
+						p fecha creacion: #{nota.fecha_creacion}
+						form(action="/plataforma/notas/curso/#{curso._id}/notas-textos-marcado/#{nota._id}/edit", method="post")
+							button editar
+

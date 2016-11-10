@@ -1,0 +1,24 @@
+<div ng-if="bolean_notas">
+	<div ng-repeat="comment in comments" style="width: 250px; background-color: white; position:fixed;right:5px;margin-top:1em; border-radius:7px;box-shadow:0 1px 1px rgba(0,0,0,0.2)">
+		<div style="align-items:center; padding: 10px; cursor:pointer; border-bottom:1px solid #E7E7E9">
+			<div  style="border-bottom:1px solid #E7E7E9;padding-bottom:3px">
+				<div style="display:inline-block"><p style="color:#6A7180">Comentario</p></div>
+				<div style="float:right; display:inline-block; margin: -10px -10px 0 0;cursor:pointer" ng-click="exitComment()">
+					<span class="icon-cancel-circled"></span>
+				</div>
+			</div>
+			<div style="display:flex; align-items:center; padding:10px 0">
+				<div style="background-image: url('{{usuario.photo.path}}'); width:30px; height:30px; background-size: cover; background-position: center;border-radius:50%"></div>
+				<div><h4 style="margin: 0; font-size:1rem; padding:0 0 0 5px;">{{usuario.name}}</h4></div>
+			</div>
+			<div style="display: inline-block; vertical-align:top">
+				<p style="color:#6A7180">{{comment.data_comment.content_comment}}</p>
+				<div style="margin-bottom:-5px"><span style="font-weight:lighter;font-size:12px;font-style:italic; color:#9196A2;">{{comment.fecha_creacion}}</span></div>
+			</div>
+		</div>
+		<div style="padding:5px 0; display:flex;justify-content:space-between">
+			<div style="width:49%; text-align:center;border-right:1px solid #E7E7E9; color: #6A7180"><span class="icon-ascent-editar"></span></div>
+			<div style="width:49%; text-align:center; color: #6A7180"><span class="icon-ascent-borrar"></span></div>
+		</div>
+	</div>
+</div>

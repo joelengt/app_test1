@@ -1,0 +1,51 @@
+	<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+			div
+				p Tu eres User #{user.access}	
+
+	section
+		h2 Añadir un nuevo Curso
+		p #{msg}
+		form(action="/plataforma/admin/cursos/add", method="post", enctype="multipart/form-data")
+			div
+				label Titulo
+				input(type="text", name="title")
+			div
+				label Icon
+				input(type="file", name="curso_icon")
+			div
+				label Cover
+				input(type="file", name="curso_cover")
+			div
+				label Slogan
+				input(type="text", name="slogan")
+			div
+				label Tags
+				input(type="text", name="tags")
+			div
+				label Description
+				textarea(name="description", cols="30", rows="10")
+			div
+				label Colour
+				input(type="text", name="colour")
+			div
+				p Materiales del Curso
+				div
+					label Audiolibro
+					input(type="file", name="curso_audioLibros", multiple)
+
+			button Guardar

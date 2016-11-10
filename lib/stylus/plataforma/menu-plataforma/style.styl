@@ -1,0 +1,223 @@
+//Menu en plataforma
+.MainPlataforma
+	height 70px
+	font-family 'Roboto', sans-serif
+	position fixed
+	width 100%
+	//background-color white
+	//box-shadow 0 1px 5px #929292
+	display flex
+	justify-content space-between
+	&__mainLeft
+		display flex
+		line-height 70px
+		width 80%
+		padding-right .5em
+		&--bottomMenu
+			margin 0 .5em
+			font-size 20px
+			color black_title
+			a 
+				text-decoration none
+				span
+					color gris_D
+					cursor pointer
+					padding 0 .3em
+					border-radius 5px
+					transition .2s
+					&:hover
+						color rgba(0,0,0,.9)
+		&--mainTitle
+			line-height 70px
+			font-size 1.5rem
+			width 100%
+			margin 0
+			color gris_D
+			overflow hidden
+			font-family 'Roboto', sans-serif
+			text-overflow ellipsis
+			white-space nowrap
+			padding 0
+	&__mainRight
+		display none
+		line-height 70px
+		&--nameUser
+			margin 0 .5em
+			line-height 70px
+			text-transform lowercase
+		&--avatar
+			margin 0 .5em
+			padding 15px 0
+			div
+				border-radius 50%
+				height 40px
+				width 40px
+				background-size cover
+				background-repeat no-repeat
+				background-position center
+		&--inbox, &--notification
+			margin 0 .5em
+			font-size 20px
+			span
+				cursor pointer
+				padding .3em
+				border-radius 5px
+				&:hover
+					background-color #EAEAEA
+					
+//Menu desplegable
+.MainDropdown
+	//display none
+	overflow hidden
+	z-index 80
+	top 0
+	left -100%
+	width 100%
+	opacity 0
+	right 0
+	bottom 0
+	position fixed
+	background-color rgba(55, 76, 58, 0.48)
+	&__box
+		z-index 85
+		color gris_D
+		top 0
+		left -300px
+		opacity 0
+		position fixed
+		background-color white
+		width 300px
+		//overflow-y scroll
+		height 100vh
+		scroll()
+	&__ascentBox
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--logoAscent
+			height 50px
+			position relative
+		&--nameAscent
+			margin 0 .5em 
+			line-height 50px
+		.back
+			position absolute
+			right 10px
+			border 2px solid #333333
+			height 30px
+			width 30px
+			top 25px
+			line-height 25px
+			text-align center
+			border-radius 50%
+			cursor pointer
+	&__userBox
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--avatar
+			padding 5px 0
+			div
+				border-radius 50%
+				width 40px
+				height 40px
+				background-size cover
+				background-repeat no-repeat
+				background-position center
+		&--userName
+			padding .6em  0 .6em 1em
+			width 200px
+			a
+				padding 5px 0 5px 5px
+				cursor pointer
+				display block
+				overflow hidden
+				position relative
+				text-overflow ellipsis
+				white-space nowrap
+				color gris_D
+				text-decoration none
+				border-radius 7px
+				border 1px solid #cecece
+				padding-right 20px
+				span
+					position absolute
+					top 5px
+					right 0
+	&__boxPerfil
+		border-bottom 0
+		transition max-height .3s ease-in
+		padding 0
+		margin 0
+		height 0
+		max-height 0
+		overflow hidden
+		list-style none
+		li
+			margin 1em 0
+			a
+				color gris_D
+				text-decoration none
+	&__optionBox
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--options
+			list-style none
+			li
+				margin-top 1em
+				a
+					color gris_D
+					text-decoration none
+					span
+						margin-right .5em
+	&__about
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--box
+			list-style none
+			li
+				margin-top 1em
+				a
+					text-decoration none
+					color gris_D
+	&__redesSociales
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--box
+			list-style none
+			li
+				margin-top 1em
+				a
+					text-decoration none
+					color gris_D
+	&__apps
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--box
+			list-style none
+			li
+				margin-top 1em
+				a
+					text-decoration none
+					color gris_D
+	&__footer
+		border-bottom 2px solid borderBottom_boxDropdown
+		padding 1em
+		p
+			a
+				color verde_B
+		
+@media screen and (min-width: 768px)
+	.MainPlataforma
+		&__mainRight
+			display flex
+
+.openViewPerfil
+	border-bottom 2px solid borderBottom_boxDropdown
+	padding 0 1em
+	height auto
+	max-height 350px

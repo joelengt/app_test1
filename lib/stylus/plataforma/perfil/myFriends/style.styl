@@ -1,0 +1,207 @@
+.MyFriends
+	Container(70px)
+	&__container
+		min-height 450px
+		Box(0, transparent, transparent, 0, 2em)
+		width 100%
+		max-width 500px
+		margin 0 auto
+	&__Box
+		&--portrate
+			.Portrate
+				display flex
+				align-items center
+				justify-content center
+				width 100%
+				flex-direction column
+				background-image linear-gradient(to bottom left, azul_C 49%, gris_A 51%)
+				//background-color #e6e6e6
+				height 250px
+				&__avatar
+					width 120px
+					height 120px
+					background-size cover
+					border 4px solid white
+					border-radius 3px
+					background-position center
+				&__info
+					text-align center
+					&--name
+						color gris_D
+					&--grade
+						color gris_D
+		&--navigate
+			display none
+		&--navMobile
+			background-color white
+			border-top 1px solid gris_B
+			.list
+				height 50px
+				list-style none
+				align-items center
+				display flex
+				flex-wrap wrap
+				margin 0
+				padding 0
+				li
+					width 25%
+					text-align center
+					a
+						span
+							font-size 1.3rem
+							color gris_C
+	&__informationContainer
+		background-color body
+		padding 5px
+		&--box
+			background-color blanco_A
+			box-shadow 0 0 2px sombra
+			.NotFriends
+				&__content
+					box-sizing content-box
+					padding 10px
+					height 100px
+					//padding 1em 2em
+					text-align center
+					&--text
+						h4
+							font-weight lighter
+							font-style italic
+							padding 1em 0
+					&--btnFacebook
+						a
+							width 100%
+							max-width 320px
+							font-weight lighter
+							overflow hidden
+							white-space nowrap
+							text-overflow ellipsis
+							background-color azul_E
+							border-radius 100px
+							text-decoration none
+							padding .2em .7em
+							color white
+							text-transform uppercase
+			.Friends
+				&__content
+					padding 5px
+					.Friend
+						margin-bottom 5px
+						border 1px solid gris_A
+						width 100%
+						&__content
+							//padding-right 50px
+							display flex
+							align-items center
+							justify-content space-between
+							&--user
+								display flex
+								padding 10px
+								.AvatarFriend
+									&__image
+										width 50px
+										height 50px
+										background-size cover
+										background-position center
+										background-repeat no-repeat
+										border-radius 50%
+								.NameFriend
+									margin-left 10px
+									display flex
+									align-items center
+									&__text
+										a
+											//overflow hidden
+											//text-overflow ellipsis
+											//white-space nowrap
+											color gris_D
+											text-decoration none
+							&--addFriend
+								margin-right 10px
+								.AddFriend
+									width 40px
+									height 40px
+									border 1px solid gris_C
+									color gris_B
+									border-radius 50%
+									display flex
+									justify-content space-around
+									align-items center
+									cursor pointer
+									&__plus
+										color gris_C
+										font-size 1.5em
+				
+				
+				
+@media screen and (min-width 767px)
+	.MyFriends
+		&__container
+			Box(30px, transparent, transparent, 0, 2em)
+			//display flex
+			//flex-wrap wrap
+			//justify-content space-between
+		&__Box
+			width 29%
+			position fixed
+			max-width 220px
+			&--portrate
+				.Portrate
+					margin-bottom 10px
+					border 1px solid
+					border-color gris_A
+					background-image none
+					background-color white
+					border-radius 10px
+					&__avatar
+						width 100%
+						border-radius 10px 10px 0 0
+						height 200px
+					&__info
+						text-align left
+						width 100%
+						padding .5em
+						border-top 1px solid gris_B
+						&--name
+							h2
+								font-size 18px
+						&--grade
+							p
+								font-size 15px
+								font-weight lighter
+			&--navMobile
+				display none
+			&--navigate
+				display block
+				background-color white
+				border 1px solid
+				border-color gris_A
+				padding 5px
+				border-radius 10px
+				margin-bottom 10px
+				.list
+					list-style none
+					margin 0
+					li
+						min-width 100px
+						padding 5px
+						a
+							text-decoration none
+							color gris_E
+							font-weight lighter
+							font-size 1rem
+							span
+								margin-right 10px
+		&__informationContainer
+			width 69%
+			padding 0
+			float right
+			&--box
+				.NotFriends
+					height 100px
+				.Friends
+					&__content
+						display flex
+						justify-content space-between
+						.Friend
+							width 49.5%

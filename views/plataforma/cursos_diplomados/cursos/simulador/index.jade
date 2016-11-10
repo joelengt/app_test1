@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+	section
+		p Vista del Curso
+		h2 Simulador
+		div
+			p Total de Preguntas: #{curso.materiales.simulador.info.preguntas}
+		div
+			p Total de Lecciones: #{curso.materiales.simulador.info.lecciones}
+
+		article(style="border-top: 1px solid gray; padding-top: 1rem;")
+			h3 #{curso.materiales.simulador.muestra.title}
+			img(src="#{curso.materiales.simulador.muestra.icon}", width="100")
+			p #{curso.materiales.simulador.muestra.description}
+			p Lecciones: #{curso.materiales.simulador.muestra.n_lecciones}
+			p Preguntas: #{curso.materiales.simulador.muestra.n_questions}
+			div
+				a(href="/plataforma/cursos/#{curso._id}/simulador/muestra") Empezar
+		
+		article(style="border-top: 1px solid gray; padding-top: 1rem;")
+			h3 #{curso.materiales.simulador.basico.title}
+			img(src="#{curso.materiales.simulador.basico.icon}", width="100")
+			p #{curso.materiales.simulador.basico.description}
+			p Lecciones: #{curso.materiales.simulador.basico.n_lecciones}
+			p Preguntas: #{curso.materiales.simulador.basico.n_questions}
+			div
+				a(href="/plataforma/cursos/#{curso._id}/simulador/basico") Empezar
+		
+		article(style="border-top: 1px solid gray; padding-top: 1rem;")
+			h3 #{curso.materiales.simulador.intermedio.title}
+			img(src="#{curso.materiales.simulador.intermedio.icon}", width="100")
+			p #{curso.materiales.simulador.intermedio.description}
+			p Lecciones: #{curso.materiales.simulador.intermedio.n_lecciones}
+			p Preguntas: #{curso.materiales.simulador.intermedio.n_questions}
+			div
+				a(href="/plataforma/cursos/#{curso._id}/simulador/intermedio") Empezar
+
+		article(style="border-top: 1px solid gray; padding-top: 1rem;")
+			h3 #{curso.materiales.simulador.avanzado.title}
+			img(src="#{curso.materiales.simulador.avanzado.icon}", width="100")
+			p #{curso.materiales.simulador.avanzado.description}
+			p Lecciones: #{curso.materiales.simulador.avanzado.n_lecciones}
+			p Preguntas: #{curso.materiales.simulador.avanzado.n_questions}
+			div
+				a(href="/plataforma/cursos/#{curso._id}/simulador/avanzado") Empezar

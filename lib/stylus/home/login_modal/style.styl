@@ -1,0 +1,74 @@
+.LoginModal
+	overflow hidden
+	z-index 95
+	top -100%
+	opacity 0
+	left 0
+	right 0
+	bottom 100%
+	position fixed
+	background-color rgba(55, 76, 58, 0.48)
+	
+.Login
+	position fixed
+	display flex
+	justify-content center
+	align-items center
+	z-index 99
+	top -100%
+	opacity 0
+	left 0
+	right 0
+	//top 0
+	//bottom 0
+	&__box
+		position relative
+		text-align center
+		box-sizing content-box
+		border-radius 20px
+		box-shadow 0px 0px 8px #6B6B6B
+		//height 60vh
+		padding 1em
+		width 80%
+		max-width 350px
+		background-color white
+		&--logo
+			margin 1em 2em
+			figure
+				img
+					height 150px
+		&--linkText
+			margin 2em
+			p
+				color gris_D
+				a
+					color gris_D
+		&--buttonLogin
+			padding 1em
+			.button
+				background-color #3b5998
+				width 90%
+				margin 0 auto
+				padding .7em .5em
+				border-radius 4px
+				span
+					color white
+					// font-size 20px
+					float left
+				a
+					text-decoration none
+					color white
+					display block
+		&--condition
+			padding 2em 0
+			p
+				color gris_D
+				font-size 14px
+				font-weight lighter
+				a
+					color gris_D
+		&--close
+			position absolute
+			top 10px
+			right 10px
+			cursor pointer

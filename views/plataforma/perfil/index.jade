@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma Perfil
+body 
+	header
+		h2 Perfil de Usuario
+		div
+			p Configuración
+			img(src="#{user_edit.photo.path}", width="70")
+			h2  #{user_edit.name}
+			div
+				ul
+					div(class="User-Perfil__form")
+						form(action="/plataforma/perfil/edit/#{user_edit._id}", method="post")
+							button Editar Perfil
+					li
+						a(href="/plataforma/perfil/help")  Ayuda
+					li
+						a(href="/logout") Salir
+	section
+		p Vista de Comunidad Default
+
+		ul
+			li
+				a(href="/plataforma/comunidad") Comunidad
+			li
+				a(href="/plataforma/comunidad/find-friends/actions") Buscar Amigos
+			li
+				a(href="/plataforma/comunidad/chat") Chat
+			li
+				a(href="/plataforma/comunidad/friends/list") Amigos
+			li
+				a(href="/plataforma/notificaciones") Notificaciones
+	section
+		p Nav Usuario	
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Info/Perfil
+			li
+				a(href="/plataforma/muro/#{user._id}") Muro
+			li
+				a(href="/plataforma/friends/#{user._id}") Amigos
+			li
+				//- SOlo debe aparecer si el dueño user_edit._id !== user._id
+				form(action="/plataforma/comunidad/chat/new-chat/#{user._id}", method="post")
+						button Iniciar chat
+			
+
+	section
+		p Tus Datos Personales
+		div
+			img(src="#{user.photo.path}", width="100")
+			h2  #{user.name}
+			p  Plan: #{user.access}
+			p  name: #{user.first_name}
+			p  apellidos: #{user.last_name}
+			p  username: @ #{user.nickname}	
+			p  email: #{user.email}	
+			div
+				p  Genero: #{user.genero}
+				p  edad: #{user.age}
+				p  Lugar: #{user.lugar}
+				p  Dirección: #{user.address}
+				p  Celular: #{user.phone}
+				p  Categoria: #{user.categoria}
+				p  Rango: #{user.grado}
+				p  Next_grado: #{user.grado_next}
+			div
+				p Redes sociales:
+				div
+					a(href="#{user.social_facebook}", target="_blank") Facebook
+				div
+					a(href="#{user.social_twitter}", target="_blank") Twitter
+				div
+					a(href="#{user.social_instagram}", target="_blank") Instagram
+					

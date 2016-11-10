@@ -1,0 +1,35 @@
+<header>
+  <h2>Logo Ascent</h2>
+  <div><img src="{{usuario.photo.path}}" width="50"/>
+    <p>@{{usuario.nickname}}</p>
+    <div><a href="#/perfil/{{usuario._id}}">Perfil</a></div>
+    <div><a href="/logout">Salir</a></div>
+    <div>
+      <p>Tu eres User {{usuario.access}}</p>
+    </div>
+  </div>
+</header>
+<section>
+  <p>Vista de Usuarios</p>
+  <p> </p>
+  <div>
+    <article>
+    	<img src="{{user.photo.path}}" width="60"/>
+      <h3> </h3>
+      <div>
+        <h4>datos de cuenta:</h4>
+        <p>Provider_id: {{user.provider_id}}</p>
+        <p>Red Social: {{user.provider}}</p>
+        <p>Accesso: {{user.access}}</p>
+        <p>Fecha de Registro: {{user.createdAt | date}}</p>
+      </div>
+      <div>
+        <form ng-submit="userDelete()" method="post">
+          <label>Escribe el nombre de usuario, para confirmar:</label>
+          <input type="text" ng-model="nameConfirm" name="confirmar"/>
+          <button>Eliminar Usuario</button>
+        </form>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+<div ng-controller="menuVistaPlataforma">
+	<div class="MainPlataforma">
+		<div class="MainPlataforma__mainLeft">
+			<div class="MainPlataforma__mainLeft--bottomMenu"><a  id="menuButton" ng-click="viewMenu()"><span class="icon-menu"></span></a></div>
+			<h2 class="MainPlataforma__mainLeft--mainTitle">Cursos</h2>
+		</div>
+		<div class="MainPlataforma__mainRight">
+			<div class="MainPlataforma__mainRight--avatar">
+				<div style='background-image: url("{{usuario.photo.path}}")'></div>
+			</div>
+			<!-- <div class="MainPlataforma__mainRight--notification"><span class="glyphicon glyphicon-play-circle"></span></div> -->
+			<div class="MainPlataforma__mainRight--inbox"><span class="icon-ascent-chat" ng-click="viewFriends()"></span></div>
+			<div class="MainPlataforma__mainRight--notification"><span class="icon-ascent-notificacion"  ng-click="viewNotification()" ></span><span id="count" style="display:none;position: absolute;top: 35px;right: 8px;font-size: 10px;line-height: 15px;text-align: center;border-radius: 15px;height: 15px;width: 15px;color: white;background-color: red;padding: 0;"></span></div>
+		</div>
+	</div>
+	<div id="backgroundModal" class="MainDropdown" ng-click="hideMenu()">
+	</div>
+	<div>
+		<div id="mainModal" class="MainDropdown__box">
+			<div class="MainDropdown__ascentBox">
+				<!-- <figure class="MainDropdown__ascentBox--logoAscent">
+					<img src="./images/logo.svg" alt="ascent" height="50">
+				</figure> -->
+				<h1 class="MainDropdown__ascentBox--logoAscent">
+					<a class="logo" href="https://ascent.pe/#/">Ascent</a>
+				</h1>
+				<div class="back" ng-click="hideMenu()">
+					<span class="icon-ascent-atras"></span>
+				</div>
+			</div>
+			<div class="MainDropdown__userBox">
+				<div class="MainDropdown__userBox--avatar">
+					<div style='background-image: url("{{usuario.photo.path}}")'></div>
+				</div>
+				<div class="MainDropdown__userBox--userName">
+					<a  ng-click="viewUserPerfil()">{{usuario.name}}<span class="icon-down-dir"></span></a>					
+				</div>
+			</div>
+			<ul class="MainDropdown__boxPerfil" id="lista-perfil">
+				<li><a href="#/perfil/{{usuario._id}}"><span class="icon-ascent-perfil"></span> Perfil</a></li>
+				<li><a href="#/perfil/about/editar/{{usuario._id}}"><span class="icon-cog"></span> Configuración</a></li>
+				<li><a href=""><span class="icon-help-circled"></span> Ayuda</a></li>
+				<li><a href="/logout"><span class="icon-logout"></span> Cerrar sesión</a></li>
+			</ul>
+			<div class="MainDropdown__optionBox">
+				<ul  class="MainDropdown__optionBox--options">
+					<li>
+						<a href="#/plataforma/cursos"><span class="icon-ascent-cursos"></span> Cursos</a>
+					</li>
+					<li>
+						<a href="#/plataforma/diplomados"><span class="icon-library"></span> Diplomados</a>
+					</li>
+					<li>
+						<a href="#/plataforma/comunidad"><span class="icon-ascent-comunidad"></span> Comunidad</a>
+					</li>
+					<li>
+						<a href="#/plataforma/blog"><span class="icon-pencil"></span> Blog</a>
+					</li>
+					<li>
+						<a href="#/plataforma/plan-premim"><span class="icon-ascent-estrella-seleccionada"></span> Premium</a>
+					</li>
+				</ul>
+			</div>
+			<div class="MainDropdown__about">
+				<ul class="MainDropdown__about--box">
+					<li><a>Contáctanos</a></li>
+					<li><a>Nosotros</a></li>
+				</ul>
+			</div>
+			<div class="MainDropdown__redesSociales">
+				<ul class="MainDropdown__redesSociales--box">
+					<li>
+						<a target="blank" href="https://www.facebook.com/AscentPeru/"><span class="icon-facebook-rect"></span> Facebook</a>
+					</li>
+					<li>
+						<a target="blank" href="https://twitter.com/AscentPeru"><span class="icon-twitter-1"></span> Twitter</a>
+					</li>
+					<li>
+						<a target="blank" href="https://www.instagram.com/ascentperu/"><span class="icon-instagram-filled"></span> Instagram</a>
+					</li>
+				</ul>
+			</div>
+			<div class="MainDropdown__apps">
+				<ul class="MainDropdown__apps--box">
+					<li>
+						<a><span class="icon-googleplay"></span> Google Play</a>
+					</li>
+					<li>
+						<a><span class="icon-appstore"></span> App Store</a>
+					</li>
+				</ul>
+			</div>
+			<footer class="MainDropdown__footer">
+				<p>Ascent ©</p>
+				<p><a href="#/terminos-condiciones">Términos</a> y <a href="#/politicas-privacidad">Privacidad</a></p>
+			</footer>
+		</div>
+	</div>
+	<div ng-include=" './templates/notifications/index.html' "></div>
+	<div ng-include=" './templates/chatList/index.html' "></div>	
+</div>
+<!-- <div ng-controller="menuVistaPlataforma">
+	<div ng-include=" './templates/chatList/index.html' "></div>
+</div> -->

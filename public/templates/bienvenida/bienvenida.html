@@ -1,0 +1,23 @@
+<header class="MainHeaderWelcome">
+	<div ng-include=" './templates/bienvenida/menu/index.html' "></div>
+</header>
+<div class="Welcome">
+	<div class="Welcome__content">
+		<h2 class="Welcome__content--title">¡Bienvenido!</h2>
+		<div class="Welcome__content--avatar">
+			<div class="avatarUser" style='background-image: url("{{usuario.photo.path}}")'></div>
+			<p>@{{usuario.nickname}}</p>
+		</div>
+		<div class="Welcome__content--infoUser">
+			<h1>{{usuario.name}}</h1>
+			<h2>{{usuario.grado}}</h2>
+		</div>
+		<div class="Welcome__content--infoCategory">
+			<span>Futuro</span>
+			<h3>{{usuario.grado_next}}</h3>
+		</div>
+		<div class="Welcome__content--button">
+			<a href="#/plataforma/cursos" class="button">Empieza</a>	
+		</div>
+	</div>  	
+</div>

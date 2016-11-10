@@ -1,0 +1,138 @@
+<header class="MainHeaderForm" ng-cloak>
+  <div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<section class="Perfil" ng-cloak>
+  <div class="Perfil__box ContentLoading" ng-show="loading">
+    <div class="loader">Loading...</div>
+  </div>
+  <div class="Perfil__container animated" ng-show="usuario">
+    <section class="Perfil__Box">
+      <article class="Perfil__Box--portrate">
+        <div class="Portrate">
+          <div class="Portrate__avatar" style="background-image:url('{{user.photo.path}}')"></div>
+          <div class="Portrate__info">
+            <div class="Portrate__info--name">
+              <h2>{{user.name}}</h2>
+            </div>
+            <div class="Portrate__info--grade">
+              <p>{{user.grado}}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="Perfil__Box--navigate">
+        <ul class="list">
+          <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+          <li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+          <li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+          <li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+          <!--<li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li>-->
+        </ul>
+      </nav>
+      <nav class="Perfil__Box--navigate">
+        <ul class="list">
+          <li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+        </ul>
+      </nav>
+      <nav class="Perfil__Box--navMobile">
+        <ul class="list">
+          <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+          <li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span></a></li>
+          <li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+          <li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+          <li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+          <!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+        </ul>
+      </nav>
+    </section>
+    <div class="Perfil__informationContainer">
+      <div class="Perfil__informationContainer--box">
+        <div class="editInformation" ng-if="userConnection === userVisitor">
+          <a ng-click="editInfo()"><span class="icon-edit"></span></a>
+        </div>
+        <div class="Title">
+          <h2>Informacion de Contacto</h2>
+        </div>
+        <div class="Data">
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Nombre</p></div>
+            <div class="Data__list--right"><p>{{usuario.first_name || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Apellido</p></div>
+            <div class="Data__list--right"><p>{{usuario.last_name || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Usuario</p></div>
+            <div class="Data__list--right"><p>@{{usuario.nickname || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Suscripción</p></div>
+            <div class="Data__list--right"><p>{{usuario.access || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Correo</p></div>
+            <div class="Data__list--right"><p>{{usuario.email || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Género</p></div>
+            <div class="Data__list--right"><p>{{usuario.genero || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Edad</p></div>
+            <div class="Data__list--right"><p>{{usuario.age || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Lugar</p></div>
+            <div class="Data__list--right"><p>{{usuario.lugar || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Dirección</p></div>
+            <div class="Data__list--right"><p>{{usuario.address || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Celular</p></div>
+            <div class="Data__list--right"><p>{{usuario.phone || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Categoria</p></div>
+            <div class="Data__list--right"><p>{{usuario.categoria || 'No hay informacion'}}</p></div>
+          </div>
+          <div class="Data__list">
+            <div class="Data__list--left"><p>Rango</p></div>
+            <div class="Data__list--right"><p>{{usuario.grado || 'No hay informacion'}}</p></div>
+          </div>
+        </div>
+        <div class="RedesTitle">
+          <h2>Redes Sociales</h2>
+        </div>
+        <div class="RedesSociales">
+          <div class="RedesSociales__list">
+            <div class="RedesSociales__list--left">
+              <p>Facebook</p>
+            </div>
+            <div class="RedesSociales__list--right">
+              <p><a href="{{usuario.social_facebook}}" target="blank">{{usuario.social_facebook || 'No hay informacion'}}</a></p>
+            </div>
+          </div>
+          <div class="RedesSociales__list">
+            <div class="RedesSociales__list--left">
+              <p>Twitter</p>
+            </div>
+            <div class="RedesSociales__list--right">
+              <p><a href="{{usuario.social_twitter}}" target="blank">{{usuario.social_twitter || 'No hay informacion'}}</a></p>
+            </div>
+          </div>
+          <div class="RedesSociales__list">
+            <div class="RedesSociales__list--left">
+              <p>Instagram</p>
+            </div>
+            <div class="RedesSociales__list--right">
+              <p><a href="{{usuario.social_instagram}}" target="blank">{{usuario.social_instagram || 'No hay informacion'}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+gris_suave = #f3f5f6
+gris_fuerte = #CDCDCD
+
+.blocked
+	background-color #f3f5f6
+	//max-width 200px
+	.Item
+		&__title
+			h2
+				color gris_fuerte !important
+		&__paragraph
+			p
+				color gris_fuerte !important
+		&__button
+			div
+				background-color gris_suave !important
+				border-radius 3px
+				border 1px solid gris_fuerte !important
+				a
+					color gris_fuerte !important
+					pointer-events none
+					//cursor default !important
+	
+
+.Lection
+	Container(180px)
+	&__container
+		Box(2em, white, sombra, 2em, 2em)
+		//padding 2em 1em 1em
+		//background-color white
+		display flex
+		//width 90%
+		//max-width 300px
+		//margin 2em auto 0
+		flex-wrap wrap
+		justify-content space-around
+		//border-radius 8px
+		&--item
+			min-width 200px
+			border 1px solid #e8e8e8
+			border-radius 3px
+			max-width 250px
+			margin-bottom 1em
+			.Item
+				//padding 1em
+				//margin .5em 0
+				padding 1em
+				&__title
+					margin-bottom 2em
+					h2
+						margin 0
+						font-size 20px
+						color gris_F
+				&__paragraph
+					margin-bottom 2em
+					p
+						//font-size 14px
+						font-weight lighter
+				&__button
+					div
+						width 100px
+						text-align center
+						margin 0 auto
+						background-color verde_A
+						border-radius 100px
+						a
+							padding .5em
+							display block
+							text-decoration none
+							color white
+							cursor pointer
+
+@media screen and (min-width 766px)
+	.Lection
+		Container(137px)
+				
+@media screen and (min-width 992px)
+	.Lection
+		Container(137px)
+
+@import 'opciones/style'

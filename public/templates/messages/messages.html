@@ -1,0 +1,85 @@
+<header class="MainHeaderForm">
+  <div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<section class="SistemChat">
+	<div class="SistemChat__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="SistemChat__container animated" ng-show="chats">
+		<section class="SistemChat__Box">
+		  <article class="SistemChat__Box--portrate">
+		    <div class="Portrate">
+		      <div class="Portrate__avatar"  ng-cloak style="background-image:url('{{miUsuario.photo.path}}')"></div>
+		      <div class="Portrate__info">
+		        <div class="Portrate__info--name">
+		          <h2>{{miUsuario.name}}</h2>
+		        </div>
+		        <div class="Portrate__info--grade">
+		          <p>{{miUsuario.grado}}</p>
+		        </div>
+		      </div>
+		    </div>
+		  </article>
+		  <nav class="SistemChat__Box--navigate">
+		    <ul class="list">
+		      <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+					<li><a href="#/perfil/{{miUsuario._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+					<li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+		      <!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+		    </ul>
+		  </nav>
+		  <nav class="SistemChat__Box--navigate">
+		    <ul class="list">
+		      <li><a href="#/messages/{{miUsuario._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+		    </ul>
+		  </nav>
+		  <nav class="SistemChat__Box--navMobile">
+		    <ul class="list">
+			    <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+					<li><a href="#/perfil/{{miUsuario._id}}"><span class="icon-ascent-muro"></span></a></li>
+					<li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+		    </ul>
+		  </nav>
+		</section>
+		<div class="SistemChat__informationContainer">
+			<div class="SistemChat__informationContainer--box">
+				<div class="InitialChat">
+					<div class="InitialChat__content">
+						<div class="InitialChat__content--text">
+							<h4>Sistema de chat</h4>
+						</div>
+						<div class="InitialChat__content--btnFacebook">
+							<a href="#/chat/chat-list">Iniciar un chat</a>
+						</div>
+					</div>
+				</div>
+				<div class="listChats" ng-if="chats.length > 0">
+					<div class="listChats__content">
+						<article class="Chat" ng-repeat="chat in chats">
+							<div class="Chat__content">
+								<div class="Chat__content--user">
+									<div class="AvatarFriend">
+										<div class="AvatarFriend__image" style="background-image:url('{{chat.photo.path}}')"></div>
+									</div>
+									<div class="NameFriend">
+										<h4 class="NameFriend__text"><a href="#/perfil/about/{{chat.user_id}}">{{chat.name}}</a></h4>
+									</div>
+								</div>
+								<div class="Date">
+									<p class="Date__text">{{chat.list.ultime_mesage.date_send}}</p>									
+								</div>
+								<div class="Text">
+									<p class="Text__content">{{chat.list.ultime_mesage.message}}</p>
+									<p class="Text__link"><a href="#/chat/{{chat.list.chat_content_id}}/{{chat.user_id}}">Ir a chat</a></p>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

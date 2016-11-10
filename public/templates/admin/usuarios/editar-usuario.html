@@ -1,0 +1,87 @@
+<header>
+  <h2>Logo Ascent</h2>
+  <div><img src="{{usuario.photo.path}}" width="50"/>
+    <p>@{{usuario.nickname}}</p>
+    <div><a href="#/perfil/{{usuario._id}}">Perfil</a></div>
+    <div><a href="/logout">Salir</a></div>
+    <div>
+      <p>Tu eres User {{usuario.access}}</p>
+    </div>
+  </div>
+</header>
+<section class="User-Perfil"><span class="User-Perfil__msg"></span>
+  <div class="User-Perfil__box">
+    <div class="User-Perfil__data">
+      <h2>Editar Perfil del Usuario:</h2>
+      <form ng-submit="userUpdate()" method="post" enctype="multipart/form-data">
+        <div>
+        	<img src="{{user.photo.path}}" width="200"/>
+          <label>Cambiar imagen</label>
+          <input type="file" name="avatar_perfil"/>
+        </div>
+        <div>
+          <label>Cambiar Nombre (*)</label>
+          <input type="text" ng-model="first_name" ng-value="first_name" value="first_name" name="first_name" autocomplete="off" required="required"/>
+        </div>
+        <div>
+          <label>Cambiar Apellidos (*)</label>
+          <input type="text" ng-model="last_name" ng-value="last_name" value="last_name" name="last_name" autocomplete="off" required="required"/>
+        </div>
+        <div>
+          <label>Cambiar Usuario (*)</label>
+          <input type="text" ng-model="nickname" ng-value="nickname" value="nickname" name="nickname" autocomplete="off" required="required"/>
+        </div>
+        <div>
+          <label>Cambiar Email</label>
+          <input type="email" ng-model="email" ng-value="email" value="email" name="email" autocomplete="off"/>
+        </div>
+        <div>
+          <label>Cambiar Genero</label>
+          <input type="text" ng-model="genero" ng-value="genero" value="genero" name="genero" autocomplete="off"/>
+        </div>
+        <div>
+          <label>Cambiar Edad</label>
+          <input type="number" ng-model="age" ng-value="age" value="age" name="age" autocomplete="off"/>
+        </div>
+        <div>
+          <label>Cambiar Lugar</label>
+          <input type="text" ng-model="lugar" ng-value="lugar" value="lugar" name="lugar" autocomplete="off"/>
+        </div>
+        <div>
+          <label>Cambiar Categoria (*)</label>
+          <input type="text" ng-model="categoria" ng-value="categoria" value="categoria" name="categoria" autocomplete="off" required="required"/>
+        </div>
+        <div>
+          <label>Cambiar Rango (*)</label>
+          <input type="text" ng-model="grado" ng-value="grado" value="grado" name="grado" autocomplete="off" required="required"/>
+        </div>
+        <div>
+          <p>¿Quieres recibir email de notificaciones?</p>
+          <div>
+            <label>Si</label>
+            <input type="radio" ng-model="news" ng-value='"si"' name="news" value="si"/>
+            <label>No</label>
+            <input type="radio" ng-model="news" ng-value='"no"' name="news" value="no"/>
+          </div>
+        </div><br/><br/>
+        <div>
+          <h2>Social</h2>
+          <div>
+            <label>Facebook</label>
+            <input type="url" ng-model="url_facebook" name="url_facebook" autocomplete="off"/>
+          </div>
+          <div>
+            <label>Twitter</label>
+            <input type="url" ng-model="url_facebook" name="url_twitter" autocomplete="off"/>
+          </div>
+        </div>
+        <button>Guardar Cambios</button>
+        <p>(*) Estos campos son Obligatorios</p>
+        <div>
+          <h2>Subir Plan</h2>
+          <p>Plan: </p><a href="#">	Adquiere Premiun</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

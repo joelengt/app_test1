@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	meta(name="viewport", content="width=device-width, minimum-scale=1, maximum-scale=1")
+	title Ascent: Admin Dashboard
+body
+	header
+		h2 Logo Ascent
+		p Admin Dashboard
+	div
+		img(src="#{user.photo.path}", width="50")
+		//- p #{user.email}
+		p @ #{user.nickname}	
+		div
+			a(href="/plataforma/perfil/#{user._id}") Perfil
+		div
+			a(href="/logout") Salir
+		div
+			p Tu eres User #{user.access}
+	div
+		p CREAR PREGUNTAS: Cursos
+
+		form(action="/plataforma/admin/preguntas/cursos/update/#{pregunta._id}?_method=put", method="post")
+			div
+				h3 Categoria: #{pregunta.type_categority}
+				h3 Tipo de Preguta: #{pregunta.type_question}
+			div
+				label A que #{pregunta.type_categority} pertenece esta pregunta
+				p Seleccionado: #{pregunta.topic_title}
+				ul
+					each cursos_data in cursos_datas
+						div
+							input(type="radio", name="pregunta_tipos", value="#{cursos_data.curso_id}")
+							label #{cursos_data.curso_title}
+			div
+				h3 Creando la pregunta
+				div
+					label Escribre la Pregunta
+				div
+					textarea(name="question", cols="30", rows="10") #{pregunta.question}
+			div
+				div
+					label Escribe la Respuesta
+				div
+					textarea(name="answer", cols="30", rows="10") #{pregunta.answer.string}
+
+			div
+				h3 Alternativas
+				div 
+					each other_answer in other_answers
+						div
+							p Alternativa #{other_answer.orden}
+							textarea(name="answer#{other_answer.orden}", cols="30", rows="10") #{other_answer.answer}
+
+				div
+					h3 Dificultad : #{pregunta.difficulty}
+					div
+						input(type="radio", name="difficulty", value="muestra") 
+						label Muestra
+					div 
+						input(type="radio", name="difficulty", value="basico") 
+						label Básico
+					div
+						input(type="radio", name="difficulty", value="intermedio") 
+						label Intermedio
+					div
+						input(type="radio", name="difficulty", value="avanzado")
+						label Avanzado
+
+			button Guardar pregunta

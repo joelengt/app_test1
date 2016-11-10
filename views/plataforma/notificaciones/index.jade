@@ -1,0 +1,52 @@
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/comunidad/") Comunidad
+			li
+				a(href="/plataforma/comunidad/find-friends/actions") Buscar Amigos
+			li
+				a(href="/plataforma/comunidad/chat/list") Chat
+			li
+				a(href="/plataforma/comunidad/friends/list") Amigos
+			li
+				a(href="/plataforma/notificaciones") Notificaciones
+
+	section
+		h1 Notificaciones
+		div(style="display: none;")
+			input(type="text", id="user_room", value="#{user._id}")
+
+
+		div(class="Notification_content")
+		each notificacion in notificaciones
+			article(style="border-bottom: 1px solid black;")
+				p article_id: #{notificacion.article_id}
+				p tipo notificaciòn: #{notificacion.article_type}
+				div
+					p user_id que genero la acción: #{notificacion.datos_user.user_id}
+					p user_name que genero la acción: #{notificacion.datos_user.name}
+					img(src="#{notificacion.datos_user.photo.path}", width="80")
+					
+				p Hace: #{notificacion.fecha_creacion}
+
+
+
+script(type="text/javascript", src="https://cdn.socket.io/socket.io-1.2.0.js")
+script(type="text/javascript", src="../../js/socket.io-stream.js")
+script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.1.js")
+script(type="text/javascript", src="../../js/social_socket_io/notificaciones/index.js")

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <section class="com-xs-4">
+      <div>
+        <a href="#/admin/cursos/new_course">Agregar nuevo curso</a>
+      </div>
+    </section>
+    <section>
+      <div>
+        <article ng-repeat="course in courses"  class="com-xs-12 col-ms-6 col-md-4">
+          <img src="{{course.cover.path}}" width="60"/>
+          <h3>{{course.title}}</h3>
+          <div>
+            <p>Slogan: {{course.slogan}}</p>
+            <p>Promedio Rate:{{course.promedioRate}}</p>
+            <p>Tags: <span ng-repeat="tag in course.tags">{{tag}}</span></p>
+            <p>Descripción: {{course.description}}</p>
+          </div>
+          <div>
+            <div><a href="#/admin/cursos/detail/{{course._id}}">Ver detalles</a></div>
+          </div><br/><br/>
+        </article>
+      </div>
+    </section>
+  </div>
+</div>

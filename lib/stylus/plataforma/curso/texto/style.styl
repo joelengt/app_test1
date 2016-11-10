@@ -1,0 +1,88 @@
+// .ContentText
+// 	font-family 'Roboto', sans-serif
+// 	padding-top 160px
+// 	&__box
+// 		padding 1em 0
+// 		display flex
+// 		flex-wrap wrap
+// 		justify-content space-between
+// 		&--item
+// 			background-color white
+// 			margin 1em auto 0
+// 			border-radius 3px
+// 			width 90%
+// 			box-shadow 0 1px 1px rgba(0,0,0,.2)
+// 			.Text
+// 				width 100%
+// 				&__cover
+// 					height 150px
+// 					border-radius 3px 3px 0 0
+// 					width 100%
+// 					background-size cover
+// 					background-repeat no-repeat
+// 					display flex
+// 					align-items center
+// 					justify-content center
+// 				&__content
+// 					padding 1em
+// 					.List
+// 						padding 1em
+// 						margin 0
+// 						list-style none
+// 						&__item
+// 							padding .5em
+// 							&--link
+// 								text-decoration none
+// 								color #252525
+// 								transition .2s
+// 								&:hover
+// 									color #009688
+							
+
+// @media screen and (min-width 768px)
+// 	.ContentText
+// 		padding-top 117px
+		
+
+.TextItem
+	font-family 'Roboto', sans-serif
+	Container(170px)
+	&__box
+		Box(0, transparent, transparent, 0, 2em)
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+		&--item
+			background-color white
+			margin 1em auto 0
+			border-radius 3px
+			width 90%
+			box-shadow 0 1px 1px rgba(0,0,0,.2)
+			.Content
+				width 100%
+				&__box
+					padding 1em
+					&--item
+						.ShowText
+							width 100%
+							padding 1em
+							h1
+								margin-bottom .8em
+							h2, h3
+								margin-bottom .7em
+							h4,h5,h6
+								margin-bottom .6em
+							p 
+								margin-bottom .5em
+							ol, ul
+								margin-left 2em
+							figure 
+								width auto
+							img 
+								width auto
+	
+					
+@media screen and (min-width 768px)
+	.TextItem
+		padding-top 117px
+		

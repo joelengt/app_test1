@@ -1,0 +1,89 @@
+.ContentPlataform
+	Container(170px)
+	&__box
+		Box(0, transparent, transparent, 0, 2em)
+		display flex
+		flex-wrap: wrap;
+		justify-content space-between
+		//flex-direction column
+		&--course
+			background-color white
+			margin 1em auto 0
+			border-radius 5px
+			width 90%
+			max-width 400px
+			box-shadow 0 1px 1px rgba(0,0,0,.2)
+			.Course
+				width 100%
+				&__cover
+					position relative
+					height 180px
+					border-radius 5px 5px 0 0
+					width 100%
+					background-size: cover
+					background-repeat: no-repeat
+					display flex
+					align-items center
+					justify-content center
+					&--start
+						div
+							position absolute
+							top 10px
+							left 10px
+				&__content
+					padding 1em 1em 0 1em
+					&--title
+						text-align center
+						h3
+							margin 0
+							margin-bottom .5em
+							font-size 20px
+							overflow hidden
+							text-overflow ellipsis
+							white-space nowrap
+							a
+								text-decoration none
+								color gris_D
+					&--text
+						height 40px
+						margin 1em 0
+						p
+							height 40px
+							font-size .9em
+							font-weight lighter
+							//line-height 1.4
+							overflow hidden
+							text-overflow ellipsis
+							color #777
+					&--link
+						border-top 1px solid rgba(0,0,0,.08)
+						height auto
+						padding 1.5em 0
+						div
+							background-color verde_B
+							border-radius 100px
+							width 50%
+							max-width 200px
+							margin 0 auto
+							transition .2s
+							a
+								padding .5em
+								text-align center
+								display block
+								color white
+								text-decoration none
+							&:hover
+								background-color #00BDC1
+
+@media screen and (min-width 768px)
+	.ContentPlataform
+		Container(117px)
+		&__box
+			&--course
+				width 45%
+
+@media screen and (min-width 992px)
+	.ContentPlataform
+		&__box
+			&--course
+				width 30%

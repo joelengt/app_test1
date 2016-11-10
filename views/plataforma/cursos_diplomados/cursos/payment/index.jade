@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+	section(style="display: none;")
+		input(type="text", id="user_id_plataforma", value="#{user._id}")
+		input(type="text", id="type_service_plataforma", value="#{servicio}")
+
+	div
+		a(href="https://www.rapidssl.com/", target="_blank")
+			img(src="../../../../../images/payment/RapidSSL_SEAL-90x50.gif")
+	section
+		p Servicio: #{servicio}
+		strong(id="Proceso_msg")
+		div
+			h1 Accede a Todos los #{servicio}
+			p a solo 
+				h2 S/10.00
+
+			div
+				p Proceso Comprar #{servicio}
+				//-form(action="/plataforma/payment/#{user._id}/#{servicio}", method="post")
+				button(style="display: block; background: #e4ab07; color: white; width: 150px; text-decoration: none;", id="btn_buy_#{servicio}") Comprar los #{servicio}
+
+		p o
+
+		div
+			h1 Promo!! Simuladores + Audiolibros
+			p a solo
+				h2 S/15.00
+
+			div
+				p Proceso Comprar premium
+				//-form(action="/plataforma/payment/#{user._id}/premium", method="post")
+				button(style="display: block; background: #e4ab07; color: white; width: 150px; text-decoration: none;", id="btn_buy_premium") Comprar Premium
+
+
+script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.1.js")
+//-script(type="text/javascript", src='https://integ-pago.culqi.com/api/v1/culqi.js')
+script(type="text/javascript", src="../../../../../js/payment/index.js")
+

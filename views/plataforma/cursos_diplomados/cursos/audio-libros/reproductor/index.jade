@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+	section
+		p Vista del Curso
+		article
+			div
+				img(src="#{curso.cover.path}", width="180")
+			a(href="/plataforma/cursos/#{curso._id}")
+				img(src="#{curso.icon.path}", width="60")
+			h3 
+				a(href="/plataforma/cursos/#{curso._id}") #{curso.title}
+			div
+				p Slogan: #{curso.slogan}
+
+		h2 Audio Libros
+			//- p	#{curso.materiales.texto}
+			article
+				div
+					h3 #{audio.originalname}
+					audio(src="#{audio.path}", controls)

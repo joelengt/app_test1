@@ -1,0 +1,511 @@
+.Landing
+	Container(70px)
+	background-color white
+	&__container
+		.LandingPrimary
+			padding-bottom 3em
+			display flex
+			flex-wrap wrap
+			justify-content space-between
+			&__left
+				display none
+				&--image
+					background-image url('../images/left.png')
+					width 100%
+					background-size cover
+					background-position right center
+					background-repeat no-repeat
+					height 550px
+			&__center
+				padding .5em 0
+				text-align center
+				width 100%
+				&--box
+					max-width 400px
+					margin 0 auto
+					.LandingLogo
+						&__image
+							width 150px
+					.LandingText
+						&__description
+							color gris_D
+							font-weight lighter
+							font-size 18px
+							span
+								color gris_E
+					.LandingBtn
+						margin .5em 0
+						&__action
+							border-top 1px solid Verde_Ascent
+							border-right 1px solid Verde_Ascent
+							border-bottom 3px solid Verde_Ascent
+							border-left 1px solid Verde_Ascent
+							margin 0 auto
+							width 200px
+							border-radius 3px
+							a
+								display block
+								text-decoration none
+								color Verde_Ascent
+								font-size 1.2em
+								padding .5em
+								cursor pointer
+			&__right
+				width 100%
+				&--image
+					background-image url('../images/right.png')
+					width 60%
+					background-size contain
+					margin 0 auto
+					background-position center
+					background-repeat no-repeat
+					height 200px
+		.LandingSecondary
+			padding-bottom 3em
+			&__right
+				margin 0 auto
+				// height 300px
+				background-color white
+				&--image
+					width 100%
+					height 250px
+					background-repeat no-repeat
+					background-size contain
+					background-position center
+					// position relative
+					// padding 10%
+					background-image url('../images/cover_window.png')
+					.slidesjs-control, .slidesjs-container
+						width 100% !important
+						min-width 320px !important
+						max-width 400px !important
+						height 250px !important
+						margin 0 auto
+					.cover_window1
+						display block
+						width 250px
+						margin auto
+						padding-top 3em
+						&__content
+							text-align center							
+							&--image
+								margin 0 auto
+								width 100%
+								display inline-block
+								img 
+									width 50px
+									margin 0 auto
+							&--title
+								margin 1em
+								h4
+									color gris_E
+									font-size 1.3em
+							&--description
+								display none
+								p
+									color gris_C
+									font-weight lighter
+							&--icons
+								display flex
+								justify-content space-around
+								flex-wrap wrap
+								.Icon__content
+									&--icon
+										color gris_C
+										font-size 1.5em
+									&--text
+										color gris_D
+										display none
+					.cover_window2
+						display none
+						width 250px
+						margin auto
+						padding-top 3em
+						&__content
+							text-align center
+							&--image
+								margin 0 auto
+								width 100%
+								display inline-block
+								img
+									width 50px
+									margin 0 auto
+							&--title
+								margin 1em
+								h4
+									color gris_E
+									font-size 1.3em
+							&--description
+								display none
+								p
+									color gris_C
+									font-weight lighter
+							&--icons
+								display flex
+								justify-content space-around
+								flex-wrap wrap
+								.Icon__content
+									&--icon
+										color gris_C
+										font-size 1.5em
+									&--text
+										color gris_D
+										display none
+					.cover_window3
+						display none
+						width 250px
+						margin auto
+						padding-top 3em
+						&__content
+							text-align center
+							&--image
+								margin 0 auto
+								width 100%
+								display inline-block
+								img
+									width 50px
+									margin 0 auto
+							&--title
+								margin 1em
+								h4
+									color gris_E
+									font-size 1.3em
+							&--description
+								display none
+								p
+									color gris_C
+									font-weight lighter
+							&--icons
+								display flex
+								justify-content space-around
+								flex-wrap wrap
+								.Icon__content
+									&--icon
+										color gris_C
+										font-size 1.5em
+									&--text
+										color gris_D
+										display none
+					.cover_window4
+						display none
+						width 250px
+						margin auto
+						padding-top 3em
+						&__content
+							text-align center
+							&--image
+								margin 0 auto
+								width 100%
+								display inline-block
+								img
+									width 50px
+									margin 0 auto
+							&--title
+								margin 1em
+								h4
+									color gris_E
+									font-size 1.3em	
+							&--description
+								display none
+								p
+									color gris_C
+									font-weight lighter
+							&--icons
+								display flex
+								justify-content space-around
+								flex-wrap wrap
+								.Icon__content
+									&--icon
+										color gris_C
+										font-size 1.5em
+									&--text
+										color gris_D
+										display none		
+			&__left
+				max-width 400px
+				margin 0 auto
+				&--content
+					.SecondaryLeft_Text
+						padding 1em
+						h3
+							font-size 2em
+							font-weight lighter
+							color gris_E
+						p
+							color gris_D
+							font-size 18px
+							font-weight 300
+					.SecondaryLeft_TypeOption
+						display flex
+						flex-wrap wrap
+						justify-content space-around
+						&__tools
+							width 150px
+							cursor pointer
+							margin-bottom 1em
+							text-align center
+							&--image
+								display inline-block
+								background-color verde_B
+								width 100px
+								text-align center
+								img
+									width 90%
+									margin 10% auto
+							&--text
+								font-weight lighter
+								color gris_D
+						&__soundBook
+							width 150px
+							cursor pointer
+							margin-bottom 1em
+							text-align center
+							&--image
+								display inline-block
+								background-color #46958d
+								width 100px
+								text-align center
+								img
+									width 90%
+									margin 10% auto
+							&--text
+								font-weight lighter
+								color gris_D
+						&__simulator
+							width 150px
+							cursor pointer
+							margin-bottom 1em
+							text-align center
+							&--image
+								display inline-block
+								background-color #00a2c4
+								width 100px
+								text-align center
+								img
+									width 90%
+									margin 10% auto
+							&--text
+								font-weight lighter
+								color gris_D
+						&__comunity
+							width 150px
+							cursor pointer
+							margin-bottom 1em
+							text-align center
+							&--image
+								display inline-block
+								background-color #2e4354
+								width 100px
+								text-align center
+								img
+									width 90%
+									margin 10% auto
+							&--text
+								font-weight lighter
+								color gris_D
+		.LandingTertiary
+			padding-bottom 3em
+			max-width 400px
+			margin 0 auto
+			&__left
+				&--image
+					width  90%
+					margin 0 auto
+					.TertiaryImage
+						width 100%
+						&__image
+							width 100%
+			&__right
+				&--content
+					.TertiaryContent_Text
+						padding 1em
+						h3
+							font-size 2em
+							font-weight lighter
+							color gris_E
+						p
+							color gris_D
+							font-size 18px
+							font-weight 300
+					.TertiaryContent__imageApp
+						a
+							text-decoration none
+							figure
+								// width 90%
+								max-width 150px
+								margin 0 auto
+								img
+									width 100%
+		.LandingFooter
+			max-width 400px
+			margin 0 auto
+			padding-bottom 3em
+			width 100%
+			padding 1em
+			&__left
+				width 100%
+				padding-bottom 2em
+				&--links
+					list-style none
+					display flex
+					flex-wrap wrap
+					justify-content space-around
+					li
+						width 30%
+						a
+							text-decoration none
+							color #4d9e75
+							font-weight lighter
+				&--text
+					text-align center
+					font-weight lighter
+					color gris_C
+			&__right
+				width 100%
+				&--icons
+					list-style none
+					display flex
+					flex-wrap wrap
+					justify-content space-around
+					li
+						text-align center
+						width 40px
+						a
+							text-decoration none
+							color #4d9e75
+							span
+								font-size 1.5em
+				&--text
+					font-weight lighter
+					color gris_C
+					justify-content center
+					display flex
+					figure
+						width 60px
+						margin-left 5px
+						img
+							width 100%
+@media screen and (min-width 767px)
+	.Landing
+		Container(0)
+		&__container
+			.LandingPrimary
+				height 100vh
+				padding-top 10vh
+				padding-bottom 0
+				align-items center
+				&__left
+					width 30%
+					height 80vh
+					display block
+				&__center
+					display flex
+					align-items center
+					width 30%
+					height 80vh
+					&--box
+						.LandingLogo
+							&__image
+								width 200px
+				&__right
+					width 30%
+					height 80vh
+					&--image
+						background-size cover
+						background-position left center
+						height 550px
+						width 100%
+			.LandingSecondary
+				padding-top 10vh
+				height 100vh
+				padding-bottom 0
+				display flex
+				flex-wrap wrap
+				justify-content space-between
+				align-items center
+				&__right
+					width 60%
+					margin 0
+					&--image
+						height 80vh
+						background-size cover
+						background-position right center
+						.slidesjs-control, .slidesjs-container
+							width 100% !important
+							max-width 100% !important
+							height 80vh !important
+						.cover_window1, .cover_window2, .cover_window3, .cover_window4
+							padding-top 6em
+							width 75%
+							margin 0 auto
+							// max-width 550px
+							&__content
+								&--image
+									img
+										width 100px
+								&--title
+									h4
+										font-size 1.5em
+								&--description
+									display block
+									max-width 400px
+									margin 0 auto
+								&--icons
+									padding 2em 0
+									flex-wrap initial
+									flex-wrap wrap
+									.Icon__content
+										width 120px
+										// margin-bottom 1em
+										display flex
+										align-items center
+										justify-content center
+										&--text
+											display block
+											max-width 80px
+				&__left
+					width 40%
+					margin 0
+					max-width 40%
+					&--content
+						.SecondaryLeft_TypeOption
+							max-width 400px
+							margin 0 auto
+			.LandingTertiary
+				height 100vh
+				padding-top 10vh
+				padding-bottom 0
+				display flex
+				width 100%
+				max-width 100%
+				justify-content center
+				align-items center
+				&__left
+					height 80vh
+					display flex
+					align-items center
+					width 50%
+				&__right
+					width 50%
+					&--content
+						max-width 500px
+						margin 0 auto
+			.LandingFooter
+				width 100%
+				display flex
+				max-width 100%
+				padding-bottom 0
+				&__right
+					width 30%						
+				&__left
+					width 70%
+					padding-bottom 0
+					&--links
+						justify-content initial
+						li
+							text-align left
+							width auto
+							padding-right 2em
+					&--text
+						text-align left
+					

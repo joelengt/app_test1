@@ -1,0 +1,296 @@
+.HeaderOthers
+	background-color  white
+	box-shadow  0px 1px 5px #b3b3b3
+	height 70px
+	width 100%
+	position fixed
+	top 0
+	z-index 75
+
+.Comunity
+	Container(70px)
+	&__container
+		Box(0, transparent, transparent, 0, 2em)
+		width 100%
+		max-width 500px
+		margin 0 auto
+		padding 30px 0 2em
+	&__publishContainer
+		background-color body
+		padding 0 5px
+		&--form
+			background-color blanco_A
+			box-shadow 0 0 2px sombra
+			margin-bottom 5px
+			.PublishFriend
+				padding 10px 10px 0 10px
+				&__content
+					position relative
+					//border-bottom 1px solid gris_B
+					padding-bottom 10px
+					&--avatar
+						position absolute
+						width 40px
+						height 40px
+						background-size cover
+						margin-right 5px
+						background-position center
+						//overflow-y hidden
+					&--comment
+						padding-left 50px
+						width 100%
+						height 40px
+						color gris_D
+						border 0
+						outline none
+						resize none
+						scroll()
+				&__contentText
+					transition .3s
+					border-top 1px solid gris_B
+					border-bottom 1px solid gris_B
+					padding-top 10px
+					padding-bottom 10px
+					display none
+					&--comment
+						width 100%
+						height 40px
+						color gris_D
+						border 0
+						outline none
+						resize none
+						scroll()
+				&__typeQuestion
+					transition .3s
+					border-bottom 1px solid gris_B
+					display none
+					padding .5rem 0 
+					div
+						display inline-block
+						width 49%
+						label
+							cursor pointer
+							margin 0
+							color gris_D
+				&__courses
+					transition .3s
+					//border-bottom 1px solid gris_B
+					display none
+					padding .5rem 0
+					&--title
+						color gris_D
+					&--select
+						.selectBox
+							position relative
+							border 1px solid #ccc
+							width 100%
+							overflow hidden
+							background-color #fff
+							border-radius 5px
+							&:before
+								content ''
+								position absolute
+								right 8px
+								top 12px
+								width 0
+								height 0
+								border-style solid
+								border-width 7px 5px 0 5px
+								border-color #656565 transparent transparent transparent
+								z-index 5
+								pointer-events none
+							&__select
+								padding 5px 25px 5px 5px
+								cursor pointer
+								background transparent
+								width 100%
+								border 0
+								border-radius 0
+								-webkit-appearance none
+								cursor pointer
+								font-size 15px
+								line-height 19px
+								color #887e70
+								outline none
+				&__buttons
+					display flex
+					flex-wrap wrap
+					justify-content space-between
+					align-items center
+					padding 5px
+					&--input
+						input
+							width 0.1px
+							height 0.1px
+							opacity 0
+							overflow hidden
+							position absolute
+							z-index -1
+						label
+							cursor pointer
+							color gris_D
+							margin 0
+					&--comment
+						color gris_D
+						button
+							border 0
+							background-color white
+							border-left 1px solid gris_B
+							outline none
+							color gris_D
+							padding .2rem 1rem
+				&__previewImage
+					border-bottom 1px solid gris_B
+					#preview_box
+						border-radius 4px
+						display flex
+						flex-wrap wrap
+						align-items flex-start
+						flex-direction column-reverse
+						#published_publish_multimedia_path
+							width 80px
+							border 4px solid azul_E
+							border-radius 5px
+		&--publications
+			.ContentItems
+				.Article
+					background-color blanco_A
+					margin-bottom 20px
+					border-radius 5px 5px 0 0
+					border 1px solid
+					border-color gris_A
+					&__userInfo
+						display flex
+						flex-wrap wrap
+						padding 10px
+						position relative
+						&--avatar
+							width 40px
+							height 40px
+							background-size cover
+							margin-right 10px
+							background-position center
+						&--dataUser
+							.name
+								line-height 0
+								color gris_D
+								font-weight bold
+							.grade
+								line-height 0
+								color gris_D
+								font-size 12px
+								margin-top 5px
+						&--typePublish
+							top 10px
+							right 10px
+							padding 5px 10px
+							color gris_C
+							position absolute
+							border 1px solid
+							border-radius 3px
+					&__infoPublish
+						position relative
+						&--text
+							.typePublish
+								padding 0 10px
+								font-size 0.8rem
+								color gris_C
+								margin-bottom 10px
+							.contentPublish
+								margin-bottom 10px
+								&__image
+									margin-top 10px
+									width 100%
+									.imageContent
+										width 100%
+										img
+											width 100%
+								&__title
+									font-weight bold
+									padding 0 10px
+									color gris_D
+									word-break break-all
+									margin-bottom 5px
+								p
+									padding 0 10px
+									color gris_D
+									word-break break-all
+									a
+										color gris_E
+										font-weight bold
+							.datePublish
+								font-size 12px
+								padding 0 10px 5px 10px
+								color gris_C
+						&--rateInfo
+							padding 5px
+							line-height 0
+							border-top 1px solid gris_B
+							display flex
+							flex-wrap wrap
+							.liked
+								margin-right 15px
+								color gris_D
+								cursor pointer
+							.comment
+								color gris_D
+						
+					&__commentPublish
+						padding 10px
+						background-color blanco_C
+						&--box
+							position relative
+							.userAvatar
+								position absolute
+								&__image
+									width 32px
+									height 32px
+									background-size cover
+									background-position center
+							.formComment
+								input
+									font-size 11.2px
+									padding 8px 8px 8px 37px
+									width 100%
+									outline 0
+									border 0
+									background-color white
+									
+					&__comments
+						background-color blanco_C
+						padding-bottom 10px
+						&--box
+							width 90%
+							margin 0 auto
+							.itemComment
+								margin-bottom 5px
+								background-color comment
+								padding 7px
+								&__box
+									&--dataComment
+										position relative
+										.commentAvatar
+											&__image
+												position absolute
+												width 32px
+												height  32px
+												background-size cover
+												background-position center
+										.commentText
+											padding 0 7px 0 40px
+											&__nameUser
+												color gris_D
+												font-weight bold
+											&__commentUser
+												font-size 14px
+												color gris_C
+												font-weight lighter
+											&__commentDate
+												font-weight lighter
+												font-size 10px
+												color gris_C
+												
+@media screen and (min-width 767px)
+	.Comunity
+		&__container
+			Box(30px, transparent, transparent, 0, 2em)

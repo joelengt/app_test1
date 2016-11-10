@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+			div
+				p Tu eres User #{user.access}
+	section
+		h2 Añadir un nuevo Curso
+
+		form(action="/plataforma/admin/cursos/update/#{curso._id}?_method=put", method="post", enctype="multipart/form-data")
+			div
+				label Titulo
+				input(type="text", name="title", value="#{curso.title}")
+			div
+				label Icon
+				img(src="#{curso.icon.path}", width="50", height="50")
+				input(type="file", name="curso_icon")
+			div
+				label Cover
+				img(src="#{curso.cover.path}", width="150", height="150")
+				input(type="file", name="curso_cover")
+			div
+				label Slogan
+				input(type="text", name="slogan", value="#{curso.slogan}")
+			div
+				label Tags
+				input(type="text", name="tags", value="#{curso.tags}")
+			div
+				label Description
+				textarea(name="description", cols="30", rows="10") #{curso.description}
+			div
+				label Color
+				input(type="text", name="colour", value="#{curso.colour}")
+			div
+				p Materiales del Curso
+				div
+					label Audiolibro
+					input(type="file", name="curso_audioLibros", multiple)
+					div
+						each audio in audios
+							div
+								a(href="#{audio.path}") #{audio.originalname} | Play 
+								audio(src="#{audio.path}", controls)
+							br
+				div
+					label Texto
+					input(type="file", name="curso_textos", multiple)
+					div
+						each texto in textos
+							div
+								a(href="#{texto.path}") #{texto.originalname}
+							br  
+				div
+					label Simulador
+					p Preguntas Totales: #{simulador.info.preguntas}
+					p Lecciones Totales: #{simulador.info.lecciones}
+					div
+						ul
+							article(style="border-top: 1px solid gray; padding-top: 1rem;")
+								h3 #{simulador.muestra.title}
+								div
+									div
+										img(src="#{simulador.muestra.icon}", width="100")
+									div
+										textarea(name="curso_simulador_muestra_description") #{simulador.muestra.description}
+
+									div
+										p Max. Preguntas Disponibles #{simulador.muestra.max_questions}
+										div
+											label  Lecciones #{simulador.muestra.n_lecciones}
+										div
+											input(type="text", name="curso_simulador_muestra_n_lecciones", value="#{simulador.muestra.n_lecciones}")
+
+									div
+										div
+											label Preguntas #{simulador.muestra.n_questions}
+										div
+											input(type="text", name="curso_simulador_muestra_n_questions", value="#{simulador.muestra.n_questions}")
+
+									div
+										button Guardar
+							
+							article(style="border-top: 1px solid gray; padding-top: 1rem;")
+								h3 #{simulador.basico.title}
+								div
+									div
+										img(src="#{simulador.basico.icon}", width="100")
+									div
+										textarea(name="curso_simulador_basico_description") #{simulador.basico.description}
+
+									div
+										p Max. Preguntas Disponibles #{simulador.basico.max_questions}
+										div
+											label  Lecciones #{simulador.basico.n_lecciones}
+										div
+											input(type="text", name="curso_simulador_basico_n_lecciones", value="#{simulador.basico.n_lecciones}")
+
+									div
+										div
+											label Preguntas #{simulador.basico.n_questions}
+										div
+											input(type="text", name="curso_simulador_basico_n_questions", value="#{simulador.basico.n_questions}")
+
+									div
+										button Guardar
+							
+							article(style="border-top: 1px solid gray; padding-top: 1rem;")
+								h3 #{simulador.intermedio.title}
+								div
+									div
+										img(src="#{simulador.intermedio.icon}", width="100")
+									div
+										textarea(name="curso_simulador_intermedio_description") #{simulador.intermedio.description}
+
+									div
+										p Max. Preguntas Disponibles #{simulador.intermedio.max_questions}
+										div
+											label  Lecciones #{simulador.intermedio.n_lecciones}
+										div
+											input(type="text", name="curso_simulador_intermedio_n_lecciones", value="#{simulador.intermedio.n_lecciones}")
+									div
+										div
+											label Preguntas #{simulador.intermedio.n_questions}
+										div
+											input(type="text", name="curso_simulador_intermedio_n_questions", value="#{simulador.intermedio.n_questions}")
+									div
+										button Guardar
+							
+							article(style="border-top: 1px solid gray; padding-top: 1rem;")
+								h3 #{simulador.avanzado.title}
+								div
+									div
+										img(src="#{simulador.avanzado.icon}", width="100")
+									div
+										textarea(name="curso_simulador_avanzado_description") #{simulador.avanzado.description}
+
+									div
+										p Max. Preguntas Disponibles #{simulador.avanzado.max_questions}
+										div
+											label  Lecciones #{simulador.avanzado.n_lecciones}
+										div
+											input(type="text", name="curso_simulador_avanzado_n_lecciones", value="#{simulador.avanzado.n_lecciones}")
+									div
+										div
+											label Preguntas #{simulador.avanzado.n_questions}
+										div
+											input(type="text", name="curso_simulador_avanzado_n_questions", value="#{simulador.avanzado.n_questions}")
+									div
+										button Guardar
+
+
+			button Guardar

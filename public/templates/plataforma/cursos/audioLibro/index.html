@@ -1,0 +1,136 @@
+<header class="PlataformHeader">
+  <div ng-include=" './templates/plataforma/menu-curso.html' "></div>
+  <div class="PlataformSubHeader">
+    <nav class="PlataformSubHeader__box">
+      <ul  class="PlataformSubHeader__box--list">
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/detail/{{curso._id}}">DESCRIPCIÓN</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/text/0">TEXTO</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/simulador">SIMULADOR</a></li>
+        <li class="links"><a class="links__tab Active">AUDIOLIBRO</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section class="audioLibro">
+    <!-- <div class="audioLibro__container" ng-show="loading"> -->
+    <div class="audioLibro__container" ng-show="loading">
+      <div class="loader">Loading...</div>
+    </div>
+    <div class="audioLibro__container animated" ng-show="audios.length > 0">
+      <div class="Item">
+        <div class="Item__right">
+          <div class="Cover">
+            <figure>
+              <img src="./cover_mp3.jpg" alt="audio" width="300" height="300">
+            </figure>
+          </div>
+          <audio id="soundtrack" ng-src="{{soundtrack}}" src="" controls="controls"></audio>
+          <div class="Text">
+            <h4>{{nameAudio}}</h4>
+            <p>{{nameCurso}}</p>
+          </div>
+          <div class="Controls">
+            <div class="Controls__timeLine">
+              <div class="Barra">
+                <div class="Barra__relleno" style="width: 0%">
+                  <div class="Barra__relleno--triangle"></div>
+                </div>
+              </div>
+            </div>
+            <div class="Controls__buttons">
+              <div class="Controls__buttons--content">
+                <div class="before">
+                  <div id="before">
+                    <span class="icon-ascent-back"></span>
+                  </div>
+                </div>
+                <div class="plause">
+                  <div class="play"  id="Play">
+                    <span class="icon-play"></span>
+                  </div>
+                  <div class="pause"  id="Pause">
+                    <span class="icon-pause"></span>
+                  </div>
+                </div>
+                <div class="next">
+                  <div id="next">
+                    <span class="icon-ascent-next"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="Controls__buttonAlternative">
+              <div class="Controls__buttonAlternative--random">
+                <div>
+                  <span class="icon-ascent-aleatorio"></span>
+                </div>
+              </div>
+              <div class="Controls__buttonAlternative--loop">
+                <div class="loopActive" id="active-loop">
+                  <span class="icon-ascent-repetir"></span>
+                </div>
+                <div class="loopDisable" id="disable-loop">
+                  <span class="icon-ccw"></span>
+                </div>
+              </div>
+              <div class="Controls__buttonAlternative--volume">
+                <div class="IconVolume">
+                  <div id="volumeOn" class="volumeOn">
+                    <span class="icon-volume-up"></span>
+                  </div>
+                  <div  id="volumeOff" class="volumeOff">
+                    <span class="icon-volume-off"></span>
+                  </div>
+                </div>
+                <div class="TimeLine">
+                  <input  id="volume" class="TimeLine__Range" type="range" min="0" max="100" step="0.1" value="100">
+                  <div id="TimeStatus">
+                    <time id="played">00:00</time>
+                    <span>/</span>
+                    <time id="totalTime">00:00</time>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Item__left">
+          <div class="Title">
+            <h2>Playlist</h2>
+          </div>
+          <div class="AudioList">
+            <ul class="AudioList__table">
+              <li class="AudioList__table--head">
+                <div class="buttons"></div>
+                <div class="nombre"><p>Nombre</p></div>
+                <div class="curso"><p>Curso</p></div>
+              </li>           
+              <li class="AudioList__table--audio" ng-repeat="audio in audios">
+                <div class="audios">
+                  <div class="buttons">
+                    <div class="play" id="{{audio.position}}"  ng-click="Play(audio)">
+                      <span class="icon-ascent-play"></span>
+                    </div>
+                    <div class="pause" id="pause{{audio.position}}"  ng-click="Pause(audio)">
+                      <span class="icon-ascent-pause"></span>
+                    </div>
+                  </div>
+                  <div class="nombre"><p>
+                    {{audio.originalname}}
+                  </p></div>
+                  <div class="curso"><p>{{curso.title}}</p></div>
+                </div>
+              </li>           
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="audioLibro__container animated" ng-show="false">
+      <div class="Item">
+        <div class="Item__others">
+          <p><strong>Estará disponible muy pronto,</strong> cuando menos te lo esperes ya estarán a tu disposición</p>
+        </div>
+      </div>
+    </div>
+</section>

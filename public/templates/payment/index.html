@@ -1,0 +1,74 @@
+<header class="MainHeaderForm" ng-cloak>
+  <div ng-include=" './templates/payment/menu.html' "></div>
+</header>
+<section class="Payment">
+	<div class="Payment__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="Payment__container animated" ng-show="usuario">
+		<div class="Payment__container--title">
+			<h2>Asciende con Ascent</h2>
+		</div>
+		<div class="Payment__container--optionService">
+			<div class="PaymentAudioLibro">
+				<figure class="PaymentAudioLibro__iconFigure">
+					<img src="./images/audiolibro.svg" alt="Payment AudioLibro">
+				</figure>
+				<div class="PaymentAudioLibro__contentInformation">
+					<div  class="PaymentAudioLibro__contentInformation--title">
+						<h3>{{service}}</h3>
+					</div>
+					<div class="PaymentAudioLibro__contentInformation--price">
+						<h2>S/. 10.00</h2>
+					</div>
+					<div class="PaymentAudioLibro__contentInformation--Text">
+						<p>Accede a todos los {{service}} de la plataforma</p>
+					</div>
+					<div class="loader" ng-if="otherService" style="font-size:12px;color: #01637f;margin-top: .5em;    margin-bottom: 1.5em;">Loading...</div>
+					<div>
+						<div>
+							<input type="checkbox" class="boxCheckValue">
+							<a class="dasd" href="/#/terminos-condiciones" target="_blank">Aceptar los Terminos y Condiciones</a>
+						</div>
+						<div class="PaymentAudioLibro__contentInformation--btn  btn_inactive_service" style="background: gray; border-bottom: 3px solid #1b1a1a; display: block;">
+							<a>Comprar</a>
+						</div>
+						<div class="PaymentAudioLibro__contentInformation--btn  btn_active_service" style="background: #01637f; border-bottom: 3px solid #004558; display: none;">
+							<a ng-click="paymentCulqui(service)">Comprar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="PaymentPremium">
+				<figure class="PaymentPremium__iconFigure">
+					<img src="./images/premium.svg" alt="Payment Premium">
+				</figure>
+				<div class="PaymentPremium__contentInformation">
+					<div  class="PaymentPremium__contentInformation--title">
+						<h3>Premium</h3>
+					</div>
+					<div class="PaymentPremium__contentInformation--price">
+						<h2>S/. 15.00</h2>
+					</div>
+					<div class="PaymentPremium__contentInformation--Text">
+						<p>Obtén acceso a los Audiolibros, Textos y Simuladores</p>
+					</div>
+					<div class="loader" ng-if="premium" style="font-size:12px;color: #4cf59d;margin-top: .5em;    margin-bottom: 1.5em;">Loading...</div>
+					<div>
+						<div>
+							<input type="checkbox" class="boxCheckValue2">
+							<a href="/#/terminos-condiciones" target="_blank">Aceptar los Terminos y Condiciones</a>
+						</div>
+						<div class="PaymentPremium__contentInformation--btn  btn_inactive_premium" style="background: gray; border-bottom: 3px solid #1b1a1a; display: block;">
+							<a>Comprar</a>
+						</div>
+						<div class="PaymentPremium__contentInformation--btn  btn_active_premium" style="background: #4cf59d; border-bottom: 3px solid #35b974; display: none;">
+							<a ng-click="paymentCulqui('premium')">Comprar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div><h5 id="Proceso_msg"></h5></div> -->
+		</div>
+	</div>
+</section>

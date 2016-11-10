@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	meta(name="viewport", content="width=device-width, minimum-scale=1, maximum-scale=1")
+	title Ascent: Admin Dashboard
+body
+	header
+		h2 Logo Ascent
+		p Admin Dashboard
+	div
+		img(src="#{user.photo.path}", width="50")
+		//- p #{user.email}
+		p @ #{user.nickname}	
+		div
+			a(href="/plataforma/perfil/#{user._id}") Perfil
+		div
+			a(href="/logout") Salir
+		div
+			p Tu eres User #{user.access}
+	div
+		p Ver preguntas
+		article
+			a(href="/plataforma/admin/preguntas/cursos") Cursos
+		article
+			a(href="/plataforma/admin/preguntas/diplomados") Diplomados

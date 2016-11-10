@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	meta(name="viewport", content="width=device-width, minimum-scale=1, maximum-scale=1")
+	title Ascent: Admin Dashboard
+body
+	header
+		h2 Logo Ascent
+		p Admin Dashboard
+	div
+		img(src="#{user.photo.path}", width="50")
+		//- p #{user.email}
+		p @ #{user.nickname}	
+		div
+			a(href="/plataforma/perfil/#{user._id}") Perfil
+		div
+			a(href="/logout") Salir
+		div
+			p Tu eres User #{user.access}
+	div
+		form(action="/plataforma/admin/preguntas/cursos/new_question", method="post")
+			button Crear nueva pregunta
+			
+		p CURSOS: Todas las preguntas
+		p Total de Preguntas: #{total_preguntas}
+			each pregunta in preguntas
+				article(style="border-top: 1px solid gray; padding-top: 1rem;")
+					div
+						h3 #{pregunta.order} #[a(href="/plataforma/admin/preguntas/cursos/#{pregunta._id}") #{pregunta.question}]
+
+					strong Tipo: #{pregunta.type_question}
+					p Level: #{pregunta.difficulty}
+					p Categoria: #{pregunta.type_categority}
+					div
+						a(href="/plataforma/admin/preguntas/cursos/#{pregunta._id}") Ver detalles

@@ -1,0 +1,155 @@
+@import 'nib'
+
+black_title = #292929;
+borderBottom_boxDropdown = #CECECE;
+roboto = 'Roboto', sans-serif
+sombra = #eaeaea
+body = #f5f7f8
+comments = #f7f7f8
+comment = #efefef
+
+Verde_Ascent = #28d8b2
+VerdeOscuro_Ascent = #46958d
+Azul_Ascent = #5bc0de
+//COLORES POR INTENSIDAD DE MENOR A MAYOR
+
+//Blancos
+blanco_A = #fffeff
+blanco_B = #fbfbfb
+blanco_C = #f6f6f6
+
+//Grises
+gris_A = #EBEDF0
+gris_B = #E7E7E9
+gris_C = #9196A2
+gris_D = #6A7180
+gris_E = #4F5965
+gris_F = #293340
+gris_G = #1C2633
+
+//Azules
+azul_A = #00D3C8
+azul_B = #00bfc5
+azul_C = #00B1C5
+azul_D = #00A2C4
+azul_E = #0091c3
+azul_btn = #338deb
+
+//Verdes
+verde_A = #1DE9B6
+verde_B = #28D8B2
+
+//Naranjas
+naranja_A = #F05A24
+
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+  
+scroll()
+	&::-webkit-scrollbar
+		width 7px
+		background #dbe8ec
+		border-radius 10px
+		margin 5px
+	&::-webkit-scrollbar-button
+		width 0px
+		height 0px
+	&::-webkit-scrollbar-track
+		background rgba(210, 210, 210, 0.19)
+		border thin solid rgba(210, 210, 210, 0.19)
+		-webkit-box-shadow inset 0 0 6px rgba(210, 210, 210, 0.19)
+		border-radius 10px
+	&::-webkit-scrollbar-thumb
+		background rgba(105, 105, 105, 0.37)
+		border thin solid rgba(105, 105, 105, 0)
+		border-radius 10px
+
+Container(pt)
+	padding-top pt
+Box(ptb, bckgd, bxSh, pw, pbtm)
+	//padding-top ptb
+	max-width 767px
+	width 95%
+	background-color bckgd
+	box-shadow 0 0 5px bxSh
+	padding ptb pw pbtm
+	margin 0 auto
+	
+.slidesjs-control, .slidesjs-container
+	width 100% !important
+	height 80vh !important
+
+.slidesjs-pagination
+	display none !important
+
+html,body 
+	font-size 16px
+	font-family roboto
+	background-color #f5f7f8
+	scroll()
+	//background-color #f5f7f8
+	//background-color white
+
+textarea
+	font-family roboto
+	
+h1, h2, h3, h4, h5, h6
+	font-family roboto
+	margin 0
+	
+p
+	padding 0
+	margin 0
+	
+.vistaMenu
+	display block
+
+.resalted
+	background-color #ffe800
+
+.commented
+	background-color #00a777
+	cursor pointer
+	color white
+	
+.form-control
+	width 100%
+	border-radius 5px
+	border 1px solid #ccc
+	padding 5px
+	font-size 16px
+	box-sizing border-box
+	outline none
+	margin 5px 0
+	&:focus
+		border 1px solid #66afe9
+		box-shadow inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+
+.ContentLoading
+	height 80vh
+	background-color transparent !important
+	border none !important
+	box-shadow 0 0 0 transparent !important
+	display flex
+	align-items center
+	justify-content center
+	padding 0
+	margin 0
+
+@import 'stylus/font/style'
+@import 'stylus/login/style'
+@import 'stylus/payment/style'
+@import 'stylus/form/style'
+@import 'stylus/home/style'
+@import 'stylus/messages/style'
+@import 'stylus/chatList/style'
+@import 'stylus/home/login_modal/style'
+@import 'stylus/home/body/style'
+@import 'stylus/plataforma/index'
+@import 'stylus/welcome/style'
+@import 'stylus/terminosCondiciones/style'
+@import 'stylus/politicasPrivacidad/style'
+@import 'stylus/loader/style'
+@import 'stylus/animation/style'

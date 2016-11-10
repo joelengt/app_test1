@@ -1,0 +1,193 @@
+//Menu en Home
+.MainHome
+	position fixed
+	z-index 75
+	width 100%
+	font-family 'Roboto', sans-serif
+	top 0
+	box-shadow 0 1px 5px #929292
+	height 70px
+	background-color white
+	//box-shadow 0 1px 5px #929292
+	display flex
+	justify-content space-between
+	&__mainLeft
+		display flex
+		line-height 70px
+		&--bottomMenu
+			margin 0 .5em
+			font-size 20px
+			color black_title
+			a 
+				text-decoration none
+				color #292929
+				span
+					cursor pointer
+					padding .3em
+					border-radius 5px
+					&:hover
+						background-color #EAEAEA
+		&--mainLogo
+			margin-right .5em
+			display flex
+			align-items center
+			.logo
+				text-indent -99999px
+				width 170px
+				height 50px
+				background url('../images/logo.svg')
+				display block
+		&--mainTitle
+			line-height 70px
+			margin 0
+			color black_title
+			font-size 20px
+			//display inline-block
+	&__mainRight
+		display none
+		&--boxList
+			color gris_D
+			.link
+				list-style none
+				display inline-block
+				color black_title
+				height 70px
+				line-height 70px
+				padding 0 .3em
+				a
+					color gris_D
+					text-decoration none
+					cursor pointer
+					
+.bottonPrimary
+	background-color Verde_Ascent
+	text-transform uppercase
+	padding .5em
+	color white !important
+	border-radius 4px
+	transition .05s
+	&:hover
+		background-color VerdeOscuro_Ascent
+					
+//Menu desplegable
+.MainDropdown
+	//display none
+	overflow hidden
+	z-index 95
+	top 0
+	left 0
+	right 0
+	bottom 0
+	position fixed
+	background-color rgba(55, 76, 58, 0.48)
+	&__box
+		z-index 99
+		top 0
+		left 0
+		position fixed
+		background-color white
+		width 300px
+		overflow-y scroll
+		height 100vh
+	&__ascentBox
+		border-bottom 2px solid border
+		Bottom_boxDropdown
+		display flex
+		padding 1em
+		&--logoAscent
+			position relative
+			height 50px
+			.logo
+				text-indent -99999px
+				width 170px
+				height 50px
+				background url('../images/logo.svg')
+				display block
+		&--nameAscent
+			margin 0 .5em 
+			line-height 50px
+		.back
+			position absolute
+			right 10px
+			border 2px solid #333333
+			height 30px
+			width 30px
+			top 25px
+			line-height 30px
+			text-align center
+			border-radius 50%
+			cursor pointer
+	&__buttonLogin
+		border-bottom 2px solid borderBottom_boxDropdown
+		padding 1em
+		&--button
+			a
+				margin 0 auto
+				display block
+				width 80%
+				text-align center
+				text-decoration none
+				cursor pointer
+	&__optionBox
+		color gris_D
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--options
+			list-style none
+			li
+				margin-top 1em
+				a
+					color gris_D
+					text-decoration none
+					span
+						margin-right .5em
+	&__about
+		color gris_D
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--box
+			list-style none
+			li
+				margin-top 1em
+				a
+					text-decoration none
+					color gris_D
+	&__redesSociales
+		color gris_D
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--box
+			list-style none
+			li
+				margin-top 1em
+				a
+					text-decoration none
+					color gris_D
+	&__apps
+		color gris_D
+		border-bottom 2px solid borderBottom_boxDropdown
+		display flex
+		padding 1em
+		&--box
+			list-style none
+			li
+				margin-top 1em
+				a
+					text-decoration none
+					color gris_D
+	&__footer
+		color gris_D
+		border-bottom 2px solid borderBottom_boxDropdown
+		padding 1em
+		p
+			color gris_D
+			a
+				color verde_B
+		
+@media screen and (min-width: 768px)
+	.MainHome
+		&__mainRight
+			display block

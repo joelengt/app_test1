@@ -1,0 +1,41 @@
+<section>
+  <h2>Editar Curso</h2>
+  <form ng-submit="updateCourse()" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>Titulo</label>
+      <input class="form-control" ng-model="title" type="text" name="title" />
+    </div>
+    <div class="form-group">
+      <label>Cover</label><img src="{{curso.cover.path}}" width="50" height="50"/>
+      <input ng-model="curso_logo" type="file" name="curso_logo" file-model="myFile"/>
+    </div>
+    <div class="form-group">
+      <label>Slogan</label>
+      <input class="form-control" ng-model="slogan" type="text" name="slogan" />
+    </div>
+    <div class="form-group">
+      <label>Tags</label>
+      <input class="form-control" ng-model="tags" type="text" name="tags" />
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control" ng-model="description" name="description" cols="30" rows="10"> </textarea>
+    </div>
+    <div class="form-group">
+      <p>Materiales del Curso</p>
+      <div>
+        <label>Texto</label>
+        <input file-model="cursos_textos" type="file" name="curso_textos" multiple="multiple"/>
+      </div>
+      <div>
+        <label>Audiolibro</label>
+        <input file-model="curso_audioLibros" type="file" name="curso_audioLibros" multiple="multiple"/>
+      </div>
+      <div>
+        <label>Simulador</label>
+        <input file-model="curso_simuladores" type="file" name="curso_simuladores"/>
+      </div>
+    </div>
+    <input class="btn btn-default" type="submit" value="Guardar Cambios">
+  </form>
+</section>

@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Your Website Title</title>
+</head>
+<body>
+
+<a href='#' id="btn_send"> Facebook Invite Friends Link </a>
+
+<!-- Your share button code -->
+<div class="fb-send" data-href="http://techcrunch.com/" data-layout="button_count"></div>
+
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1721434554779528',
+      xfbml      : true,
+      version    : 'v2.5'
+    })
+  }
+
+  btn_send.addEventListener('click', FacebookInviteFriends)
+
+  function FacebookInviteFriends(){
+   
+    //Send
+
+    FB.ui({
+    	method: 'send',
+    	to: '1117756591610111',
+    	link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html'
+    })
+
+  }
+
+</script>
+
+</body>
+</html>

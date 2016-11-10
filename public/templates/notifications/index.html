@@ -1,0 +1,27 @@
+<div id="notifications" style="display:none">
+	<div  ng-controller="notificationsController"  style="max-height:530px;width: 300px; background-color: #f6f6f6; position:fixed;right:5px;z-index:85;top:70px;border-radius:5px;box-shadow: 0 0 7px rgba(0,0,0,0.28);">
+		<!-- <div style="border-bottom:15px solid #f6f6f6;border-top:15px solid transparent;border-left:15px solid transparent;border-right:15px solid transparent;width:0;margin-top:-29px"></div> -->
+		<div style="overflow:overlay; max-height:500px">
+			<a href="#/plataforma/publication/{{user._id}}/{{notification.article_type}}/{{notification.article_id}}" ng-repeat="notification in notifications | limitTo: numberNotification" style="text-decoration:none">
+				<div style="align-items:center; padding: 6px; cursor:pointer" ng-click="goChat(friend._id)">
+					<div style="display:inline-block">
+						<div style="background-image: url('{{notification.datos_user.photo.path}}'); width:30px; height:30px; background-size: cover; background-position: center"></div>
+					</div>
+					<div style="display: inline-block; vertical-align:top; line-height: 30px;margin-left:4px">
+						<p ng-if="notification.article_type === 'muro_friend'" style="width:250px; line-height:14px;font-size:14px;color: #6A7180">{{notification.datos_user.name}} ha publicado en tu muro</p>
+						<p ng-if="notification.article_type === 'like'" style="width:250px; line-height:14px;font-size:14px;color: #6A7180">A {{notification.datos_user.name}} le ha gustado una de tus publicaciones</p>
+						<p ng-if="notification.article_type === 'comment'" style="width:250px; line-height:14px;font-size:14px;color: #6A7180">{{notification.datos_user.name}} ha comentado una de tus publicaciones</p>
+					</div>
+					<div style="padding-left:35px;padding-bottom:5px;border-bottom:1px solid #E7E7E9">
+						<p ng-if="notification.article_type === 'like'" style="font-size: 12px;color: #9196A2; font-style:italic"><span style="font-size:18px;color:#1DE9B6" class="icon-ascent-me-gusta-activo"></span> {{notification.fecha_creacion}}</p>
+						<p ng-if="notification.article_type === 'muro_friend'" style="font-size: 12px;color: #9196A2; font-style:italic"><span style="font-size:18px;color:#02477e" class="icon-bookmark"></span> {{notification.fecha_creacion}}</p>
+						<p ng-if="notification.article_type === 'comment'" style="font-size: 12px;color: #9196A2; font-style:italic"><span style="font-size:18px;color:#0079cf" class=" icon-ascent-comentario"></span> {{notification.fecha_creacion}}</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div style="width:100%;padding:5px">
+			<div style="text-align:center; color: #6A7180;" ng-click="moreNotification()"><span style="cursor: pointer" class="icon-ascent-mas">Ver más</span></div>
+		</div>
+	</div>
+</div>

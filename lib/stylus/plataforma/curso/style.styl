@@ -1,0 +1,330 @@
+label()
+	text-align center
+	display inline-block
+	cursor pointer
+	color #999
+	position relative
+	//padding .5em 0
+	font-size 1em
+	transition all 0.3s ease
+	.startRate
+		background-image url('../images/start.svg')
+		width 30px
+		height 30px
+		background-size cover
+		background-repeat no-repeat
+		opacity .3
+    	
+input()
+	input[type="radio"]
+		display none
+	input[type="radio"]:checked
+		&+label
+			color white
+			
+.label:before
+	opacity 1
+					
+head_text()
+	//font-family roboto
+	color #25CDCD
+	margin 0
+	font-size 18px
+	font-weight 500
+	margin-bottom .3em
+
+.Form_ModalContainer
+	display none
+	position fixed
+	top 0
+	bottom 0
+	right 0
+	left 0
+	z-index 85
+	//display flex
+	align-items center
+	justify-content center
+	background-color rgba(55,76,58,0.48)
+	.Form
+		position relative
+		width 90%
+		max-width 400px
+		padding 1em
+		background-color white
+		border-radius 5px
+		&__closeModal
+			cursor pointer
+			position absolute
+			top 5px
+			right 5px
+			height 30px
+			width 30px
+			border 1px solid #333333
+			border-radius 50%
+			display flex
+			align-items center
+			justify-content space-around
+		&__title
+			margin-bottom .5em
+		&__content
+			&--msg
+				color #ff5a19
+			&--data
+				display none
+			&--item
+				.header
+					font-size 18px
+				.inputStart
+					div
+						display inline-block
+						label
+							label()
+						input()
+			&--footer
+				margin-top .5em
+				text-align center
+				button
+					border-radius 5px
+					padding .5em
+					outline 0
+					background-color white
+					border 2px solid #00d9b2
+					color #00d9b2
+					transition .3s
+					cursor pointer
+					&:hover
+						box-shadow 0 0 8px #00d9b2
+
+.ContentCourse
+	//font-family roboto
+	Container(170px)
+	&__box
+		Box(0, transparent, transparent, 0, 2em)
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+		//flex-direction column
+		&--item
+			overflow hidden
+			background-color white
+			margin 1em auto 0
+			border-radius 3px
+			width 90%
+			//max-width 400px
+			box-shadow 0 1px 1px rgba(0,0,0,.2)
+			.Course
+				width 100%
+				&__cover
+					height 150px
+					border-radius 3px 3px 0 0
+					width 100%
+					background-size cover
+					background-repeat no-repeat
+					display flex
+					align-items center
+					justify-content center
+				&__content
+					//padding 1em
+					&--left
+						//font-family roboto
+						padding 1em 1.5em
+						.intro, .about
+							&__head
+								head_text()
+						.intro
+							margin-bottom 1.5em
+							&__title
+								margin 0
+								font-weight 400
+								font-size 2em
+								margin-bottom .3em
+								color gris_D
+								font
+							&__slogan
+								font-weight lighter
+								color gris_C
+						.about
+							margin-bottom 1.5em
+							font-weight lighter
+							color gris_C
+						.methodology
+							font-weight lighter
+							color gris_C
+							&__contentText
+								margin-bottom 1.5em
+								&--head
+									head_text()
+							&__lection
+								display flex
+								justify-content space-around
+								flex-wrap wrap
+								&--box
+									width 50%
+									p
+										font-size 1rem
+										text-align center
+										font-weight lighter
+										margin 0 10px
+										color gris_C
+										span
+											font-size 1.5rem
+					&--right
+						padding 1em 5px
+						.Right__box
+							//border 1px solid gris_B
+							box-shadow 0 0 2px gris_C
+							border-radius 7px
+							.head
+								padding 5px
+								border-bottom 1px solid gris_B
+								position relative
+								&__title
+									p
+										font-weight lighter
+										font-size 1.2em
+										color gris_C
+								&__content
+									display flex
+									align-items center
+									flex-wrap wrap
+								&__rate
+									margin-right 4px
+									h2
+										font-size 50px
+										color gris_D
+								&__text
+									&--start
+										span
+											color #fef4cd
+											font-size 25px
+											&:before
+												margin 0
+									&--content
+										font-size 13px
+										margin 0
+										color gris_C
+								.Add__comment
+									cursor pointer
+									position absolute
+									top 20px
+									right 5px
+									height 50px
+									width 50px
+									line-height 50px
+									text-align center
+									border 1px solid rgba(165, 165, 165, 0)
+									box-shadow 1px 1px 4px #c7c7c7
+									border-radius 100%
+									background-color white
+									span
+										font-weight 500
+										line-height 45px
+										font-size 50px
+										font-weight lighter
+										color gris_C
+							.items
+								&__Content
+									//width 200%
+									padding 5px
+									max-height 430px
+									scroll()
+									//display flex
+									//flex-wrap wrap
+									//justify-content space-between
+									.item
+										width 98%
+										//margin-right 1em
+										box-shadow 0 0 2px #b3b3b3
+										padding .5em
+										margin 0 auto .5em
+										//margin 0 1% 1em 4%
+										border-radius 4px
+										&__head
+											&--left
+												display flex
+												align-items center
+												display border-left
+												.Left		
+													border-radius 50%
+													height 40px
+													width 40px
+													background-size cover
+													background-repeat no-repeat
+													background-position center
+												.Right
+													margin-left 10px
+													p
+														color gris_D
+														font-weight bold
+										&__contentText
+											&--comment
+												margin .5em 0
+												font-size 15px
+												font-weight lighter
+												color gris_C
+											&--date
+												/*display flex
+												justify-content space-between*/
+												padding .5em 0 0 0
+												border-top 1px solid #e0e0e0
+												color #14bddc
+												margin 0
+												text-align right
+												font-size 14px
+												p
+													margin-bottom 0
+								&__more
+									position relative
+									height 10px
+									display none
+									&--box
+										cursor pointer
+										position absolute
+										background-color white
+										width 30px
+										height 30px
+										line-height 30px
+										border-radius 100%
+										box-shadow 0 0 2px gris_D
+										text-align center
+										top -6px
+										left 0
+										right 0
+										margin 0 auto
+										span
+											color gris_D
+				
+					
+@media screen and (min-width 768px)
+	.ContentCourse
+		padding-top 117px
+		&__box
+			//padding 1em 12% 3em
+			&--item
+				width 100%
+				.Course
+					&__content
+						display flex
+						flex-wrap wrap
+						&--left
+							width 60%
+						&--right
+							width 40%
+							.Right__box
+								.items
+									&__Content
+										overflow-y hidden
+									
+										
+						
+
+@media screen and (min-width 992px)
+	.ContentCourse
+		&__box
+			//padding 1em 12% 3em
+			&--item
+				width 80%
+				
+@import 'texto/style'
+@import 'simulador/style'
+@import 'audioLibro/style'

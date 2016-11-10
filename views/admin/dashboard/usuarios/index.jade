@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+			div
+				p Tu eres User #{user.access}
+
+	section
+		p Vista de Usuarios
+		div
+			p Numero Total de usuarios #[strong #{numero_usuarios}]
+			article
+				each usuario in usuarios
+					img(src="#{usuario.photo.path}", width="60")
+					h3 #{usuario.name}
+					div
+						p datos de cuenta:
+						p Provider_id: #{usuario.provider_id}
+						p Red Social: #{usuario.provider}
+						p Accesso: #{usuario.access}
+						p Fecha de Registro: #{usuario.createdAt}
+					div
+						a(href="/plataforma/perfil/#{usuario._id}", target="_blank") Ver Perfil
+					div
+						div
+							form(action="/plataforma/admin/usuarios/delete/#{usuario._id}", method="post")
+								button Eliminar
+						div
+							form(action="/plataforma/admin/usuarios/update/#{usuario._id}", method="post")
+								button Editar

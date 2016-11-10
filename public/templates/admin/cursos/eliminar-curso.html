@@ -1,0 +1,18 @@
+<section>
+  <h2>¿Eliminar este Curso?</h2><img src="./images/{{curso.cover.path}}" width="60"/>
+  <h3>{{curso.title}}</h3>
+  <div>
+    <p>Slogan: {{curso.slogan}}</p>
+    <p>Promedio Rate: {{curso.promedioRate}}</p>
+    <p>Id base de datos: {{curso._id}}</p>
+    <p>Fecha de creación: {{curso.createdAt | date}}</p>
+  </div>
+  <form ng-submit="deleteCourse()" method="post">
+    <p>Escribe el nombre del curso para confirmar:</p>
+    <div>
+      <label>Nombre del curso</label>
+      <input ng-model="curso_confirmar" type="text" name="curso_confirmar" target="_blank"/>
+    </div>
+    <input class="btn btn-default" type="submit" value="Confirmar Eliminar">
+  </form>
+</section>

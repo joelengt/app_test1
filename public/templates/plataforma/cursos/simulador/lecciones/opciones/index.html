@@ -1,0 +1,22 @@
+<header class="PlataformHeader">
+  <div ng-include=" './templates/plataforma/menu-curso.html' "></div>
+  <div class="PlataformSubHeader">
+    <nav class="PlataformSubHeader__box">
+      <ul  class="PlataformSubHeader__box--list">
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/detail/{{curso._id}}">DESCRIPCIÓN</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/text/0">TEXTO</a></li>
+        <li class="links"><a class="links__tab Active">SIMULADOR</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/audio-libro">AUDIOLIBRO</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section class="Skills">
+	<div class="Skills__container">
+    <div class="Skills__container ContentLoading" ng-show="loading">
+      <div class="loader">Loading...</div>
+    </div>
+		<div class="Skills__containerBox animated" id="question_box" ng-show="curso">
+		</div>
+	</div>
+</section>

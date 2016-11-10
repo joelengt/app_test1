@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Cuentanos sobre ti :D
+		div
+			p Hola 
+				strong @ #{user.nickname}	
+			img(src="#{user.photo.path}", width="50")
+		//- div
+		//- 	div
+		//- 		a(href="/plataforma/perfil") Perfil
+		//- 	div
+		//- 		a(href="/logout") Salir
+
+	section
+		form(action="/plataforma/start/save/#{user._id}?_method=put", method="post")
+			div
+				h2 Mi Genero es ...
+				label Mujer
+				input(type="radio", name="genero", value="mujer") 
+				label Hombre
+				input(type="radio", name="genero", value="hombre")
+			div
+				h2 Mi Categoria es ...
+				label Oficial
+				input(type="radio", name="categoria", value="oficial") 
+				label Sub Oficial
+				input(type="radio", name="categoria", value="sub-oficial")
+			div
+				h2 Mi Grado es ...
+				
+				div				
+					p Sub Oficiales
+
+					label Sub Oficial de Tercera
+					input(type="radio", name="grado", value="Sub Oficial de Tercera") 
+					label Sub Oficial de Segunda
+					input(type="radio", name="grado", value="Sub Oficial de Segunda") 
+					label Sub Oficial de Primera
+					input(type="radio", name="grado", value="Sub Oficial de Primera") 
+					label Técnico de Tercera
+					input(type="radio", name="grado", value="Técnico de Tercera") 
+					label Técnico de Segunda
+					input(type="radio", name="grado", value="Técnico de Segunda") 
+					label Técnico de Primera
+					input(type="radio", name="grado", value="Técnico de Primera") 
+					label Brigadier
+					input(type="radio", name="grado", value="Brigadier")
+					label Superior
+					input(type="radio", name="grado", value="Superior") 
+
+				div
+					p Oficiales
+
+					label Alferes
+					input(type="radio", name="grado", value="Alferes") 
+					label Teniente
+					input(type="radio", name="grado", value="Teniente") 
+					label Capitán
+					input(type="radio", name="grado", value="Capitán") 
+					label Mayor
+					input(type="radio", name="grado", value="Mayor") 
+					label Comandante
+					input(type="radio", name="grado", value="Comandante") 
+					label Coronel
+					input(type="radio", name="grado", value="Coronel") 
+					label General
+					input(type="radio", name="grado", value="General") 
+	
+			button Enviar

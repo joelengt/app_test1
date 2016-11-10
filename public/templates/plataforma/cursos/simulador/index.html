@@ -1,0 +1,115 @@
+<header class="PlataformHeader">
+  <div ng-include=" './templates/plataforma/menu-curso.html' "></div>
+  <div class="PlataformSubHeader">
+    <nav class="PlataformSubHeader__box">
+      <ul  class="PlataformSubHeader__box--list">
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/detail/{{curso._id}}">DESCRIPCIÓN</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/text/0">TEXTO</a></li>
+        <li class="links"><a class="links__tab Active">SIMULADOR</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/audio-libro">AUDIOLIBRO</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section>
+  <div>
+    <div class="ContentSimulador">
+      <div class="ContentSimulador__box ContentLoading" ng-show="loading">
+        <div class="loader">Loading...</div>
+      </div>
+      <div class="ContentSimulador__box animated" ng-show="curso">
+        <article class="ContentSimulador__box--item">
+          <div class="logo">
+            <!--<span class="glyphicon glyphicon-saved"></span>-->
+            <figure>
+              <img src="{{muestra.icon}}" alt="{{muestra.title}}" height="100">
+            </figure>
+          </div>
+          <div class="button">
+            <div class="button__link">
+              <a href="#/plataforma/cursos/{{curso._id}}/simulador/{{muestra.title | lowercase}}">{{muestra.title}}</a>
+            </div>
+          </div>
+          <div class="questions">
+            <div class="questions__left">
+              <p class="questions__left--text">Lecciones</p>
+              <p class="questions__left--number">{{muestra.n_lecciones  || 0}}</p>
+             </div>
+            <div class="questions__right">
+              <p class="questions__right--text">Preguntas</p>
+              <p class="questions__right--number">{{muestra.n_questions * muestra.n_lecciones || 0}}</p>
+            </div>
+          </div>
+        </article>
+        <article class="ContentSimulador__box--item">
+          <div class="logo">
+            <!--<span class="glyphicon glyphicon-saved"></span>-->
+            <figure>
+              <img src="{{basico.icon}}" alt="{{basico.title}}" height="100">
+            </figure>
+          </div>
+          <div class="button">
+            <div class="button__link">
+              <a href="#/plataforma/cursos/{{curso._id}}/simulador/{{basicoName | lowercase}}">{{basico.title}}</a>
+            </div>
+          </div>
+          <div class="questions">
+            <div class="questions__left">
+              <p class="questions__left--text">Lecciones</p>
+              <p class="questions__left--number">{{basico.n_lecciones || 0}}</p>
+             </div>
+            <div class="questions__right">
+              <p class="questions__right--text">Preguntas</p>
+              <p class="questions__right--number">{{basico.n_questions * basico.n_lecciones || 0}}</p>
+            </div>
+          </div>
+        </article>
+        <article class="ContentSimulador__box--item">
+          <div class="logo">
+            <!--<span class="glyphicon glyphicon-saved"></span>-->
+            <figure>
+              <img src="{{intermedio.icon}}" alt="{{intermedio.title}}" height="100">
+            </figure>
+          </div>
+          <div class="button">
+            <div class="button__link">
+              <a href="#/plataforma/cursos/{{curso._id}}/simulador/{{intermedio.title | lowercase}}">{{intermedio.title}}</a>
+            </div>
+          </div>
+          <div class="questions">
+            <div class="questions__left">
+              <p class="questions__left--text">Lecciones</p>
+              <p class="questions__left--number">{{intermedio.n_lecciones || 0}}</p>
+             </div>
+            <div class="questions__right">
+              <p class="questions__right--text">Preguntas</p>
+              <p class="questions__right--number">{{intermedio.n_questions * intermedio.n_lecciones || 0}}</p>
+            </div>
+          </div>
+        </article>
+        <!--<article class="ContentSimulador__box--item">
+          <div class="logo">
+            <figure>
+              <img src="{{avanzado.icon}}" alt="{{avanzado.title}}" height="100">
+            </figure>
+          </div>
+          <div class="button">
+            <div class="button__link">
+              <a href="#/plataforma/cursos/{{curso._id}}/simulador/{{avanzado.title | lowercase}}">{{avanzado.title}}</a>
+            </div>
+          </div>
+          <div class="questions">
+            <div class="questions__left">
+              <p class="questions__left--text">Lecciones</p>
+              <p class="questions__left--number">{{avanzado.n_lecciones || 0}}</p>
+             </div>
+            <div class="questions__right">
+              <p class="questions__right--text">Preguntas</p>
+              <p class="questions__right--number">{{avanzado.n_questions * avanzado.n_lecciones || 0}}</p>
+            </div>
+          </div>
+        </article>-->
+      </div>
+    </div>
+  </div>
+</section>

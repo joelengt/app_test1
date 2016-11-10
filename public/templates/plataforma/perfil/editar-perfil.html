@@ -1,0 +1,147 @@
+<header class="MainHeaderForm">
+  <div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<section class="EditPerfil" ng-cloak>
+	<div class="EditPerfil__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="EditPerfil__container animated" ng-show="miUsuario">
+		<section class="EditPerfil__Box">
+			<article class="EditPerfil__Box--portrate">
+				<div class="Portrate">
+					<div class="Portrate__avatar"  ng-cloak style="background-image:url('{{usuario.photo.path}}')"></div>
+					<div class="Portrate__info">
+						<div class="Portrate__info--name">
+							<h2>{{usuario.name}}</h2>
+						</div>
+						<div class="Portrate__info--grade">
+							<p>{{usuario.grado}}</p>
+						</div>
+					</div>
+				</div>
+			</article>
+			<nav class="EditPerfil__Box--navigate">
+				<ul class="list">
+					<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+					<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+					<li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<!--<li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li>-->
+				</ul>
+			</nav>
+			<nav class="EditPerfil__Box--navigate">
+				<ul class="list">
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+				</ul>
+			</nav>
+			<nav class="EditPerfil__Box--navMobile">
+				<ul class="list">
+					<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+					<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span></a></li>
+					<li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+					<!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+				</ul>
+			</nav>
+		</section>
+		<form class="EditPerfil__informationContainer" ng-submit="saveUpdate()" class="form-horizontal" enctype="multipart/form-data">
+			<div class="EditPerfil__informationContainer--box">
+				<div class="Title">
+					<h2>Informacion de Contacto</h2>
+				</div>
+				<div class="Data">
+					<div class="Data__list">
+						<div class="Data__list--left">
+							<div class="imageUser">
+								<div style="background-image: url('{{usuario.photo.path}}'); background-size:cover;background-position:center; width:40px; height:40px; border-radius: 5px"></div>
+							</div>
+						</div>
+						<div class="Data__list--right"><label class="labelInput" for="exampleInputFile"><p id="labelInputFile" class="ButtonInput">Seleccionar imagen...</p></label><input class="inputAvatar" type="file" id="exampleInputFile" file-model="file"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Nombre (*)</label></div>
+						<div class="Data__list--right"><input placeholder="Ingresa tu nombre" type="text" ng-model="first_name" required="required"></div>
+					</div>
+					<div  class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Apellido (*)</label></div>
+						<div class="Data__list--right"><input placeholder="Ingresa tu apellido" type="text" ng-model="last_name" required="required"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Usuario (*)</label></div>
+						<div class="Data__list--right"><input placeholder="Nick de usuario" type="text" ng-model="nickname" required="required"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Email</label></div>
+						<div class="Data__list--right"><input placeholder="Dirección de email" type="email" ng-model="email"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Género</label></div>
+						<div class="Data__list--right"><input placeholder="Género" type="text" ng-model="genero"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Edad</label></div>
+						<div class="Data__list--right"><input placeholder="Edad" type="number" ng-model="age"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar lugar</label></div>
+						<div class="Data__list--right"><input placeholder="Cuidad en que vives" type="text" ng-model="lugar"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar dirección</label></div>
+						<div class="Data__list--right"><input placeholder="Cuidad en que vives" type="text" ng-model="address"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar n° celular</label></div>
+						<div class="Data__list--right"><input placeholder="Cuidad en que vives" type="text" ng-model="phone"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Categoria (*)</label></div>
+						<div class="Data__list--right"><input placeholder="Categoría" type="text" ng-model="categoria" required="required"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Cambiar Rango (*)</label></div>
+						<div class="Data__list--right"><input placeholder="Rango" type="text" ng-model="grado" required="required"></div>
+					</div>
+					<div  class="Data__list">
+						<div class="Data__list--left"><p>Notificaciones por Email</p></div>
+						<div class="Data__list--right">
+							<div class="btnNotification">
+								<div class="btnNotification__box">
+									<div class="btnNotification__box--yes">
+										<input name="news" id="yes" type="radio" ng-model="news" ng-value="'si'">
+										<label for="yes" class="btnNotification__yes">ON</label>
+									</div>
+									<div  class="btnNotification__box--not">
+										<input name="news" id="not" type="radio" ng-model="news" ng-value="'no'">
+										<label for="not"  class="btnNotification__not">OFF</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="Title RedesSociales"><h2>Redes Sociales</h2></div>
+				<div class="Data">
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Facebook</label></div>
+						<div class="Data__list--right"><input placeholder="Dirección de facebook" type="text" ng-model="social_facebook"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Twitter</label></div>
+						<div class="Data__list--right"><input placeholder="Dirección de twitter" type="text" ng-model="social_twitter"></div>
+					</div>
+					<div class="Data__list">
+						<div class="Data__list--left"><label>Instagram</label></div>
+						<div class="Data__list--right"><input placeholder="Dirección de instagram" type="text" ng-model="social_instagram"></div>
+					</div>
+					<div class="Data_list">
+						<div class="Data__list--btnSubmit">
+							<input type="submit" value="Guardar cambios">	
+						</div>					
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>

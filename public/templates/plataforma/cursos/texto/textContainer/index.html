@@ -1,0 +1,85 @@
+<header class="PlataformHeader">
+  <div ng-include=" './templates/plataforma/menu-curso.html' "></div>
+  <div class="PlataformSubHeader">
+    <nav class="PlataformSubHeader__box">
+      <ul  class="PlataformSubHeader__box--list">
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/detail/{{curso._id}}">DESCRIPCIÓN</a></li>
+        <li class="links"><a class="links__tab Active" href="#/plataforma/cursos/{{curso._id}}/text/0">TEXTO</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/simulador">SIMULADOR</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/audio-libro">AUDIOLIBRO</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div>
+  <div class="TextItem">
+    <div class="TextItem__box ContentLoading" ng-show="loading">
+      <div class="loader">Loading...</div>
+    </div>
+    <div class="TextItem__box animated" ng-show="usuario">
+      <div ng-include=" './templates/comment_text/index.html' "></div>
+      <article class="TextItem__box--item">
+        <div class="Content">
+          <div class="Content__box">
+            <div class="Content__box--item">
+              <div class="ShowText" id='ShowText'>
+              </div>
+              <div ng-if="false">
+                <div>
+                  <div>
+                    <div>
+                      <h2>Accede Gratis a Todos los textos</h2>
+                      <p>1) Dale Like a Nuestra Pagina en Facebook</p>
+                      <div>
+                        <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAscentPeru&width=450&layout=standard&action=like&show_faces=true&share=true&height=80&appId=1721434554779528" frameborder="0" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" allowTransparency="true"></iframe>
+                      </div>
+                    </div>
+                    <div>
+                      <p>2) Invita minimo a 3 amigos a Ascent</p>
+                      <div>
+                        <p>Lista de Amigos en Facebook</p>
+                        <div id="list_friend_facebook"></div>
+                        <a  ng-click="sendFacebook()">Facebook Invite Friends Link</a>
+                      </div>
+                    </div>
+                    <div>
+                      <form ng-submit="sendPayment()">
+                        <button type="submit" style="display: block; background: #0dab0e; color: white; width: 150px; text-decoration: none;">Accede a todos los Textos</button>
+                      </form>
+                    </div>
+                  </div>
+                  <div>
+                    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+                    <!-- <script src="http://connect.facebook.net/en_US/all.js"></script> -->
+                    <!-- <script src="./js/facebook_friends.js"></script> -->
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div id="MenuText" style="display:none">
+                  <div style="border-bottom:10px solid black;border-right:10px solid transparent; border-top:10px solid transparent; border-left: 10px solid transparent; margin-left:23px; width:0"></div>
+                  <ul style="display:flex;flex-wrap:wrap;list-style:none; background-color: black; width: 70px; border-radius:10px">
+                    <li style="padding:6px 0; cursor:pointer" id="resaltar" ng-click="resaltar()"><span style="color:white; padding: 0 6px; border-right:1px solid white" class="icon-ascent-resaltado"></span></li>
+                    <li style="padding:6px 0; cursor:pointer" id="comentar" ng-click="comentar()"><span style="color:white; padding: 0 6px" class="icon-ascent-escribir-nota"></span></li>
+                  </ul>
+                </div>
+                <div  id="commentText" style="display: none">
+                  <div style="position:fixed;z-index:85;top:0;bottom:0; left:0;right:0;display:flex;align-items:center;justify-content:space-around;background-color:rgba(189, 189, 189, 0.46)">
+                    <div style="background-color:white; border-radius:5px;padding:10px; width:300px;">
+                      <p id="textSelect"  style="color:#6A7180;margin-bottom:10px"></p>
+                      <textarea id="comment" class="form-control"></textarea>
+                      <div style="display:flex;justify-content:space-between">
+                        <button style="border:1px solid #9196A2; outline:none;background-color:white;padding:.2em .5em;color:#6A7180;border-radius:7px" ng-click="exitCommentText()">Salir</button>
+                        <button style="border:1px solid #9196A2; outline:none;background-color:white;padding:.2em .5em;color:#6A7180;border-radius:7px" ng-click="sendComment()">Enviar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

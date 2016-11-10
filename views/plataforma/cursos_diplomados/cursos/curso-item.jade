@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+	section
+		p Vista del Curso
+		article
+			div(style="background: #{curso.colour};", width="180")
+				img(src="#{curso.cover.path}", width="180")
+			a(href="/plataforma/cursos/#{curso._id}")
+				img(src="#{curso.icon.path}", width="60")
+			h3 
+				a(href="/plataforma/cursos/#{curso._id}") #{curso.title}
+			div
+				p Slogan: #{curso.slogan}
+				p Promedio Rate: #{curso.promedioRate}
+				p Tags: #{curso.tags}
+				p Descripción: #{curso.description}
+				p Preguntas Totales: #{simulador.info.preguntas}
+				p Lecciones Totales: #{simulador.info.lecciones}
+
+			div
+				a(href="/plataforma/cursos/#{curso._id}/textos")
+					h2 Textos
+			div
+				a(href="/plataforma/cursos/#{curso._id}/audio-libros")
+					h2 AudioLibros
+			div
+				a(href="/plataforma/cursos/#{curso._id}/simulador")
+					h2	Simulador
+
+			div 
+				h2 Comentarios/reseña
+		
+				h3 Promedio Rate: #{resenias.promedio_rate}
+				p *****
+				p #{resenias.cantidad} reseñas
+
+				div(style="border-top: 1px solid black;")
+					p Agregar nueva reseña
+					form(id="Form_create")
+						strong(id="msg_alert_box")
+						div
+							input(style="display:none;", id="topic_id", value="#{curso._id}")
+							input(style="display:none;", id="topic_title", value="#{curso.title}")
+							input(style="display:none;", id="user_full_name", value="#{user.name}")
+							input(style="display:none;", id="user_avatar", value="#{user.photo.path}")
+							input(style="display:none;", id="user_grado", value="#{user.grado}")
+
+						div
+							p ¿Que tanto te gusto el curso?
+							div
+								input(type="radio", class="rate", name="rate", value="1")
+								label 1
+								input(type="radio", class="rate", name="rate", value="2")
+								label 2
+								input(type="radio", class="rate", name="rate", value="3")
+								label 3
+								input(type="radio", class="rate", name="rate", value="4")
+								label 4
+								input(type="radio", class="rate", name="rate", value="5")
+								label 5
+
+						div
+							label Comenta :)
+							div
+								input(type="text", placeholder="Comenta que tal te parecio el curso", id="comment")
+						
+						button(id="btn_send") Enviar Reseña
+				
+				div
+					p Todos las reseñas
+					div(id="resenia_item")
+
+					each resenia in resenias.contenido
+						article.Personajes-app__read__item(style='border-top: 1px solid lightgray;')
+							p #{resenia.topic_title}
+							strong #{resenia.user_full_name}
+							p #{resenia.user_grado}
+							img(src='#{resenia.user_avatar}', width='50')
+							h3 #{resenia.rate}
+							p #{resenia.comment}
+							p #{resenia.createdAt}
+							p #{resenia.topic_id}
+
+
+script(type="text/javascript", src="https://cdn.socket.io/socket.io-1.2.0.js")
+script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.1.js")
+script(type="text/javascript", src="../../js/social_socket_io/resenias/index.js")

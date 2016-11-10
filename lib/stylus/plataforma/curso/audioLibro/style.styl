@@ -1,0 +1,250 @@
+.buttonControls
+	cursor pointer
+	text-align center
+	border-radius 50%
+	border 1px solid black
+	height 25px
+	width 25px
+	font-size 15px
+	display flex
+	justify-content space-around
+	align-items center
+	//line-height 25px
+	//text-align center
+/*.sombreado
+	color #00b770*/
+
+.audioLibro
+	//font-family roboto
+	// padding-top 160px
+	Container(170px)
+	&__container
+		Box(0, transparent, transparent, 0, 2em)
+		.Item
+			padding 1em 0
+			display flex
+			flex-wrap wrap
+			flex-direction row-reverse
+			justify-content space-between
+			background-color white
+			margin 1em auto 0
+			border-radius 3px
+			width 90%
+			max-width 800px
+			//max-width 400px
+			box-shadow 0 1px 1px rgba(0,0,0,.2)
+			&__left
+				padding 0 1em
+				width 100%
+				.Title
+					margin-bottom 1em
+					h2
+						font-size 25px
+				.AudioList
+					&__table
+						list-style none
+						text-align center
+						//max-width 700px
+						margin 0 auto
+						&--head
+							height 40px
+							line-height 40px
+							border-bottom 1px solid #C5C5C5
+							margin-bottom .3em
+							display flex
+							justify-content space-between
+							flex-wrap wrap
+							font-weight 600
+							.buttons
+								width 10%
+							.nombre 
+								width 50%
+								p
+									text-overflow ellipsis
+									white-space nowrap
+									overflow hidden
+							.curso
+								width 40%
+								p
+									text-overflow ellipsis
+									white-space nowrap
+									overflow hidden
+						&--audio
+							.audios
+								height 40px
+								line-height 40px
+								border-bottom 1px solid #C5C5C5
+								margin 0 0 .3em 0
+								display flex
+								justify-content space-between
+								flex-wrap wrap							
+								.buttons
+									display flex
+									justify-content space-around
+									align-items center
+									width 10%
+									.play
+										cursor pointer
+										display flex
+										font-size 1.5rem
+									.pause
+										cursor pointer
+										display none
+										font-size 1.5rem
+								.nombre
+									width 50%
+									p
+										margin 0
+										text-overflow ellipsis
+										white-space nowrap
+										overflow hidden
+								.curso
+									width 40%
+									p
+										text-overflow ellipsis
+										white-space nowrap
+										overflow hidden
+			&__right
+				padding 0 1em
+				width 100%
+				audio
+					display none
+				.Cover
+					margin-bottom 1em
+					figure
+						//margin 0 auto
+						text-align center
+						img
+							width 150px
+							height 150px
+				.Text
+					text-align center
+					width 100%
+					h4
+						text-overflow ellipsis
+						white-space nowrap
+						overflow hidden
+					p
+						text-overflow ellipsis
+						white-space nowrap
+						overflow hidden
+				.Controls
+					&__timeLine
+						position relative
+						width 90%
+						margin 0 auto 1em
+						height 15px
+						.Barra
+							position absolute
+							width 100%
+							//right 42px
+							top 5px
+							border-radius 100px
+							height 5px
+							border 1px solid #004E30
+							background-color #004E30
+							z-index 9
+							&__relleno
+								background-color #00B770
+								//background-image linear-gradient(left, #adce0f, #7eb530)
+								height 5px
+								margin -1px 0 0 -1px
+								border-radius 100px
+								position relative
+								&--triangle
+									height 12px
+									width 12px
+									background-color #00B770
+									border-radius 50%
+									position absolute
+									top -3px
+									right -6px
+					&__buttons
+						margin-bottom 1em
+						display flex
+						justify-content space-around
+						align-items center
+						&--content
+							width 100%
+							max-width 150px
+							display flex
+							justify-content space-around
+							align-items center
+							.plause
+								.play
+									cursor pointer
+									font-size 25px
+									// height 40px
+									// width 40px
+								.pause
+									cursor pointer
+									font-size 25px
+									// height 40px
+									// width 40px
+									display none
+							.next, .before
+								cursor pointer
+					&__buttonAlternative
+						display flex
+						justify-content space-between
+						flex-wrap wrap
+						text-align center
+						max-width 257px
+						margin 0 auto
+						&--random
+							width 8%
+						&--loop
+							width 8%
+							.loopActive
+								display block
+							.loopDisable
+								display none
+							div
+								cursor pointer
+						&--volume
+							width 70%
+							display flex
+							align-items baseline
+							justify-content space-between
+							.IconVolume
+								width 7%
+								.volumeOn
+									display block
+								.volumeOff
+									display none
+								div
+									cursor pointer
+							.TimeLine
+								width 85%
+								&__Range
+									-webkit-appearance none
+									cursor pointer
+									background-color silver
+									width 100%
+									height 5px
+									background-color #004e30
+									border-radius 100px
+									margin-bottom .5em
+									&::-webkit-slider-thumb
+										-webkit-appearance none
+										background-color #00b770
+										opacity 1
+										width 15px
+										height 15px
+										border-radius 100%
+										cursor pointer
+									&:focus
+										outline none
+			&__others
+				padding 0 1em
+						
+									
+@media screen and (min-width 766px)
+	.audioLibro
+		&__container
+			.Item
+				width 75%
+				&__left
+					width 60%
+				&__right
+					width 40%

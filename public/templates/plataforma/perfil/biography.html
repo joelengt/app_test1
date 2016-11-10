@@ -1,0 +1,395 @@
+<header class="MainHeaderForm">
+	<div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<div class="Biography" ng-cloak>
+	<div class="Biography__container ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="Biography__container animated" ng-show="user">
+		<section class="Biography__Box">
+			<article class="Biography__Box--portrate">
+				<div class="Portrate">
+					<div class="Portrate__avatar"  ng-cloak style="background-image:url('{{user.photo.path}}')"></div>
+					<div class="Portrate__info">
+						<div class="Portrate__info--name">
+							<h2>{{user.name}}</h2>
+						</div>
+						<div class="Portrate__info--grade">
+							<p>{{user.grado}}</p>
+						</div>
+					</div>
+				</div>
+			</article>
+			<nav class="Biography__Box--navigate">
+				<ul class="list">
+					<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+					<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+					<li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<!--<li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li>-->
+				</ul>
+			</nav>
+			<nav class="Biography__Box--navigate">
+				<ul class="list">
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+				</ul>
+			</nav>
+			<nav class="Biography__Box--navMobile">
+				<ul class="list">
+					<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+					<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span></a></li>
+					<li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+					<!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+				</ul>
+			</nav>
+		</section>
+		<div class="Biography__publishContainer">
+			<div class="Biography__publishContainer--form" ng-if="userConnection !== userVisitor">
+				<p id="msg_alert_to_friend_box"></p>
+				<form class="PublishFriend" ng-submit="publishHere()" enctype="multipart/form-data">
+					<div class="PublishFriend__content">
+						<div class="PublishFriend__content--avatar" style="background-image:url('{{miUsuario.photo.path}}')"></div>
+						<textarea required class="PublishFriend__content--comment" id="published_publish_to_friend_content" placeholder="Escribele un mensaje a {{user.name}}"></textarea>
+					</div>
+					<div class="PublishFriend__previewImage">
+						<div id="preview_box_to_muro_from_friend"></div>
+					</div>
+					<div class="PublishFriend__buttons">
+						<div class="PublishFriend__buttons--input">
+							<input type="file" id="published_publish_multimedia_to_muro_from_friend"  onchange="angular.element(this).scope().uploading(this)">
+							<label for="published_publish_multimedia_to_muro_from_friend"><span class="icon-file-image"></span></label>
+						</div>
+						<div class="PublishFriend__buttons--comment">
+							<button type="submit"><span class="icon-ascent-editar"></span> Publicar</button>
+						</div>            
+					</div>
+				</form>
+			</div>  
+			<div class="Biography__publishContainer--form" ng-if="userConnection === userVisitor">
+				<p id="msg_alert_box"></p>
+				<form class="PublishFriend"  ng-submit="Form_comunidad_public()" enctype="multipart/form-data">
+					<div class="PublishFriend__content">
+						<div class="PublishFriend__content--avatar" style="background-image:url('{{user.photo.path}}')"></div>
+						<input required class="PublishFriend__content--comment" type="text" autocomplete="off" id="published_publish_title" placeholder="Haz una pregunta o inicia una discución">
+					</div>
+					<div class="PublishFriend__contentText">
+						<textarea required class="PublishFriend__contentText--comment"  id="published_publish_content" placeholder="Escribe más detalles de tu publicación"></textarea>
+					</div>
+					<div class="PublishFriend__typeQuestion">
+						<div>
+							<input required type="radio" id="pregunta" name="publish_type" class="published_publish_type" value="pregunta">
+							<label for="pregunta">Pregunta</label>
+						</div>
+						<div>
+							<input required type="radio" id="discusion" name="publish_type" class="published_publish_type" value="discusion">
+							<label for="discusion">Discusión</label>
+						</div>
+					</div>
+					<div class="PublishFriend__courses">
+						<p class="PublishFriend__courses--title">Seleccione un curso</p>
+						<div class="PublishFriend__courses--select">
+							<div class="selectBox">
+								<select class="selectBox__select" name="mySelect" id="mySelect" ng-options="tag.title for tag in tags.tags track by tag.title" ng-model="tags.model">
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="PublishFriend__previewImage">
+						<div id="preview_box_to_muro"></div>            
+					</div>
+					<div class="PublishFriend__buttons">
+						<div class="PublishFriend__buttons--input">
+							<input type="file" id="published_publish_multimedia_from_muro">
+							<label for="published_publish_multimedia_from_muro"><span class="icon-file-image"></span></label>
+						</div>
+						<div  class="PublishFriend__buttons--comment">
+							<button type="submit"><span class="icon-ascent-editar"></span> Publicar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<section class="Biography__publishContainer--publications">
+				<div ng-repeat="article in articles" class="ContentItems">
+					<article ng-if="article.form_publish_type === 'comunidad'" class="Article" data-id="{{article._id}}">
+						<div class="Article__userInfo">
+							<div class="Article__userInfo--avatar" style="background-image:url('{{article.user_photo}}')"></div>
+							<div class="Article__userInfo--dataUser">
+								<a class="name" href="#/perfil/{{article.user_id}}">
+									{{article.user_name}}
+								</a>
+								<p class="grade">
+									{{article.user_grado}}
+								</p>
+							</div>
+							<div class="Article__userInfo--typePublish">
+								<strong>{{article.publish_type | uppercase}}</strong>	
+							</div>
+						</div>
+						<div class="Article__infoPublish data_publish__content">
+							<div class="Article__infoPublish--text">
+								<div class="typePublish">
+									<p>Curso: {{article.publish_etiqueta.title}}</p>
+								</div>
+								<div class="contentPublish">
+									<h3 class="contentPublish__title">{{article.publish_title}}</h3>
+									<p class="contentPublish__text">{{article.publish_content}}</p>
+									<div class="contentPublish__image" ng-if="article.publish_multimedia">
+										<figure class="imageContent">
+											<img src="{{article.publish_multimedia.path}}" alt="{{article.publish_multimedia.name}}">
+										</figure>
+									</div>
+								</div>
+								<div class="datePublish">
+									<p>{{article.fecha_creacion}}</p>
+								</div>
+							</div>
+							<div class="Article__infoPublish--rateInfo data-publish__rate-info data-publish__btn-actions">
+								<div class="liked">
+									<div class="btn_article_like" style="color:{{article.status_color}}" ng-click="likedPublish(article._id)"><span class="icon-ascent-me-gusta-inactivo"></span> <span class="count_likes">{{article.number_likes}}</span></div>
+								</div>
+								<div class="comment">
+									<div class="count_comments"><span class="icon-ascent-comentario"></span>
+										{{article.number_comments}}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="Article__commentPublish">
+							<div class="Article__commentPublish--box">
+								<div class="userAvatar">
+									<div class="userAvatar__image" style="background-image:url('{{miUsuario.photo.path}}')"></div>
+								</div>
+								<form class="formComment" ng-submit="commentPublish(article._id)">
+									<input required class="txt_comment_send" type="text" placeholder="Ingresa un comentario...">
+								</form>
+							</div>
+						</div>  
+						<div class="Article__comments">
+							<div class="Article__comments--box box_form_comment">
+								<div class="itemComment" ng-repeat="comment in article.users_comments">
+									<div class="itemComment__box comment__item" data-comment="{{comment.comment_id}}">
+										<div class="itemComment__box--dataComment">
+											<div class="commentAvatar">
+												<div class="commentAvatar__image" style="background-image:url('{{comment.user_photo}}')"></div>
+											</div>
+											<div class="commentText">
+												<a class="commentText__nameUser" href="#/perfil/{{comment.user_id}}">{{comment.user_name}}</a>
+												<p class="commentText__commentUser" >{{comment.comment}}</p>
+												<p class="commentText__commentDate" >hace {{comment.fecha_creacion}}</p>
+											</div>
+										</div>
+										<div  ng-if="false" class="comment__item__counters">
+											<div>
+												<p class="count__answer_likes">
+													Me gusta <span data-commentcounterlikes="{{comment.comment_id}}">{{comment.counter_likes}}</span>
+												</p>
+											</div>
+											<div>
+												<p class="count_answer_this_comment">
+													Respuestas <span>{{comment.counter_answers}}</span>
+												</p>
+											</div>
+										</div>
+										<div  ng-if="false" class="comment__item__actions">
+											<div>
+												<button style="color:{{comment.status_color}};" class="btn_like_this_comment" ng-click="likedCommentPublish(article._id, comment.comment_id)">Me gusta</button>
+											</div>
+											<div>
+												<button class="btn_answer_this_comment">Responder</button>
+											</div>
+										</div>
+										<div ng-if="false">
+											<div class="box_answers_about_this_comment" data-allaswers="{{comment.comment_id}}" ng-repeat="answer in comment.answers" style="width:60%; margin: 0 auto">
+												<div data-answer="{{answer.answer_id}}" class="answer_id">
+													<div>
+														<p>{{answer.article_id}}</p>
+														<strong>{{answer.comment._id}} {{answer.answer_id}}</strong>
+														<div style="background-image:url('{{answer.user_photo}}'); width:20px; height:20px; background-size:cover"></div>
+														<a href="#/perfil/{{answer.user_id}}">{{answer.user_name}}</a>
+														<p>@{{answer.user_nick}}</p>
+														<p>hace {{answer.fecha_creacion}}</p>
+													</div>
+													<div>
+														<p>{{answer.answer}}</p>
+														<div class="asnwer__item__counters">
+															<div>
+																<p class="count_answers_likes_2">
+																	<p>Me gusta <span data-answercounterlikes="{{answer.answer_id}}">{{answer.counter_likes}}</span></p>
+																</p>
+															</div>
+														</div>
+														<div class="asnwer__item__actions">
+															<div>
+																<button class="btn_like_this_asnwer2" style="color:{{answer.status_color}};" data-answerlike="{{answer.answer_id}}" data-commentliked="{{answer.comment_id}}" ng-click="likedAnswerPublish(article._id, comment.comment_id, answer.answer_id)">Me gusta </button>
+															</div>
+															<div>
+																<button data-nameaswer="{{answer.user_name}}" data-idanswer="{{answer.comment_id}}" class="btn_answer_this_asnwer2" ng-click="answerAnswer(article._id, comment.comment_id, answer.answer_id)"> Responder</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<form ng-submit="answerCommentPublish(article._id, comment.comment_id)">
+												<input required class="txt_answer_to_comment_send" type="text" placeholder="Responde este comentario" data-txtanswer="{{comment.comment_id}}">
+												<button type="submit" class="btn_answer_to_comment_send" data-parent="{{comment.comment_id}}">Responder</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+					<article ng-if="article.form_publish_type === 'muro_friend'" class="Article Article__read__item" data-id="{{article._id}}">
+						<div class="Article__userInfo data-publish__user">
+							<div class="Article__userInfo--avatar" style="background-image:url('{{article.user_photo}}')" ></div>
+							<div class="Article__userInfo--dataUser">
+								<a class="name" href="#/perfil/{{article.user_author_id}}">
+									{{article.user_name}}
+								</a>
+								<p class="grade" >
+									{{article.user_grado}}
+								</p>
+							</div>
+						</div>
+						<div class="Article__infoPublish data_publish__content">
+							<div class="Article__infoPublish--text">
+								<div class="contentPublish">
+									<p class="contentPublish__title">{{article.publish_title}}</p>
+									<p class="contentPublish__text">{{article.publish_content}}</p>
+									<div class="contentPublish__image" ng-if="article.publish_multimedia">
+										<!--<div>
+											<div style="background-image:url('{{article.publish_multimedia.path}}'); width:150px; height:150px;background-size:cover"></div>
+										</div>-->
+										<figure class="imageContent">
+											<img src="{{article.publish_multimedia.path}}" alt="{{article.publish_multimedia.name}}">
+										</figure>
+									</div>
+								</div>
+								<div class="datePublish">
+									<p>{{article.fecha_creacion}}</p>                
+								</div>
+							</div>
+							<div class="Article__infoPublish--rateInfo data-publish__rate-info">
+								<div class="liked">
+									<div class="btn_article_like btn_article_to_friend_like" style="color:{{article.status_color}}" ng-click="likedPublishFriend(article._id)"><span class="icon-ascent-me-gusta-inactivo"></span> <span class="count_likes">{{article.number_likes}}</span></div>
+								</div>
+								<div class="comment">
+									<p class="count_comments"><span class="icon-ascent-comentario"></span>
+										{{article.number_comments}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="Article__commentPublish">
+							<div class="Article__commentPublish--box">
+								<div class="userAvatar">
+									<div class="userAvatar__image" style="background-image:url('{{miUsuario.photo.path}}')"></div>
+								</div>
+								<form class="formComment" ng-submit="commentPublishFriend(article._id)">
+									<input required class="txt_comment_send" class="txt_comment_send" type="text" placeholder="Ingresa un comentario">
+								</form>
+							</div>
+						</div>
+						<div class="Article__comments">
+							<div class="Article__comments--box box_form_comment">
+								<div class="itemComment" ng-repeat="comment in article.users_comments">
+									<div class="itemComment__box comment__item" data-comment="{{comment.comment_id}}">
+										<div class="itemComment__box--dataComment">
+											<div class="commentAvatar">
+												<div class="commentAvatar__image" style="background-image:url('{{comment.user_photo}}')"></div>
+											</div>
+											<div class="commentText">
+												<a class="commentText__nameUser" href="#/perfil/{{comment.user_id}}">{{comment.user_name}}</a>
+												<p class="commentText__commentUser">{{comment.comment}}</p>
+												<p class="commentText__commentDate">hace {{comment.fecha_creacion}}</p>
+											</div>
+										</div>                  
+										<div ng-if="false" class="comment__item__counters">
+											<div>
+												<p class="count__answer_likes">
+													Me gusta <span data-commentcounterlikes="{{comment.comment_id}}">{{comment.counter_likes}}</span>
+												</p>
+											</div>
+											<div>
+												<p class="count_answer_this_comment">
+													Respuestas <span>{{comment.counter_answers}}</span>
+												</p>
+											</div>
+										</div>
+										<div ng-if="false" class="comment__item__actions">
+											<div>
+												<button style="color:{{comment.status_color}};" class="btn_like_this_comment" ng-click="likedCommentFriend(article._id, comment.comment_id)">Me gusta</button>
+											</div>
+											<div>
+												<button class="btn_answer_this_comment">Responder</button>
+											</div>
+										</div>
+										<div ng-if="false">
+											<div class="box_answers_about_this_comment" data-allaswers="{{comment.comment_id}}" ng-repeat="answer in comment.answers" style="width:60%; margin: 0 auto">
+												<div data-answer="{{answer.answer_id}}" class="answer_id">
+													<div>
+														<p>{{answer.article_id}}</p>
+														<strong>{{answer.comment._id}} {{answer.answer_id}}</strong>
+														<div style="background-image:url('{{answer.user_photo}}'); width:20px; height:20px; background-size:cover"></div>
+														<a href="#/perfil/{{answer.user_id}}">{{answer.user_name}}</a>
+														<p>@{{answer.user_nick}}</p>
+														<p>hace {{answer.fecha_creacion}}</p>
+													</div>
+													<div>
+														<p>{{answer.answer}}</p>
+														<div class="asnwer__item__counters">
+															<div>
+																<p class="count_answers_likes_2">
+																	<p>Me gusta <span data-answercounterlikes="{{answer.answer_id}}">{{answer.counter_likes}}</span></p>
+																</p>
+															</div>
+														</div>
+														<div class="asnwer__item__actions">
+															<div>
+																<button class="btn_like_this_asnwer2" style="color:{{answer.status_color}};" data-answerlike="{{answer.answer_id}}" data-commentliked="{{answer.comment_id}}" ng-click="likedAnswerFriend(article._id, comment.comment_id, answer.answer_id)">Me gusta </button>
+															</div>
+															<div>
+																<button data-nameaswer="{{answer.user_name}}" data-idanswer="{{answer.comment_id}}" class="btn_answer_this_asnwer2" ng-click="answerAnswerFriend(article._id, comment.comment_id, answer.answer_id)"> Responder</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<form ng-submit="answerCommentFriend(article._id, comment.comment_id)">
+												<input required class="txt_answer_to_comment_send" type="text" placeholder="Responde este comentario" data-txtanswer="{{comment.comment_id}}">
+												<button type="submit" class="btn_answer_to_comment_send" data-parent="{{comment.comment_id}}">Responder</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>  
+					</article>
+					<article class="Article" ng-if="article.form_publish_type === 'progress'">
+						<div class="Article__userInfo">
+							<div class="Article__userInfo--avatar" style="background-image:url('{{article.user_photo}}')"></div>
+							<div  class="Article__userInfo--dataUser">
+								<a  class="name" href="#/perfil/{{article.user_id}}">{{article.user_name}}</a>
+								<p class="grade" >
+									{{article.user_grado}}
+								</p>
+							</div>
+						</div>
+						<div  class="Article__infoPublish">
+							<div class="Article__infoPublish--text"">
+								<div class="contentPublish">
+									<p>{{article.user_name}} ha completado la leccion {{article.publish_detalles.leccion}} de <a href="#/plataforma/cursos/detail/{{article.publish_detalles.curso_id}}">{{article.publish_detalles.curso_name}}</a>!</p>
+								</div>
+								<div class="datePublish">
+									<p>{{article.fecha_creacion}}</p>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

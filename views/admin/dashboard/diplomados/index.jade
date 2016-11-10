@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+			div
+				p Tu eres User #{user.access}
+	section
+		form(action="/plataforma/admin/diplomados/new_diplomado", method="post") 
+			button Añadir Diplomado
+	section
+		div
+			p Diplomados Disponibles
+			each diplomado in diplomados
+				article(style="border-top: 1px solid gray; padding-top: 1rem;")
+					img(src="#{diplomado.icon.path}", width="60")
+					h3 #{diplomado.title}
+					div
+						p Slogan: #{diplomado.slogan}
+						p Promedio Rate: #{diplomado.promedioRate}
+						p Tags: #{diplomado.tags}
+						p Descripción: #{diplomado.description}
+
+					div
+						div
+							a(href="/plataforma/admin/diplomados/#{diplomado._id}") Ver detalles
+					br
+					br

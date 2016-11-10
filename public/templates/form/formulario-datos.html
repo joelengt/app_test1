@@ -1,0 +1,155 @@
+<header class="MainHeaderForm">
+	<div ng-include=" './templates/form/menu/index.html' "></div>
+</header>
+<div class="FormContent">
+	<section class="FormContent__box">
+	  <form method="post" id="send" ng-submit="sendDate()">
+		  <div>
+		    <div class="Form">
+		      <div id="gender" ng-hide="ocultarGenero" class="Form__gender">
+		        <h2>Mi Genero es ...</h2>
+		        <div class="Form__gender--buttonRadio">
+		          <div class="gender__box">
+		          	<div class="hombre">
+		          	  <input class="genero" ng-click="hideGender()" ng-model='genero' ng-value='"Mujer"' type="radio" name="genero" id="mujer" value="Mujer"/>
+		          	  <label for="mujer"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Mujer</label>
+		          	</div>
+		          </div>
+		          <div class="gender__box">
+		          	<div class="mujer">
+		          	  <input class="genero" ng-click="hideGender()" ng-model='genero' ng-value='"Hombre"' type="radio" name="genero" id="hombre" value="Hombre"/>
+		          	  <label for="hombre"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Hombre</label>
+		          	</div>
+		          </div>
+		        </div>
+		      </div>
+		      <div id="category" ng-hide="ocultarCategoria" class="Form__category">
+	          <h2>Mi Categoria es ...</h2>
+	          <div class="Form__category--buttonRadio">
+	            <div class="category__box">
+	            	<div class="oficial">
+	            	  <input id="oficial" ng-click="hideCategory()" ng-model="categoria" ng-value='"oficial"' class="categoria" type="radio" name="categoria" id="oficial" value="oficial"/>
+	            	  <label for="oficial"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Oficial</label>
+	            	</div>
+	            </div>
+	            <div class="category__box">
+	            	<div class="subOficial">
+	            	  <input id="subOficial" ng-click="hideCategory()" ng-model="categoria" ng-value='"sub-oficial"' class="categoria" type="radio" id="subOficial" name="categoria" value="sub-oficial"/>
+	            	  <label for="subOficial"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Sub Oficial</label>
+	            	</div>
+	            </div>
+	          </div>
+	        </div>
+	        <div id="subOfficial" ng-hide="ocultarSubOficiales" class="Form__subOfficial">
+	          <h3>Sub Oficiales</h3>
+	          <div class="Form__subOfficial--buttonRadio">
+	            <div class="inputBox subOficialTercera">
+	              <div>
+	              	<div class="inputBox__container">
+	              		<input id="subOficialTercera" class="grado" ng-model="grado" ng-value='"Sub Oficial de Tercera"' type="radio" name="grado" value="Sub Oficial de Tercera"/>
+	              		<label for="subOficialTercera"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Sub Oficial de Tercera</label>
+	              	</div>
+	              </div>
+	            </div>
+	            <div class="inputBox subOficialSegunda">
+	            	<div class="inputBox__container">
+		              <input id="subOficialSegunda" class="grado" ng-model="grado" ng-value='"Sub Oficial de Segunda"' type="radio" name="grado" value="Sub Oficial de Segunda"/>
+		              <label for="subOficialSegunda"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Sub Oficial de Segunda</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox subOficialPrimera">
+	            	<div class="inputBox__container">
+		              <input id="subOficialPrimera" class="grado" ng-model="grado" ng-value='"Sub Oficial de Primera"' type="radio" name="grado" value="Sub Oficial de Primera"/>
+		              <label for="subOficialPrimera"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Sub Oficial de Primera</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox tecnicoTercera">
+	            	<div class="inputBox__container">
+		              <input id="tecnicoTercera" class="grado" ng-model="grado" ng-value='"Técnico de Tercera"' type="radio" name="grado" value="Técnico de Tercera"/>
+		              <label for="tecnicoTercera"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Técnico de Tercera</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox tecnicoSegunda">
+	            	<div class="inputBox__container">
+		              <input id="tecnicoSegunda" class="grado" ng-model="grado" ng-value='"Técnico de Segunda"' type="radio" name="grado" value="Técnico de Segunda"/>
+		              <label for="tecnicoSegunda"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Técnico de Segunda</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox tecnicoPrimera">
+	            	<div class="inputBox__container">
+		              <input id="tecnicoPrimera" class="grado" ng-model="grado" ng-value='"Técnico de Primera"' type="radio" name="grado" value="Técnico de Primera"/>
+		              <label for="tecnicoPrimera"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Técnico de Primera</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox brigadier">
+	            	<div class="inputBox__container">
+		              <input id="brigadier" class="grado" ng-model="grado" ng-value='"Brigadier"' type="radio" name="grado" value="Brigadier"/>
+		              <label for="brigadier"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Brigadier</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox superior">
+	            	<div class="inputBox__container">
+		              <input id="superior" class="grado" ng-model="grado" ng-value='"Superior"' type="radio" name="grado" value="Superior"/>
+		              <label for="superior"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Superior</label>	            		
+	            	</div>
+	            </div>
+	          </div>
+	          <div class="Form__subOfficial--button">
+	           <input class="btnSend" type="submit">
+	          </div>
+	        </div>
+	        <div id="official" ng-hide="ocultarOficiales" class="Form__official">
+	          <h3>Oficiales</h3>
+	          <div class="Form__official--buttonRadio">
+	            <div class="inputBox alferes">
+	            	<div class="inputBox__container">
+		              <input id="alferes" class="grado" ng-model="grado" ng-value='"Alferes"' type="radio" name="grado" value="Alferes"/>
+		              <label for="alferes"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Alferes</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox teniente">
+	            	<div class="inputBox__container">
+		              <input id="teniente" class="grado" ng-model="grado" ng-value='"Teniente"' type="radio" name="grado" value="Teniente"/>
+		              <label for="teniente"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Teniente</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox capitan">
+	            	<div class="inputBox__container">
+		              <input id="capitan" class="grado" ng-model="grado" ng-value='"Capitán"' type="radio" name="grado" value="Capitán"/>
+		              <label for="capitan"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Capitán</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox mayor">
+	            	<div class="inputBox__container">
+	              	<input id="mayor" class="grado" ng-model="grado" ng-value='"Mayor"' type="radio" name="grado" value="Mayor"/>
+	              	<label for="mayor"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Mayor</label>	            		
+	            	</div>
+	            </div>
+	            <div class="inputBox comandante">
+	            	<div class="inputBox__container">
+	              	<input id="comandante" class="grado" ng-model="grado" ng-value='"Comandante"' type="radio" name="grado" value="Comandante"/>
+	              	<label for="comandante"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Comandante</label>            		
+	            	</div>
+	            </div>
+	            <div class="inputBox coronel">
+	            	<div class="inputBox__container">
+		              <input id="coronel" class="grado" ng-model="grado" ng-value='"Coronel"' type="radio" name="grado" value="Coronel"/>
+		              <label for="coronel"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>Coronel</label>            		
+	            	</div>
+	            </div>
+	            <div class="inputBox general">
+	            	<div class="inputBox__container">
+		              <input id="general" class="grado" ng-model="grado" ng-value='"General"' type="radio" name="grado" value="General"/>
+		              <label for="general"><div class="buttonRadio"><div class="buttonRadio__in"></div></div>General</label>	            		
+	            	</div>
+	            </div>
+	          </div>
+	          <div class="Form__subOfficial--button">
+	            <input class="btnSend" type="submit">
+	          </div>
+	        </div>
+		    </div>
+		  </div>
+	  </form>
+	</section>
+</div>

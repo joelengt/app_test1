@@ -1,0 +1,101 @@
+<header class="MainHeaderForm">
+  <div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<section class="FriendsFacebook">
+	<div class="FriendsFacebook__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="FriendsFacebook__container animated" ng-show="user">
+		<section class="FriendsFacebook__Box">
+		  <article class="FriendsFacebook__Box--portrate">
+		    <div class="Portrate">
+		      <div class="Portrate__avatar"  ng-cloak style="background-image:url('{{miUsuario.photo.path}}')"></div>
+		      <div class="Portrate__info">
+		        <div class="Portrate__info--name">
+		          <h2>{{miUsuario.name}}</h2>
+		        </div>
+		        <div class="Portrate__info--grade">
+		          <p>{{miUsuario.grado}}</p>
+		        </div>
+		      </div>
+		    </div>
+		  </article>
+		  <nav class="FriendsFacebook__Box--navigate">
+		    <ul class="list">
+		      <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+		      <li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+		      <li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+		      <li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+		      <!--<li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li>-->
+		    </ul>
+		  </nav>
+		  <nav class="FriendsFacebook__Box--navigate">
+		    <ul class="list">
+		      <li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+		    </ul>
+		  </nav>
+		  <nav class="FriendsFacebook__Box--navMobile">
+		    <ul class="list">
+		      <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+		      <li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span></a></li>
+		      <li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+		      <li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+		      <li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+		      <!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+		    </ul>
+		  </nav>
+		</section>
+		<div class="FriendsFacebook__informationContainer">
+			<div class="FriendsFacebook__informationContainer--box">
+				<div class="TitleFacebook">
+					<div class="TitleFacebook__content">
+						<div class="TitleFacebook__content--text">
+							<h4>Amigos de Facebook</h4>
+						</div>
+					</div>
+				</div>
+				<div class="FriendSocial" ng-if="friends.length > 0">
+					<div class="FriendSocial__content">
+						<article class="FriendFacebook" ng-repeat="friend in friends">
+							<div class="FriendFacebook__content">
+								<div class="FriendFacebook__content--user">
+									<div class="AvatarFriend">
+										<div class="AvatarFriend__image" style="background-image:url('https://graph.facebook.com/{{friend.id}}/picture?type=large')"></div>
+									</div>
+									<div class="NameFriend">
+										<h4 class="NameFriend__text"><a href="https://www.facebook.com/{{friend.id}}" target="blank">{{friend.name}}</a></h4>
+									</div>
+								</div>
+								<form class="FriendFacebook__content--addFriend" ng-submit="addFriend(friend.id)" id="{{friend.id}}">
+									<div class="AddFriend"><button type="submit" class="AddFriend__plus">+</button></div>
+								</form>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- <section>
+	<div>
+		<h2>Agregar amigos de facebook</h2>
+		<div id="List_friends_facebook"></div>
+	</div>
+	<div>
+		<article ng-repeat="friend in friends">
+			<div>
+				<div style="background-image:url('https://graph.facebook.com/{{friend.id}}/picture?type=large'); width:80px; height:80px; background-size:cover;background-position:center">		
+				</div>
+			</div>
+			<div>
+				<h3>
+					<a href="https://www.facebook.com/{{friend.id}}" target="blank">{{friend.name}}</a>
+				</h3>
+			</div>
+			<form ng-submit="addFriend(friend.id)">
+				<button type="submit">Agregar amigo</button>
+			</form>
+		</article>
+	</div>
+</section> -->

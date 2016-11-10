@@ -1,0 +1,14 @@
+<div class="ChatList" id="ChatList">
+	<div class="ChatList__content" ng-controller="friendsLateralController">
+		<div class="Friend" ng-repeat="friend in friends">
+			<div class="Friend__content" ng-click="goChat(friend._id)">
+				<div class="Friend__content--avatarFriend">
+					<div class="AvatarFriend" style="background-image: url('{{friend.photo.path}}')"></div>
+				</div>
+				<div class="Friend__content--nameFriend">
+					<p class="NameFriend">{{friend.name}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

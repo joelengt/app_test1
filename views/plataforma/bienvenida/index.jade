@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+			//- div
+			//- 	a(href="/plataforma/perfil/#{user._id}") Perfil
+			//- div
+			//- 	a(href="/logout") Salir
+	div
+		h2 !Hola!
+		img(src="#{user.photo.path}")
+		h2 #{user.name}
+		//- p @ #{user.nickname}
+		p #{user.grado}
+		p Futuro 
+			strong #{user.grado_next}
+	section
+		a(href="/plataforma") Empieza

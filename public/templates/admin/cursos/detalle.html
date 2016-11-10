@@ -1,0 +1,34 @@
+<nav>
+  <ul>
+    <li><a href="#/perfil/{{usuario._id}}">Perfil</a></li>
+    <li><a href="#/plataforma">Cursos </a><a href="/plataforma/diplomados">|  Diplomados</a></li>
+    <li><a href="#/plataforma/comunidad">Comunidad</a></li>
+  </ul>
+</nav>
+<section>
+  <p>Vista del Curso</p>
+  <article>
+    <a href="#/plataforma/cursos/detail/{{curso._id}}"><img src="{{curso.cover.path}}" width="260"/></a>
+    <div><img src="{{curso.icon.path}}" width="60"/></div>
+    <h3><a href="#/plataforma/cursos/detail/{{curso._id}}">{{curso.title}}</a></h3>
+    <div>
+      <p>Slogan: {{curso.slogan}}</p>
+      <p>Promedio Rate: {{curso.promedioRate}}</p>
+      <p>Tags: <span ng-repeat="tag in curso.tags">{{tag}}</span></p>
+      <p>Descripción: {{curso.description}}</p>
+      <p>Id base de datos: {{curso._id}}</p>
+      <p>Fecha de creación: {{curso.createdAt | date}}</p>
+    </div>
+    <div>
+      <div>
+        <div>
+          <a class="btn btn-default" href="#/admin/cursos/delete/{{curso._id}}">Eliminar</a>
+        </div>
+        <div>
+          <a class="btn btn-default" href="#/admin/cursos/update/{{curso._id}}">Actualizar</a>
+        </div>
+      </div>
+      <divs><a href="#/plataforma/cursos/detail/{{curso._id}}">Ir al Curso</a></divs>
+    </div>
+  </article>
+</section>

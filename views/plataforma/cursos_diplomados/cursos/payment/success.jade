@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+
+	section
+		p Servicio: #{servicio}
+		div
+			div
+				h2 Felicidades Ya tienes acceso a Todo #{servicio}
+				a(href="/plataforma/cursos/") Empieza a Estudiar
+				div
+					a(href="#") Compartir en Facebook

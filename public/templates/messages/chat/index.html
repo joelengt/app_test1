@@ -1,0 +1,63 @@
+<header class="HeaderOthers">
+	<div ng-include=" './templates/plataforma/comunidad/menu.html' "></div>
+</header>
+<div class="ChatUserItem" ng-cloak>
+	<div class="ChatUserItem__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="ChatUserItem__container animated" ng-show="chatContent">
+		<section class="ChatUserItem__container--messages">
+			<div class="ChatsContainer" id="ContentMessages">
+				<article class="ChatsContainer__publishContainer" ng-repeat="message in messages">
+					<div class="ChatsContainer__publishContainer--itemRight" ng-if="message.user_id === user_edit._id">
+						<div class="ItemRight">
+							<div class="ItemRight__avatar" style="background-image:url('{{message.photo.path}}')"></div>
+							<div class="ItemRight__contentMessage">
+								<div class="ItemRight__contentMessage--multimedia" ng-if="message.message_multi_data">
+									<figure class="FigureMultimedia">
+										<img class="FigureMultimedia__image" src="{{message.message_multi_data.path}}" alt="{{message.message_multi_data.name}}">
+									</figure>
+								</div>
+								<div  class="ItemRight__contentMessage--message"  ng-if="message.message !== ''">
+									<p class="ContentMessage">{{message.message}}</p>
+									<p class="DateMessage">{{message.data_send}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ChatsContainer__publishContainer--itemLeft" ng-if="message.user_id !== user_edit._id">
+						<div class="ItemLeft">
+							<div class="ItemLeft__avatar" style="background-image:url('{{message.photo.path}}')"></div>
+							<div class="ItemLeft__contentMessage">
+								<div class="ItemLeft__contentMessage--multimedia" ng-if="message.message_multi_data">
+									<figure class="FigureMultimedia">
+										<img class="FigureMultimedia__image" src="{{message.message_multi_data.path}}" alt="{{message.message_multi_data.name}}">
+									</figure>
+								</div>
+								<div  class="ItemLeft__contentMessage--message" ng-if="message.message !== ''">
+									<p class="ContentMessage">{{message.message}}</p>
+									<p class="DateMessage">{{message.data_send | date:'hh:mm - dd/MM/yy'}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>				
+			</div>
+		</section>
+		<section class="ChatUserItem__container--sendMessage">
+			<form class="SendMessages" id="FormMsg" enctype="multipart/form-data"  ng-submit="newMessage()">
+				<div class="SendMessages__textareaText">
+					<textarea class="SendMessages__textareaText--box" type="text" id="txt_message" placeholder="Enviar mensaje..."></textarea>
+				</div>
+				<div class="SendMessages__inputActions">
+					<div class="SendMessages__inputActions--multimedia">
+						<label for="published_publish_multimedia_to_chat" class="labelMultimedia"><span class="icon-unlink"></span> Subir una imagen</label>
+						<input class="inputMultimedia" type="file" id="published_publish_multimedia_to_chat">
+					</div>
+					<button class="SendMessages__inputActions--send" type="submit">Enviar <span class="icon-ascent-enviar"></span></button>
+				</div>
+				<div class="SendMessages__previewImageMessage" id="preview_box_to_chat"></div>
+			</form>
+		</section>
+	</div>
+</div>

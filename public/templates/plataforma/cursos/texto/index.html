@@ -1,0 +1,39 @@
+<header class="PlataformHeader">
+  <div ng-include=" './templates/plataforma/menu-curso.html' "></div>
+  <div class="PlataformSubHeader">
+    <nav class="PlataformSubHeader__box">
+      <ul  class="PlataformSubHeader__box--list">
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/detail/{{curso._id}}">DESCRIPCIÓN</a></li>
+        <li class="links"><a class="links__tab Active">TEXTO</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/simulador">SIMULADOR</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/audio-libro">AUDIOLIBRO</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section>
+  <div>
+    <div class="ContentText">
+      <div class="ContentText__box">
+        <article class="ContentText__box--item">
+          <div class="Text">
+            <div class="Text__cover" style="background-image:url({{curso.cover.path}})">
+              <figure>
+                <img src="{{curso.icon.path}}" width="100"/>
+              </figure>
+            </div>
+            <div class="Text__content">
+              <div class="Text__content--box">
+                <ul class="List">
+                 <li class="List__item"  ng-repeat="texto in textos">
+                   <a class='List__item--link' href="#/plataforma/cursos/{{curso._id}}/text/{{texto.position}}">{{texto.position + 1}}. {{texto.originalname}}</a>
+                 </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

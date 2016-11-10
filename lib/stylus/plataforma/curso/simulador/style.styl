@@ -1,0 +1,113 @@
+button(color1, color2)
+	padding-bottom 3em
+	&__link
+		width 80%
+		text-align center
+		max-width 150px
+		margin 0 auto
+		a
+			background-color color2
+			padding .3em
+			display block
+			border-radius 100px
+			border 2px solid color1
+			color color1
+			text-decoration none
+			cursor pointer
+
+.ContentSimulador
+	Container(170px)
+	&__box
+		Box(10px, transparent, transparent, 10%, 1em)
+		//padding 1em 0
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+		//flex-direction column
+		&--item
+			background-color white
+			margin 1em auto 0
+			border-radius 3px
+			width 90%
+			max-width 400px
+			box-shadow 0 1px 1px rgba(0,0,0,.2)
+			.logo
+				text-align center
+				padding 4em 0 4em 0
+				span
+					font-size 50px
+			.text
+				text-align center
+				margin-bottom 3em
+				&__info
+					font-size 20px
+					margin 0
+				&__point 
+					font-weight 300
+					font-size 14px
+			.button
+				button(white, verde_A)
+			.questions
+				padding .7em 0
+				background-color #F3F7FC
+				display flex
+				flex-wrap wrap
+				&__left
+					text-align center
+					width 50%
+					border-right 2px solid #E0E0E0
+					&--text
+						margin 0
+						font-size 1.2rem
+						font-weight 300
+						color gris_D
+					&--number
+						font-size 1.2rem
+						font-weight 600
+						color gris_D
+						margin 0						
+				&__right
+					text-align center
+					width 50%
+					&--text
+						margin 0
+						font-size 1.2rem
+						font-weight 300
+						color gris_D
+					&--number
+						font-size 1.2rem
+						font-weight 600
+						color gris_D
+						margin 0
+		&--item:first-child
+			.button
+				button(naranja_A, white)
+			
+				
+				
+						
+@media screen and (min-width 768px)
+	.ContentSimulador
+		Container(137px)
+		&__box
+			Box(10px, transparent, transparent, 2%, 1em)
+			&--item
+				width 45%
+				.questions
+					&__right, &__left
+						&--text, &--number
+							font-size 1rem
+				
+@media screen and (min-width 992px)
+	.ContentSimulador
+		Container(137px)
+		&__box
+			Box(10px, transparent, transparent, 2%, 1em)
+			&--item
+				width 30%
+				.questions
+					&__right, &__left
+						&--text, &--number
+							font-size 1rem
+
+@import 'leccion/style'

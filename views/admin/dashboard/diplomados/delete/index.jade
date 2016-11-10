@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		//-div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+			div
+				p Tu eres User #{user.access}
+	section
+		p #{msg}
+		h2 ¿Eliminar este Diplomado?
+		
+		img(src="#{diplomado.icon.path}", width="60")
+		h3 #{diplomado.title}
+		div
+			p Slogan: #{diplomado.slogan}
+			p Promedio Rate: #{diplomado.promedioRate}
+			p Id base de datos: #{diplomado._id}
+			p Fecha de creación: #{diplomado.createdAt}
+
+
+		form(action="/plataforma/admin/diplomados/delete/#{diplomado._id}?_method=delete", method="post")
+			p Escribe el nombre del diplomado para confirmar:
+			div
+				label Nombre del diplomado
+				input(type="text", name="diplomado_confirmar", target="_blank")
+
+			button Confirmar Eliminar
+

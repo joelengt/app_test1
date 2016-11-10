@@ -1,0 +1,44 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <h2>Logo Ascent</h2>
+      <div><img src="{{usuario.photo.path}}" width="50"/>
+        <p>@{{usuario.nickname}}</p>
+        <div><a href="/plataforma/perfil/{{usuario._id}}">Perfil</a></div>
+        <div><a href="/logout">Salir</a></div>
+        <div>
+          <p>Tu eres User {{usuario.access}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <div class="row">
+      <div>
+        <p>Vista de Usuarios</p>
+        <article ng-repeat="user in usuarios"  class="col-xs-12 col-ms-6 col-md-4">
+          <img src="{{user.photo.path}}" width="60"/>
+          <h3>{{user.name}}</h3>
+          <div>
+            <h4>datos de cuenta: </h4>
+            <p>Provider_id: {{user.provider_id}}</p>
+            <p>Red Social: {{user.provider}}</p>
+            <p>Accesso: {{user.access}}</p>
+            <p>Fecha de Registro: {{user.createdAt | date}}</p>
+          </div>
+          <div><a class="btn btn-default" href="#/perfil/{{user._id}}" target="_blank">Ver Perfil</a></div>
+          <div>
+            <div>
+              <a class="btn btn-default" href="#/admin/usuarios/confirm-delete/{{user._id}}">Eliminar</a>
+            </div>
+            <div>
+              <a class="btn btn-default" href="#/admin/usuarios/update/{{user._id}}">Editar</a>
+            </div>
+          </div>
+        </article>
+      </div>      
+    </div>
+  </div>
+</section>

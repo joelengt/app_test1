@@ -1,0 +1,97 @@
+<div>
+	<header class="MainHome">
+		<div class="MainHome__mainLeft">
+			<div class="MainHome__mainLeft--bottomMenu"><a  id="menuButton" ng-click="viewMenu()"><span class="icon-menu"></span></a></div>
+			<!-- <figure class="MainHome__mainLeft--mainLogo">
+				<img src="./images/logo.svg" alt="Ascent" height="40">
+			</figure> -->
+			<h2 class="MainHome__mainLeft--mainLogo">
+				<a class="logo" href="https://ascent.pe">Ascent</a>
+			</h2>
+		</div>
+		<div class="MainHome__mainRight">
+			<ul class="MainHome__mainRight--boxList">
+				<li class="link"><a href="">Compendios</a></li>
+				<li class="link"><a href="">Social</a></li>
+				<li class="link"><a href="">Audios</a></li>
+				<li class="link"><a href="">Diplomados</a></li>
+				<li class="link"><a href="">Premium</a></li>
+				<li class="link"><div><a ng-click="ShowLogin()" class="bottonPrimary">Empezar</a></div></li>
+			</ul>
+		</div>
+	</header>
+	<div class="MainDropdown" id="backgroundModal" ng-click="hideMenu()">
+	</div>
+	<div>
+		<div id="mainModal" class="MainDropdown__box">
+			<div class="MainDropdown__ascentBox">
+				<!-- <figure class="MainDropdown__ascentBox--logoAscent">
+					<img src="./images/logo.svg" alt="Ascent" height="50">
+				</figure> -->
+				<h1 class="MainDropdown__ascentBox--logoAscent">
+					<a class="logo" href="https://ascent.pe/#/">Ascent</a>
+				</h1>
+				<div class="back" ng-click="hideMenu()">
+					<span class="icon-ascent-atras"></span>
+				</div>
+			</div>
+			<div class="MainDropdown__buttonLogin">
+				<div class="MainDropdown__buttonLogin--button">
+					<a  ng-click="ShowLogin()" class="bottonPrimary">Iniciar Sesión</span></a>					
+				</div>
+			</div>
+			<div class="MainDropdown__optionBox">
+				<ul  class="MainDropdown__optionBox--options">
+					<li>
+						<a href="#/plataforma/cursos"><span class="icon-ascent-cursos"></span> Cursos</a>
+					</li>
+					<li>
+						<a href="#/plataforma/diplomados"><span class="icon-library"></span> Diplomados</a>
+					</li>
+					<li>
+						<a href="#/plataforma/comunidad"><span class="icon-ascent-comunidad"></span> Comunidad</a>
+					</li>
+					<li>
+						<a href="#/plataforma/blog"><span class="icon-pencil"></span> Blog</a>
+					</li>
+					<li>
+						<a href="#/plataforma/plan-premim"><span class="icon-ascent-estrella-seleccionada"></span> Premium</a>
+					</li>
+				</ul>
+			</div>
+			<div class="MainDropdown__about">
+				<ul class="MainDropdown__about--box">
+					<li><a href="#/contacto">Contáctanos</a></li>
+					<li><a href="#/sobre-nosotros">Nosotros</a></li>
+				</ul>
+			</div>
+			<div class="MainDropdown__redesSociales">
+				<ul class="MainDropdown__redesSociales--box">
+					<li>
+						<a target="blank" href="https://www.facebook.com/AscentPeru/"><span class="icon-facebook-rect"></span> Facebook</a>
+					</li>
+					<li>
+						<a target="blank" href="https://twitter.com/AscentPeru"><span class="icon-twitter-1"></span> Twitter</a>
+					</li>
+					<li>
+						<a target="blank" href="https://www.instagram.com/ascentperu/"><span class="icon-instagram-filled"></span> Instagram</a>
+					</li>
+				</ul>
+			</div>
+			<div class="MainDropdown__apps">
+				<ul class="MainDropdown__apps--box">
+					<li>
+						<a><span class="icon-googleplay"></span> Google Play</a>
+					</li>
+					<li>
+						<a><span class="icon-appstore"></span> App Store</a>
+					</li>
+				</ul>
+			</div>
+			<footer class="MainDropdown__footer">
+				<p>Ascent ©</p>
+				<p><a href="#/terminos-condiciones">Términos</a> y <a href="#/politicas-privacidad">Privacidad</a></p>
+			</footer>
+		</div>
+	</div>
+</div>

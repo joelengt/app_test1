@@ -1,0 +1,99 @@
+<header class="MainHeaderForm">
+  <div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<section class="MyFriends">
+	<div class="MyFriends__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="MyFriends__container animated" ng-show="user">
+		<section class="MyFriends__Box">
+		  <article class="MyFriends__Box--portrate">
+		    <div class="Portrate">
+		      <div class="Portrate__avatar"  ng-cloak style="background-image:url('{{miUsuario.photo.path}}')"></div>
+		      <div class="Portrate__info">
+		        <div class="Portrate__info--name">
+		          <h2>{{miUsuario.name}}</h2>
+		        </div>
+		        <div class="Portrate__info--grade">
+		          <p>{{miUsuario.grado}}</p>
+		        </div>
+		      </div>
+		    </div>
+		  </article>
+		  <nav class="MyFriends__Box--navigate">
+				<ul class="list">
+					<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+					<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+					<li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<!--<li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li>-->
+				</ul>
+			</nav>
+			<nav class="MyFriends__Box--navigate">
+				<ul class="list">
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+				</ul>
+			</nav>
+			<nav class="MyFriends__Box--navMobile">
+				<ul class="list">
+					<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+					<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span></a></li>
+					<li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+					<!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+				</ul>
+			</nav>
+		</section>
+		<div class="MyFriends__informationContainer">
+			<div class="MyFriends__informationContainer--box">
+				<div class="NotFriends">
+					<div class="NotFriends__content">
+						<div class="NotFriends__content--text">
+							<h4>Encuentra a tus amigos de facebook</h4>
+						</div>
+						<div class="NotFriends__content--btnFacebook">
+							<a href="#/perfil/friends/find-friends/friends-of-facebook">Buscar amigos</a>
+						</div>
+					</div>
+				</div>
+				<div class="NotFriends">
+					<div class="NotFriends__content">
+						<div class="NotFriends__content--text">
+							<h4>Muy pronto se habilitará la opción agregar por email</h4>
+						</div>
+						<!-- <div class="NotFriends__content--btnFacebook">
+							<a href="#/perfil/friends/find-friends/friends-of-facebook">Buscar amigos</a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <section>
+	<div class="content">
+		<div>
+			<h2>Encuentra a tus amigos</h2>
+		</div>
+		<div>
+			<p>1. Encuentra amigos de faceboook en Ascent</p>
+			<a href="#/perfil/friends/find-friends/friends-of-facebook">Buscar Amigos</a>
+		</div>
+		<div>
+			<form action="">
+				<p>2. Buscar en la plataforma - Coloca el nombre o el e-mail de la persona que estas buscando</p>
+				<div>
+					<p> ** Aun no habilitado</p>
+					<input type="text" placeholder="Ingresar onmbre o email de tu amigo">
+				</div>
+				<div>
+					<button>
+						Buscar en Ascent
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section> -->

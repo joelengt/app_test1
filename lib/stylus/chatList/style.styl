@@ -1,0 +1,35 @@
+.ChatList
+	height 540px
+	padding-top 10px
+	border-radius 7px 0 0 0
+	border 1px solid gris_B
+	width 200px
+	overflow overlay
+	background-color  white
+	display none
+	position fixed
+	right 0
+	bottom 0
+	&__content
+		.Friend
+			border-top 1px solid gris_B
+			&__content
+				align-items center
+				padding  4px 0 4px 12px
+				cursor pointer
+				&--avatarFriend
+					display inline-block
+					.AvatarFriend
+						width 30px
+						height 30px
+						background-size cover
+						background-position center
+				&--nameFriend
+					display inline-block
+					vertical-align top
+					line-height 30px
+					.NameFriend
+						overflow hidden
+						white-space nowrap
+						text-overflow ellipsis
+						width 150px

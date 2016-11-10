@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma Perfil
+body
+	header
+		h2 Perfil de Usuario
+		ul
+			li
+				a(href="/plataforma/perfil/#{user_edit._id}") Mi Perfil
+			li
+				a(href="/logout") Salir
+
+	section(class="User-Perfil")
+		span(class="User-Perfil__msg") #{msg}
+		div(class="User-Perfil__box")
+			div(class="User-Perfil__data")
+				h2 Editar Perfil
+				form(action="/plataforma/perfil/edit/#{user_edit._id}?_method=put", method="post", enctype="multipart/form-data")
+					div
+						img(src="#{user_edit.photo.path}", width="200")
+						label Cambiar imagen
+						input(type="file", name="avatar_perfil")
+					div
+						label Cambiar Nombre (*)
+						input(type="text", value="#{user_edit.first_name}", name="first_name", autocomplete="off", required)
+					div
+						label Cambiar Apellidos (*)
+						input(type="text", value="#{user_edit.last_name}", name="last_name", autocomplete="off", required)
+					div
+						label Cambiar Usuario (*)
+						input(type="text", value="#{user_edit.nickname}", name="nickname",  autocomplete="off", required)
+					div
+						label Cambiar Email
+						input(type="email", value="#{user_edit.email}", name="email",  autocomplete="off")
+					div
+						label Cambiar Genero
+						input(type="text", value="#{user_edit.genero}", name="genero",  autocomplete="off")
+					div
+						label Cambiar Edad
+						input(type="number", value="#{user_edit.age}", name="age",  autocomplete="off")
+					div
+						label Cambiar Lugar
+						input(type="text", value="#{user_edit.lugar}", name="lugar", autocomplete="off")
+					div
+						label Cambiar Direccion
+						input(type="text", value="#{user_edit.address}", name="address", autocomplete="off")
+					div
+						label Cambiar Celular
+						input(type="text", value="#{user_edit.phone}", name="phone", autocomplete="off")
+					div
+						label Cambiar Categoria (*)
+						input(type="text", value="#{user_edit.categoria}", name="categoria", autocomplete="off", required)
+					div
+						label Cambiar Rango (*)
+						input(type="text", value="#{user_edit.grado}", name="grado", autocomplete="off", required)
+					div
+						p ¿Quieres recibir email de notificaciones?
+						div
+							h3 #{user_edit.news}
+							label Si
+							input(type="radio", name="news", value="si") 
+							label No
+							input(type="radio", name="news", value="no")
+					br
+					br
+					div
+						h2 Social
+						div
+							label Facebook
+							input(type="url", value="#{user_edit.social_facebook}", name="url_facebook", autocomplete="off")
+						div
+							label Twitter
+							input(type="url", value="#{user_edit.social_twitter}", name="url_twitter", autocomplete="off")
+						div
+							label Instagram
+							input(type="url", value="#{user_edit.social_instagram}", name="url_instagram", autocomplete="off")
+								
+
+					button Guardar Cambios
+					p (*) Estos campos son Obligatorios
+					
+					div
+						h2 Subir Plan
+
+						p Plan: #{user_edit.access}
+						a(href="#")	Adquiere Premiun

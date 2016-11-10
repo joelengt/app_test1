@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body(id="App_Container")
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+	section
+		p Vista de Buscando amigos
+
+		ul
+			li
+				a(href="/plataforma/comunidad/") Comunidad
+			li
+				a(href="/plataforma/comunidad/find-friends/actions") Buscar Amigos
+			li
+				a(href="/plataforma/comunidad/chat/list") Chat
+			li
+				a(href="/plataforma/comunidad/friends/list") Amigos
+			li
+				a(href="/plataforma/notificaciones") Notificaciones
+
+	section
+		h2 Sistema de chat
+		div
+			a(href="/plataforma/comunidad/chat/list-friends") Iniciar chat con un amigo
+		p Esta chateando con: #[a(href="/plataforma/muro/#{friend._id}") #{friend.name}]
+		img(src="#{friend.photo.path}", width="50")
+		p Sala de chat: #{chatContent._id}
+		div(style="display:none;")
+			input(id="chatRoom_id", value="#{chatContent._id}")
+			input(id="user_id", value="#{user._id}")
+			input(id="user_full_name", value="#{user.name}")
+			input(id="user_avatar", value="#{user.photo.path}")
+
+		div(class="ContentChat")
+			each message in chatContent.messages
+				article(style="border-top: 1px solid lightgray")
+					p #{message.user_id}
+					strong #{message.name}
+					img(src="#{message.photo.path}", width="40")
+					p #{message.message}
+					p #{message.data_send}
+
+		div
+			form(id="FormMsg", enctype="multipart/form-data")
+				input(type="text", id="txt_message")
+				input(type="file", id="published_publish_multimedia_to_chat")
+				button Enviar
+			div(id="preview_box_to_chat")
+
+script(type="text/javascript", src="https://cdn.socket.io/socket.io-1.2.0.js")
+script(type="text/javascript", src="../../../../../js/socket.io-stream.js")
+script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.1.js")
+script(type="text/javascript", src="../../../../../js/social_socket_io/chat/index.js")
+

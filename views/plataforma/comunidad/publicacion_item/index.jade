@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body(id="App_Container")
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+	section
+		p Vista de Comunidad Default
+
+		ul
+			li
+				a(href="/plataforma/comunidad/") Comunidad
+			li
+				a(href="/plataforma/comunidad/find-friends/actions") Buscar Amigos
+			li
+				a(href="/plataforma/comunidad/chat/list") Chat
+			li
+				a(href="/plataforma/comunidad/friends/list") Amigos
+			li
+				a(href="/plataforma/notificaciones") Notificaciones
+
+	section
+		p(id="msg_alert_box")
+		form(id="Form_comunidad_public", enctype="multipart/form-data")
+			div(style="display: none;")
+				input(id="published_user_id", value="#{user._id}")
+				input(id="published_user_name", value="#{user.name}")
+				input(id="published_user_nick", value="#{user.nickname}")
+				input(id="published_user_grado", value="#{user.grado}")
+				input(id="published_user_photo", value="#{user.photo.path}")
+
+
+
+	section(class="Articles_containers")
+		article(id="article_item_published")
+
+			article.Article__read__item(data-id="#{article._id}", style='border-top: 1px solid lightgray;')
+				div
+					form(action='/plataforma/comunidad/article/delete/#{article._id}?_method=delete', method='post')
+						button Eliminar
+				strong #{article.publish_type}
+				div.data-publish__user
+					img(src='#{article.user_photo}', width='50')
+					a(href="/plataforma/muro/#{article.user_id}") #{article.user_name}
+					p #{article.user_grado}
+					strong @#{article.user_nick}
+				div.data-publish__content
+					
+					h3 #{article.publish_title}
+					p #{article.publish_content}
+					//-img(src="#{content.publish_multimedia}" width="200")
+					p titulo de tag_curso: #{article.publish_etiqueta.title}
+					p id de tag_curso: #{article.publish_etiqueta.id}
+					p publicado hace: #{article.fecha_creacion}
+					
+					div.data-pulish__rate-info
+						div
+							p.count_likes #{article.number_likes}
+							p Me gusta
+							p #{article.status_color}
+
+						div
+							p.count_comments #{article.number_comments}
+							p comentarios
+					div.data-publish__btn-actions
+						div
+							button(style="color:#{article.status_color};", class="btn_article_like") Me gusta 
+						div
+							button(class="btn_article_comment") Comentar
+				div
+					div(class="box_form_comment")
+						each comment in article.users_comments
+							div(class="comment__item", data-comment="#{comment.comment_id}")
+								div
+									strong ##{comment.comment_id}
+									img(src="#{comment.user_photo}" width="30")
+									a(href="/plataforma/muro/#{comment.user_id}") #{comment.user_name}
+									p @#{comment.user_nick}
+									p hace #{comment.fecha_creacion}
+								div
+									p #{comment.comment}
+								div.comment__item__counters
+									div
+										p.count_answers_likes
+										p Me gustas #[span(data-commentcounterlikes="#{comment.comment_id}") #{comment.counter_likes}]
+										p #{comment.status_color}
+
+									div
+										p.count_answers_this_comment 
+										p Respuestas #[span #{comment.counter_answers}]
+								div.comment__item__actions
+									div
+										button(style="color:#{comment.status_color}", class="btn_like_this_comment", data-commentlike="#{comment.comment_id}") Me gusta 
+									div
+										button(class="btn_answer_this_comment") Responder
+
+								div
+									div(class="box_form_answers_about_this_comment", data-allaswers="#{comment.comment_id}")
+										each answer in comment.answers
+											div(data-answer="#{answer.comment_id}", class="answer_id")
+												div
+													p #{answer.article_id}
+													strong ###{comment.comment_id}.#{answer.answer_id}
+													img(src='#{answer.user_photo}', width='20')
+													a(href='/plataforma/muro/#{answer.user_id}') #{answer.user_name}
+													p @#{answer.user_nick}
+													p hace #{answer.fecha_creacion}
+												div
+													p #{answer.answer}
+												div(class="asnwer__item__counters")
+													div
+														p(class="count_answers_likes_2")
+															p Me gustas #[span(data-answercounterlikes="#{answer.answer_id}") #{answer.counter_likes}]
+															p #{answer.status_color}
+												div(class="asnwer__item__actions")
+													div
+														button(class="btn_like_this_asnwer2", style='color:#{answer.status_color};', data-answerlike="#{answer.answer_id}", data-commentliked="#{answer.comment_id}") Me gusta 
+													div
+														button(class="btn_answer_this_asnwer2", data-nameaswer="#{answer.user_name}", data-idanswer="#{answer.comment_id}")  Responder
+
+										//-div(class="box_answers_about_this_comment", data-allaswers="#{comment.comment_id}")
+									
+									form(id="form_comment_item_comentar")
+										input(class="txt_answer_to_comment_send", type="text", placeholder="Responde este comentario", data-txtanswer="#{comment.comment_id}")
+										button(class="btn_answer_to_comment_send", data-parent="#{comment.comment_id}") Responder
+
+					div(class="box_comments_article")
+				br
+				br
+
+				form(id="form_item_comentar")
+					input(class="txt_comment_send", type="text", placeholder="Ingresa un comentario")
+					button(class="btn_comment_send") Comentar
+				br
+				br
+
+script(type="text/javascript", src="https://cdn.socket.io/socket.io-1.2.0.js")
+script(type="text/javascript", src="../../js/socket.io-stream.js")
+script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.1.js")
+script(type="text/javascript", src="../../js/social_socket_io/comunidad_published/index.js")
+
+

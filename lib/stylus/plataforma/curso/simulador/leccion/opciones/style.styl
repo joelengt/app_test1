@@ -1,0 +1,436 @@
+labelSimulator()
+	text-align center
+	display block
+	cursor pointer
+	color #999
+	position relative
+	padding .5em
+	font-size 1em
+	border-radius 5px
+	border 2px solid #eee
+	transition all 0.3s ease
+	.buttonRadio
+		transition all 0.3s ease
+		display block
+		position absolute
+		left 20px
+		bottom 10px
+		width 20px
+		height 20px
+		border 3px solid #eee
+		margin-right 1em
+		background-color white
+		border-radius 50%
+		padding 2px
+		&__in
+			height 10px
+			width 10px
+			border-radius 50%
+			background-color white
+	&:hover
+		border 2px solid #1caff6
+		color #1caff6
+		.buttonRadio
+			border 3px solid #1caff6
+			
+	&:before
+		content ""
+		display block
+		width 200px
+		height 200px
+		padding .5em
+		margin 0 auto .5em auto
+		background-size cover
+
+inputSimulator()
+	input[type="radio"]
+		display none
+	input[type="radio"]:checked
+		/*&+label:before
+			display none*/
+		&+label
+			//padding 5px 15px
+			background #1caff6
+			border-radius 5px
+			border 2px solid #1caff6
+			color white
+			/*&:before
+				display none*/
+			.buttonRadio
+				transition all 0.3s ease
+				position absolute
+				left 20px
+				bottom 10px
+				width 20px
+				height 20px
+				border 2px solid white
+				margin-right 1em
+				background-color #1caff6
+				border-radius 50%
+				padding 3px
+				&__in
+					height 10px
+					width 10px
+					border-radius 50%
+					background-color white
+
+.Skills
+	//padding-top 160px
+	Container(180px)
+	&__container
+		//padding 2em 1em 1em
+		Box(10px, transparent, transparent, 2em, 2em)
+		max-width 950px
+		&Box
+			box-shadow 1px 2px 5px rgba(0,0,0,.2)
+			border-radius 25px 25px 4px 4px
+			//max-width 800px
+			margin 0 auto
+			//padding .5em		
+			background-color white
+			&--header
+				padding-top 1em
+				width 100%
+				.Header__box
+					position relative
+					width 90%
+					margin 0 auto
+					height 50px
+					/*.Icon
+						top 0
+						left 3%
+						top 10px
+						position absolute
+						&__box
+							span
+								font-size 20px*/
+					.Barra
+						position absolute
+						width 80%
+						//left 10%
+						right 42px
+						top 10px
+						border-radius 100px 0 0 100px
+						height 10px
+						border 1px solid Azul_Ascent
+						background-color white
+						z-index 9
+						&__relleno
+							transition .5s
+							background-color Azul_Ascent
+							// background-image linear-gradient(left, #00d9b2, #00a2c4)
+							height 10px
+							margin -1px 0 0 -1px
+							border-radius 100px 0 0 100px
+							position relative
+							&--triangle
+								border-right 10px solid transparent
+								border-bottom 10px solid Azul_Ascent
+								font-size 0
+								height 0
+								width 0
+								position absolute
+								right -10px
+					.Circle
+						top -7px
+						right 4px
+						position absolute
+						width 44px
+						height 44px
+						border-radius 50%
+						border 1px solid Azul_Ascent
+						z-index 8
+					.CircleBackground
+						transition .5s
+						position absolute
+						z-index 10
+						top -6px
+						right 5px
+						width 42px
+						height 42px
+						border-radius 50%
+						background-color white
+						//border 1px solid #969696
+			&--body
+				padding-top 1em
+				width 90%
+				margin 0 auto
+				.Options
+					&__title
+						margin-bottom 1em
+						h3
+							font-size 20px
+							color gris_D
+							font-weight 300
+					&__item
+						padding .5em
+						list-style none
+						.answer
+							label
+								//labelSimulator()
+								font-weight 300
+								cursor pointer
+								color gris_C
+							//inputSimulator()
+							input
+								cursor pointer
+			&--footer
+				.Default
+					width 100%
+					border-top 2px solid #f2f8f9
+					display flex
+					justify-content flex-end
+					padding 1em
+					&__button
+						width 150px
+						border 1px solid #B5B5B5
+						border-radius 100px
+						background-color #B5B5B5
+						a
+							padding .5em
+							text-decoration none
+							color white
+							text-align center
+							text-transform uppercase
+							display block
+							cursor pointer
+							border-radius 100px
+				.Just
+					border-radius 0  0 5px 5px
+					width 100%
+					border-top 2px solid verde_B
+					background-color verde_B
+					padding 1em
+					&__left
+						display flex
+						align-items center
+						&--ok
+							div
+								// width 50px
+								// height 50px
+								// border-radius 50%
+								// background-color white
+								// color  verde_B
+								// display flex
+								// justify-content space-around
+								// align-items center
+								span
+									font-size 40px
+									color white
+						&--text
+							p
+								color white
+								margin 0
+								font-size 20px
+								margin-left .5em
+					&__right
+						display flex
+						align-items center
+						justify-content center
+						margin-top 1em
+						&--button
+							width 150px
+							border 1px solid white
+							border-radius 100px
+							//background-color red
+							a
+								padding .5em
+								text-decoration none
+								color white
+								text-transform uppercase
+								text-align center
+								display block
+								cursor pointer
+								//border-radius 100px
+				.Wrong
+					border-radius 0  0 5px 5px
+					width 100%
+					border-top 2px solid naranja_A
+					background-color naranja_A
+					//display flex
+					//justify-content space-between
+					padding 1em
+					&__left
+						display flex
+						//justify-content space-around
+						//align-items center
+						&--ok
+							display flex
+							align-items center
+							div
+								// width 50px
+								// height 50px
+								// border-radius 50%
+								// background-color white
+								// display flex
+								// justify-content space-around
+								// align-items center
+								span
+									color  white
+									font-size 40px
+						&--text
+							.title
+								color white
+								margin 0
+								font-size 20px
+								margin-left .5em
+							.answer
+								//text-transform 	capitalize
+								color white
+								margin 0
+								font-size 17px
+								margin-left .5em							
+							.report
+								margin-left .5em							
+								margin-top .3em
+								cursor pointer
+								a
+									color gris_C
+									text-decoration none
+									background-color blanco_B
+									border-radius 100px
+									padding 2px 1em
+									font-size 14px
+					&__right
+						//display flex
+						//align-items center
+						&--button
+							display flex
+							flex-direction column
+							align-items center
+							margin-top 1em
+							.next
+								width 150px
+								border 1px solid white
+								border-radius 100px
+								//background-color red
+								a
+									padding .5em
+									text-decoration none
+									color white
+									text-align center
+									display block
+									cursor pointer
+			.lectionComplet
+				height 370px
+				// background-image linear-gradient(to right, #ffbd1e, #ff5191)
+				&__container
+					padding 1em
+					text-align center
+					&--title
+						color gris_E
+						padding 1em 0
+					&--text
+						color gris_D
+						p
+							padding 1em 0
+					&--button
+						margin 1em auto
+						width 200px
+						padding .5em 0
+						border-radius 100px
+						background-color Verde_Ascent
+						a
+							display block
+							color blanco_A
+							text-decoration none
+							cursor pointer
+
+.ModalReport
+	position absolute
+	z-index 85
+	background-color rgba(177, 177, 177, 0.29)
+	top 0
+	bottom 0
+	right 0
+	left 0
+	display flex
+	justify-content center
+	align-items center	
+	&__box
+		width 90%
+		max-width 400px
+		padding 1.5em
+		border-radius 5px
+		background-color white
+		box-shadow 0px 0px 5px #929292
+		&--title
+			h3
+				color #292929
+		&--inputText
+			padding 1em 0
+		&--buttons
+			display flex
+			justify-content space-between
+			.cancel, .send
+				div
+					width 100px
+					padding .3em
+					border-radius 5px
+					text-align center
+			.cancel
+				div
+					border 2px solid naranja_A
+					color naranja_A
+					transition .3s
+					cursor pointer
+					&:hover
+						box-shadow 0 0 8px naranja_A
+						/*border 2px solid naranja_A
+						color white
+						background-color naranja_A*/
+			.send
+				div
+					border 2px solid verde_B
+					color verde_B
+					transition .3s
+					cursor pointer
+					&:hover
+						box-shadow 0 0 8px verde_B
+						/*border 2px solid #00d9b2
+						color white
+						background-color #00d9b2*/
+
+/*.lectionComplet
+	padding 1em*/
+
+
+@media screen and (min-width 550px)
+	.Skills
+		Container(137px)
+		&__container
+			Box(10px, transparent, transparent, 2em, 2em)
+			&Box
+				&--footer
+					.Just
+						display flex
+						justify-content space-between
+						&__right
+							margin 0
+					.Wrong
+						display flex
+						justify-content space-between
+						//&__left
+						align-items center
+						&__right
+							&--button
+								display block
+								margin 0
+								.report
+									text-align right 
+						
+						
+@media screen and (min-width 766px)
+	.Skills
+		padding-top 117px
+			Container(137px)
+		&__container
+			Box(10px, transparent, transparent, 2em, 2em)
+			&Box
+				&--header
+					padding-top 2em
+					.Header__box
+						max-width 900px
+						margin 0 auto
+						.Barra
+							width 90%

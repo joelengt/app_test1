@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma Perfil
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			div
+				a(href="/logout") Salir
+			div
+				p Tu eres User #{user.access}
+
+	section(class="User-Perfil")
+		span(class="User-Perfil__msg") #{msg}
+		div(class="User-Perfil__box")
+			div(class="User-Perfil__data")
+				h2 Editar Perfil del Usuario:
+				form(action="/plataforma/admin/usuarios/update/#{usuario._id}?_method=put", method="post", enctype="multipart/form-data")
+					div
+						img(src="#{usuario.photo.path}", width="200")
+						label Cambiar imagen
+						input(type="file", name="avatar_perfil")
+					div
+						label Cambiar Nombre (*)
+						input(type="text", value="#{usuario.first_name}", name="first_name", autocomplete="off", required)
+					div
+						label Cambiar Apellidos (*)
+						input(type="text", value="#{usuario.last_name}", name="last_name", autocomplete="off", required)
+					div
+						label Cambiar Usuario (*)
+						input(type="text", value="#{usuario.nickname}", name="nickname",  autocomplete="off", required)
+					div
+						label Cambiar Email
+						input(type="email", value="#{usuario.email}", name="email",  autocomplete="off")
+					div
+						label Cambiar Genero
+						input(type="text", value="#{usuario.genero}", name="genero",  autocomplete="off")
+					div
+						label Cambiar Edad
+						input(type="number", value="#{usuario.age}", name="age",  autocomplete="off")
+					div
+						label Cambiar Lugar
+						input(type="text", value="#{usuario.lugar}", name="lugar", autocomplete="off")
+					div
+						label Cambiar Categoria (*)
+						input(type="text", value="#{usuario.categoria}", name="categoria", autocomplete="off", required)
+					div
+						label Cambiar Rango (*)
+						input(type="text", value="#{usuario.grado}", name="grado", autocomplete="off", required)
+
+					div
+						p Cambiar Acceso / Permiso: #{usuario.access}
+						div
+							input(type="radio", name="new_access", value="free")
+							label Free
+
+						div
+							input(type="radio", name="new_access", value="acceso_libros")
+							label Acceso Libros
+
+						div
+							input(type="radio", name="new_access", value="acceso_audiolibros")
+							label Acceso Audiolibros
+
+						div
+							input(type="radio", name="new_access", value="acceso_simulador")
+							label Acceso Simulador
+
+						div
+							input(type="radio", name="new_access", value="premium")
+							label Premium
+
+						div
+							input(type="radio", name="new_access", value="admin")
+							label Admin
+
+						div
+							p Confirmar contraseña de permiso ascent.pe, para cambiar acceso del usuario
+							input(type="password", name="confirmar_change", placeholder="Confirma contraseña de permiso ascent.pe")
+
+					div
+						p ¿Quieres recibir email de notificaciones?
+						div
+							label Si
+							input(type="radio", name="news", value="si") 
+							label No
+							input(type="radio", name="news", value="no")
+					br
+					br
+					div
+						h2 Social
+						div
+							label Facebook
+							input(type="url", value="#{usuario.social_facebook}", name="url_facebook", autocomplete="off")
+						div
+							label Twitter
+							input(type="url", value="#{usuario.social_twitter}", name="url_twitter", autocomplete="off")
+
+					button Guardar Cambios
+					p (*) Estos campos son Obligatorios
+					
+					div
+						h2 Subir Plan
+						p Plan: #{usuario.permiso}
+						a(href="#")	Adquiere Premiun

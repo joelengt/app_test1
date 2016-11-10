@@ -1,0 +1,72 @@
+<header class="MainHeaderForm">
+  <div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<section class="MyFriends">
+	<div class="MyFriends__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="MyFriends__container animated" ng-show="user">
+		<section class="MyFriends__Box">
+		  <article class="MyFriends__Box--portrate">
+		    <div class="Portrate">
+		      <div class="Portrate__avatar" style="background-image:url('{{friend.photo.path}}')"></div>
+		      <div class="Portrate__info">
+		        <div class="Portrate__info--name">
+		          <h2>{{friend.name}}</h2>
+		        </div>
+		        <div class="Portrate__info--grade">
+		          <p>{{friend.grado}}</p>
+		        </div>
+		      </div>
+		    </div>
+		  </article>
+		  <nav class="MyFriends__Box--navigate">
+		  	<ul class="list">
+		  		<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+		  		<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+		  		<li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+		  		<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+		  		<!--<li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li>-->
+		  	</ul>
+		  </nav>
+		  <nav class="MyFriends__Box--navigate">
+		  	<ul class="list">
+		  		<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+		  	</ul>
+		  </nav>
+		  <nav class="MyFriends__Box--navMobile">
+		  	<ul class="list">
+		  		<li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+		  		<li><a href="#/perfil/{{user._id}}"><span class="icon-ascent-muro"></span></a></li>
+		  		<li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+		  		<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+		  		<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+		  		<!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+		  	</ul>
+		  </nav>
+		</section>
+		<div class="MyFriends__informationContainer">
+			<div class="MyFriends__informationContainer--box">
+				<div class="Friends" ng-if="friends.length > 0">
+					<div class="Friends__content">
+						<article class="Friend" ng-repeat="friend in friends">
+							<div class="Friend__content">
+								<div class="Friend__content--user">
+									<div class="AvatarFriend">
+										<div class="AvatarFriend__image" style="background-image:url('{{friend.photo.path}}')"></div>
+									</div>
+									<div class="NameFriend">
+										<h4 class="NameFriend__text"><a href="#/perfil/about/{{friend._id}}">{{friend.name}}</a></h4>
+									</div>
+								</div>
+								<div class="Friend__content--addFriend">
+									<div class="AddFriend"><p class="AddFriend__plus">+</p></div>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,47 @@
+<header class="PlataformHeader">
+	<div ng-include=" './templates/plataforma/menu.html' "></div>
+	<div class="PlataformSubHeader">
+		<nav class="PlataformSubHeader__box">
+			<ul  class="PlataformSubHeader__box--list">
+				<li class="links"><a class="links__tab Active">TODOS</a></li>
+				<li class="links"><a class="links__tab" href="#/plataforma/cursos/mis-cursos">MIS CURSOS</a></li>
+				<li class="links"><a class="links__tab" href="#/plataforma/cursos/completados">COMPLETADOS</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<div>
+	<div class="ContentPlataform">
+		<div class="ContentPlataform__box ContentLoading" ng-show="loading">
+			<div class="loader">Loading...</div>
+		</div>
+		<div class="ContentPlataform__box animated" ng-show="courses.length > 0">
+			<article ng-repeat="course in courses"  class="ContentPlataform__box--course">
+				<div class="Course" ng-cloak>
+					<div class="Course__cover" style="background-color: {{course.colour}}">
+						<div class="Course__cover--start">
+							<div style="background-image: url('./images/starLineal.svg');width: 85px; height: 17px;"></div>
+							<div style="background-image: url('./images/star.svg');width: {{course.promedioRate*17}}px; height: 17px;"></div>
+						</div>
+						<figure>
+							<img src="{{course.icon.path}}" width="100"/>
+						</figure>
+					</div>
+					<div class="Course__content">
+						<div class="Course__content--title">
+							<h3><a href="#/plataforma/cursos/detail/{{course._id}}">{{course.title}}</a></h3>
+						</div>
+						<div class="Course__content--text">
+						  <p>{{course.description}}</p>
+						</div>
+						<div class="Course__content--link">
+							<div>
+								<a href="#/plataforma/cursos/detail/{{course._id}}">Ingresar</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>

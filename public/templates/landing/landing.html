@@ -1,0 +1,220 @@
+<div class="Landing">
+	<div class="Landing__container">
+		<div class="LandingPrimary">
+			<div class="LandingPrimary__left">
+				<div class="LandingPrimary__left--image"></div>
+			</div>
+			<div class="LandingPrimary__center">
+				<div class="LandingPrimary__center--box">
+					<figure class="LandingLogo">
+						<img class="LandingLogo__image" src="../images/logo_ascent.svg" alt="">
+					</figure>
+					<div class="LandingText">
+						<p class="LandingText__description">Nosotros te brindamos las <strong>herramientas</strong> más adecuadas <strong>para tu ascenso</strong></p>
+					</div>
+					<div class="LandingBtn">
+						<div class="LandingBtn__action">
+							<a ng-click="ShowLogin()">Empieza Ahora</a>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="LandingPrimary__right">
+				<div class="LandingPrimary__right--image"></div>
+			</div>
+		</div>
+		<div class="LandingSecondary">
+			<div class="LandingSecondary__right">
+				<div class="LandingSecondary__right--image"  id="slides">
+					<div class="cover_window1" id="cover_window1">
+						<div class="cover_window1__content">
+							<figure class="cover_window1__content--image">
+								<img src="../images/comunidad_gray.svg" alt="">
+							</figure>
+							<div class="cover_window1__content--title">
+								<h4>Comunidad</h4>
+							</div>
+							<div class="cover_window1__content--description">
+								<p>En Ascent aprender con tus amigos. Haz preguntas y la comunidad te responde. Debate con otros usuarios y chatea con tus amigos mas cercanos.</p>
+							</div>
+							<div class="cover_window1__content--icons">
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-ascent-chat"></span>
+									<p class="Icon__content--text">Chat</p>
+								</div>
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-bookmark"></span>
+									<p class="Icon__content--text">Preguntas y Debates</p>
+								</div>
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-ascent-amigos"></span>
+									<p class="Icon__content--text">Amigos</p>
+								</div>
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-ascent-perfil"></span>
+									<p class="Icon__content--text">Perfil y Actividades</p>
+								</div>								
+							</div>
+						</div>
+					</div>
+					<div class="cover_window2" id="cover_window2">
+						<div class="cover_window2__content">
+							<figure class="cover_window2__content--image">
+								<img src="../images/audiolibros_gray.svg" alt="">
+							</figure>
+							<div class="cover_window2__content--title">
+								<h4>Audiolibros</h4>
+							</div>
+							<div class="cover_window2__content--description">
+								<p>En Ascent sabemos a veces que no t da tiempo para estudiar. Por eso nuestros cursos también  están disponibles en formato de audioLibros para que puedeas estudiar en cualquier momento</p>
+							</div>
+							<div class="cover_window2__content--icons">
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-ascent-playlist"></span>
+									<p class="Icon__content--text">Playlist</p>
+								</div>
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-ascent-play"></span>
+									<p class="Icon__content--text">Reproductor</p>
+								</div>								
+							</div>
+						</div>
+					</div>
+					<div class="cover_window3" id="cover_window3">
+						<div class="cover_window3__content">
+							<figure class="cover_window3__content--image">
+								<img src="../images/simulador_gray.svg" alt="">
+							</figure>
+							<div class="cover_window3__content--title">
+								<h4>Simulador</h4>
+							</div>
+							<div class="cover_window3__content--description">
+								<p>En Ascent tenemos la más completa y atual compilación de pregunta que hará tu ascenso mucho más sencillo</p>
+							</div>
+							<div class="cover_window3__content--icons">
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-database-1"></span>
+									<p class="Icon__content--text">Base de datos más completa</p>
+								</div>
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-arrows-cw"></span>
+									<p class="Icon__content--text">Preguntas actualizadas</p>
+								</div>								
+							</div>
+						</div>
+					</div>
+					<div class="cover_window4" id="cover_window4">
+						<div class="cover_window4__content">
+							<figure class="cover_window4__content--image">
+								<img src="../images/herramientas_gray.svg" alt="">
+							</figure>
+							<div class="cover_window4__content--title">
+								<h4>Herramientas avanzadas de Estudio</h4>
+							</div>
+							<div class="cover_window4__content--description">
+								<p>En Ascent encontratrásherraminetas que te permitirán centrar tu atención en lo que es realmente importante. Así podrás recordarlo todo</p>
+							</div>
+							<div class="cover_window4__content--icons">
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-ascent-resaltado"></span>
+									<p class="Icon__content--text">Resaltado de texto</p>
+								</div>
+								<div class="Icon__content">
+									<span class="Icon__content--icon icon-ascent-escribir-nota"></span>
+									<p class="Icon__content--text">Anotaciones</p>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="LandingSecondary__left">
+				<div class="LandingSecondary__left--content">
+					<div class="SecondaryLeft_Text">
+						<h3>Todo para tu ascenso</h3>
+						<p>Aprende, interactúa, comparte</p>
+					</div>
+					<div class="SecondaryLeft_TypeOption">
+						<div class="SecondaryLeft_TypeOption__comunity custom-item" data-item="0" ng-click="Comunity()" id="Comunity">
+							<figure class="SecondaryLeft_TypeOption__comunity--image">
+								<img src="../images/comunidad_white.svg" alt="">
+							</figure>
+							<p class="SecondaryLeft_TypeOption__comunity--text">Comunidad</p>
+						</div>						
+						<div class="SecondaryLeft_TypeOption__soundBook custom-item" data-item="1" ng-click="AudioBook()" id="SoundBook">
+							<figure class="SecondaryLeft_TypeOption__soundBook--image">
+								<img src="../images/audiolibros_white.svg" alt="">
+							</figure>
+							<p  class="SecondaryLeft_TypeOption__soundBook--text">Audiolibro</p>
+						</div>
+						<div class="SecondaryLeft_TypeOption__simulator custom-item" data-item="2" ng-click="Simulator()" id="Simulator">
+							<figure class="SecondaryLeft_TypeOption__simulator--image">
+								<img src="../images/simulador_white.svg" alt="">
+							</figure>
+							<p class="SecondaryLeft_TypeOption__simulator--text">Simulador</p>
+						</div>						
+						<div class="SecondaryLeft_TypeOption__tools custom-item" data-item="3" ng-click="Tools()" id="Tools">
+							<figure class="SecondaryLeft_TypeOption__tools--image">
+								<img src="../images/herramientas_white.svg" alt="">
+							</figure>
+							<p class="SecondaryLeft_TypeOption__tools--text">Herramientas avanzadas de Estudio</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="LandingTertiary">
+			<div class="LandingTertiary__left">
+				<div class="LandingTertiary__left--image">
+					<figure class="TertiaryImage">
+						<img class="TertiaryImage__image" src="../images/mobiles.png" alt="">
+					</figure>
+				</div>
+			</div>
+			<div class="LandingTertiary__right">
+				<div class="LandingTertiary__right--content">
+					<div class="TertiaryContent_Text">
+						<h3>Descarga la app en tu celular</h3>
+						<p>Estudia donde quieras y cuando quieras</p>
+					</div>
+					<div class="TertiaryContent__imageApp">
+						<a href="">
+							<figure>
+								<img src="../images/appAndroid.png" alt="">
+							</figure>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="LandingFooter">
+			<div class="LandingFooter__left">
+				<ul class="LandingFooter__left--links">
+					<li><a href="">Acerca de</a></li>
+					<li><a href="">Contacto</a></li>
+					<li><a href="">Ayuda</a></li>
+					<li><a href="">Políticas de Privacidad</a></li>
+					<li><a href="">Términos y Condiciones</a></li>
+					<li><a href="">Empieza</a></li>
+				</ul>
+				<div class="LandingFooter__left--text">
+					<p>©2016 Ascent. Todos los Derechos Reservados.</p>
+				</div>
+			</div>
+			<div class="LandingFooter__right">
+				<ul class="LandingFooter__right--icons">
+					<li><a href=""><span class="icon-facebook-rect"></span></a></li>
+					<li><a href=""><span class="icon-twitter-bird"></span></a></li>
+					<li><a href=""><span class="icon-instagram-2"></span></a></li>
+					<li><a href=""><span class="icon-youtube-play"></span></a></li>
+				</ul>
+				<div class="LandingFooter__right--text">
+					<p>Desarrollador por</p>
+					<figure>
+						<img src="../images/logoCoder.svg" alt="">
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

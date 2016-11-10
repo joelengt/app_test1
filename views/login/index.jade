@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, minimum-scale=1, maximum-scale=1')
+		title Asent: Login
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+		link(rel='stylesheet', href='./css/style.css')
+	body
+		.container
+			header.row.Header
+				.col-xs-12.Header__box
+					figure.Header__box--avatar
+						img(src='./images/avatar.png')
+					p.Header__box--subtitle ¡El primer paso para tu ascenso!
+			.row.Login
+				.col-xs-12.Login__text
+					p Ingresar con: 
+				.col-xs-12.Login__button
+					a(href='auth/facebook') FACEBOOK
+					//- a(href="auth/twitter") Twitter
+				p #{msg}

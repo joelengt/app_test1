@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+		h2 Textos
+		article
+
+				h3 Editar Notas en el texto
+				article(style="border-top: 1px solid red;")
+						p user_id: #{nota.user_id}
+						p tipo de categoria: #{nota.type_categority}
+						p topic_id: #{nota.topic_id}
+						p texto marcado : #{nota.texto_marcado}
+						strong color: #{nota.color}  
+						br
+						strong tiene comentario: #{nota.have_comment}
+						p fecha creacion: #{nota.fecha_creacion}
+						if(nota.data_comment)
+							div
+								form(action="/plataforma/notas/curso/#{curso._id}/notas-textos-comentario/#{nota.data_comment._id}?_method=put", method="post")
+									p nota de marcado id: #{nota.data_comment.nota_texto_id}
+									textarea(name="content_comment") #{nota.data_comment.content_comment}
+								
+									button Guardar
+
+

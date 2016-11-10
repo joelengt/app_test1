@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Plataforma
+body
+	header
+		h2 Logo Ascent
+		//-div
+			img(src="#{user.photo.path}", width="50")
+			//- p #{user.email}
+			p @ #{user.nickname}	
+			div
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+				
+			div
+				a(href="/plataforma/admin/") Go Admin
+			div
+				a(href="/logout") Salir
+	nav
+		ul
+			//-li
+				a(href="/plataforma/perfil/#{user._id}") Perfil
+			li
+				a(href="/plataforma/") Cursos 
+				a(href="/plataforma/diplomados") |  Diplomados
+			li
+				a(href="/plataforma/comunidad") Comunidad
+
+	section
+		p Vista del Diplomados
+		article
+			div
+				img(src="#{diplomado.cover.path}", width="260")
+			div
+				a(href="/plataforma/diplomados/#{diplomado._id}")
+					img(src="#{diplomado.icon.path}", width="60")
+			h3 
+				a(href="/plataforma/diplomados/#{diplomado._id}") #{diplomado.title}
+			div
+				p Slogan: #{diplomado.slogan}
+				p Promedio Rate: #{diplomado.promedioRate}
+				p Tags: #{diplomado.tags}
+				p Descripción: #{diplomado.description}
+				p Id base de datos: #{diplomado._id}
+				p Fecha de creación: #{diplomado.createdAt}
+
+			div
+				div
+					div
+						form(action="/plataforma/admin/diplomados/delete/#{diplomado._id}", method="post")
+							button Eliminar
+					div
+						form(action="/plataforma/admin/diplomados/update/#{diplomado._id}", method="post")
+							button Actualizar
+
+				divs
+					a(href="/plataforma/diplomados/#{diplomado._id}") Ir al Curso
+

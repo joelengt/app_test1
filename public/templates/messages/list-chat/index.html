@@ -1,0 +1,84 @@
+<header class="MainHeaderForm">
+  <div ng-include=" './templates/plataforma/perfil/menu.html' "></div>
+</header>
+<section class="ChatListContent">
+	<div class="ChatListContent__box ContentLoading" ng-show="loading">
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="ChatListContent__container animated" ng-show="friends">
+		<section class="ChatListContent__Box">
+		  <article class="ChatListContent__Box--portrate">
+		    <div class="Portrate">
+		      <div class="Portrate__avatar"  ng-cloak style="background-image:url('{{miUsuario.photo.path}}')"></div>
+		      <div class="Portrate__info">
+		        <div class="Portrate__info--name">
+		          <h2>{{miUsuario.name}}</h2>
+		        </div>
+		        <div class="Portrate__info--grade">
+		          <p>{{miUsuario.grado}}</p>
+		        </div>
+		      </div>
+		    </div>
+		  </article>
+		  <nav class="ChatListContent__Box--navigate">
+		    <ul class="list">
+		      <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span>Información</a></li>
+					<li><a href="#/perfil/{{miUsuario._id}}"><span class="icon-ascent-muro"></span>Biografía</a></li>
+					<li ng-if="userConnection === userVisitor" ><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span>Amigos</a></li>
+					<!-- <li ng-if="userConnection !== userVisitor" ><a href="#/perfil/friends/source"><span class="icon-ascent-amigos"></span>Amigos</a></li> -->
+		      <!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+		    </ul>
+		  </nav>
+		  <nav class="ChatListContent__Box--navigate">
+		    <ul class="list">
+		      <li><a href="#/messages/{{miUsuario._id}}"><span class="icon-ascent-chat"></span>Mensaje</a></li>
+		    </ul>
+		  </nav>
+		  <nav class="ChatListContent__Box--navMobile">
+		    <ul class="list">
+		      <li><a href="#/perfil/about/{{user._id}}"><span class="icon-ascent-informacion"></span></a></li>
+					<li><a href="#/perfil/{{miUsuario._id}}"><span class="icon-ascent-muro"></span></a></li>
+					<li ng-if="userConnection === userVisitor"><a href="#/perfil/my-friends/source"><span class="icon-ascent-amigos"></span></a></li>
+					<li ng-if="userConnection !== userVisitor"><a href="#/perfil/friends/{{user._id}}"><span class="icon-ascent-amigos"></span></a></li>
+					<li><a href="#/messages/{{user._id}}"><span class="icon-ascent-chat"></span></a></li>
+		      <!-- <li><a href="#/perfil/friends/source">Amigos</a></li> -->
+		      <!-- <li><a href="#/perfil/friends/find-friends">Encontrar Amigos</a></li> -->
+		    </ul>
+		  </nav>
+		</section>
+		<div class="ChatListContent__informationContainer">
+			<div class="ChatListContent__informationContainer--box">
+				<div class="FindFriendChat">
+					<div class="FindFriendChat__content">
+						<div class="FindFriendChat__content--text">
+							<h4>Lista de amigos para iniciar una conversación</h4>
+						</div>
+						<div class="FindFriendChat__content--btnFacebook">
+							<a href="#/perfil/my-friends/find-friends">Buscar amigos</a>
+						</div>
+					</div>
+				</div>
+				<div class="ItemFriendContent" ng-if="friends.length > 0">
+					<div class="ItemFriendContent__content">
+						<article class="ItemFriend" ng-repeat="friend in friends">
+							<div class="ItemFriend__content">
+								<div class="ItemFriend__content--user">
+									<div class="AvatarFriend">
+										<div class="AvatarFriend__image" style="background-image:url('{{friend.photo.path}}')"></div>
+									</div>
+									<div class="NameFriend">
+										<h4 class="NameFriend__text"><a href="#/perfil/about/{{friend._id}}">{{friend.name}}</a></h4>
+									</div>
+								</div>
+								<form ng-submit="initialChat(friend._id)" class="ItemFriend__content--addFriend">
+									<div class="InitChat"><button type="submit" class="InitChat__plus">Iniciar conversación</button></div>
+								</form>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

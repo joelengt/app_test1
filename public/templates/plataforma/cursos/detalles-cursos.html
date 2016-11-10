@@ -1,0 +1,167 @@
+<header class="PlataformHeader">
+  <div ng-include=" 'templates/plataforma/menu-curso.html' "></div>
+  <div class="PlataformSubHeader">
+    <nav class="PlataformSubHeader__box">
+      <ul  class="PlataformSubHeader__box--list">
+        <li class="links"><a class="links__tab Active" >DESCRIPCIÓN</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/text/0">TEXTO</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/simulador">SIMULADOR</a></li>
+        <li class="links"><a class="links__tab" href="#/plataforma/cursos/{{curso._id}}/audio-libro">AUDIOLIBRO</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <div class="ContentCourse">
+      <div class="ContentCourse__box ContentLoading" ng-show="loading">
+        <div class="loader">Loading...</div>
+      </div>
+      <div class="ContentCourse__box animated" ng-show="curso">
+        <article class="ContentCourse__box--item">
+          <div class="Course">
+            <div class="Course__cover" style="background-color:{{curso.colour}}">      
+              <figure>
+                <img src="{{curso.icon.path}}" width="100"/>
+              </figure>
+            </div>
+            <div class="Course__content">
+              <div class="Course__content--left">
+                <div class="intro">
+                  <h3 class="intro__head">CURSO</h3>
+                  <h2 class="intro__title" id="titleCourse">{{curso.title}}</h2>
+                  <p class="intro__slogan">{{curso.slogan}}</p>
+                </div>
+                <div class="about">
+                  <h3 class="about__head">Acerca de este curso</h3>
+                  <p class="about__description">{{curso.description}}</p>
+                </div>
+                <div class="methodology">
+                  <div class="methodology__contentText">
+                    <h3 class="methodology__contentText--head">Metodología</h3>
+                    <p class="methodology__contentText--text">Este curso consta de: </p>
+                  </div>
+                  <div class="methodology__lection">
+                    <div class="methodology__lection--box">
+                      <p><span>{{curso.materiales.simulador.info.lecciones}}</span> Lecciones</p>
+                    </div>
+                    <div class="methodology__lection--box">
+                      <p><span>{{curso.materiales.simulador.info.preguntas}}</span> Preguntas</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="Course__content--right">
+                <div class="Right__box">
+                  <div class="head">
+                    <div class="head__title">
+                      <p>RESEÑAS</p>
+                    </div>
+                    <div class="head__content">
+                      <div class="head__rate">
+                        <h2>{{resenias.promedio_rate}}</h2>
+                      </div>
+                      <div class="head__text">
+                        <div class="head__text--start" id="start_rate">
+                          <span class="icon-ascent-estrella-seleccionada start"></span>
+                          <span class="icon-ascent-estrella-seleccionada start"></span>
+                          <span class="icon-ascent-estrella-seleccionada start"></span>
+                          <span class="icon-ascent-estrella-seleccionada start"></span>
+                          <span class="icon-ascent-estrella-seleccionada start"></span>
+                        </div>
+                        <p class="head__text--content">{{numberResenias}} Comentario(s)</p>
+                      </div>
+                    </div>
+                    <div class="Add__comment" id="addComment">
+                      <span>+</span>
+                    </div>
+                  </div>
+                  <div class="Form_ModalContainer" id="ModalForm">
+                    <div class="Form">
+                      <div class="Form__closeModal"  id="closeModal"><span class="icon-ascent-cerrar"></span></div>
+                      <h3 class="Form__title">Agregar nueva reseña</h3>
+                      <form id="Form_create" ng-submit="comments()" class="Form__content">
+                        <strong class="Form__content--msg" id="msg_alert_box"></strong>
+                        <div class="Form__content--data">
+                          <input id="topic_id" value="{{curso._id}}"/>
+                          <input id="topic_title" value="{{curso.title}}"/>
+                          <input id="user_full_name" value="{{usuario.name}}"/>
+                          <input id="user_avatar" value="{{usuario.photo.path}}"/>
+                        </div>
+                        <div class="Form__content--item">
+                          <p class="header">¿Que tanto te gusto el curso?</p>
+                          <div class="inputStart">
+                            <div id="one" class="rateStart">
+                              <input type="radio" id="1" name="rate" value="1" class="rate"/>
+                              <label for="1"><div class="startRate"></div></label>
+                            </div>
+                            <div id="two" class="rateStart">
+                              <input type="radio" id="2" name="rate" value="2" class="rate"/>
+                              <label for="2"><div class="startRate"></div></label>
+                            </div>
+                            <div id="three" class="rateStart">
+                              <input type="radio" id="3" name="rate" value="3" class="rate" checked />
+                              <label for="3"><div class="startRate"></div></label>
+                            </div>
+                            <div id="four" class="rateStart">
+                              <input type="radio" id="4" name="rate" value="4" class="rate"/>
+                              <label for="4"><div class="startRate"></div></label>
+                            </div>
+                            <div id="five" class="rateStart">
+                              <input type="radio" id="5" name="rate" value="5" class="rate"/>
+                              <label for="5"><div class="startRate"></div></label>
+                            </div>
+                          </div>
+                          <div class="inputComment">
+                            <label>Deja tu comentario</label>
+                            <input class="form-control" type="text" placeholder="Comenta que tal te parecio el curso" id="comment"/>
+                          </div>
+                        </div>
+                        <div class="Form__content--footer">
+                          <button type="submit" id="btn_send">Enviar Reseña</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="items" id="totalResenias">
+                    <!-- <div class="Add__comment" id="addComment">
+                      <span>+</span>
+                    </div> -->
+                    <div class="items__Content" id="resenia_item">
+                      <article class="item" ng-repeat="resenia in reseniasLimited | limitTo: reseniaContent">
+                        <div class="item__head">
+                          <div class="item__head--left">
+                            <div class="Left" style="background-image:url('{{resenia.user_avatar}}')"></div>
+                            <div class="Right">
+                              <p><strong>{{resenia.user_full_name}}</strong></p>
+                              <div class="Right__star">
+                                <div style="background-image: url('../images/start.svg'); height:20px; width:{{resenia.rate*20}}px"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item__contentText">
+                          <div class="item__contentText--comment">{{resenia.comment}}</div>
+                          <div class="item__contentText--date">
+                            <div>
+                              <p>{{resenia.createdAt | date}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="items__more" id="more">
+                      <div  ng-click="more()" class="items__more--box">
+                        <span>+</span>
+                      </div>
+                    </div>
+                    <!--<div><span id="first" class="glyphicon glyphicon-record"></span><span id="two" class="glyphicon glyphicon-record"></span></div>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

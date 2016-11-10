@@ -1,0 +1,258 @@
+.EditPerfil
+	Container(70px)
+	&__container
+		min-height 450px
+		Box(0, transparent, transparent, 0, 2em)
+		width 100%
+		max-width 500px
+		margin 0 auto
+		padding 0
+	&__Box
+		&--portrate
+			.Portrate
+				display flex
+				align-items center
+				justify-content center
+				width 100%
+				flex-direction column
+				background-image linear-gradient(to bottom left, azul_C 49%, gris_A 51%)
+				//background-color #e6e6e6
+				height 250px
+				&__avatar
+					width 120px
+					height 120px
+					background-size cover
+					border 4px solid white
+					border-radius 3px
+					background-position center
+				&__info
+					text-align center
+					&--name
+						color gris_D
+					&--grade
+						color gris_D
+		&--navigate
+			display none
+		&--navMobile
+			background-color white
+			border-top 1px solid gris_B
+			.list
+				height 50px
+				list-style none
+				align-items center
+				display flex
+				flex-wrap wrap
+				margin 0
+				padding 0
+				li
+					width 25%
+					text-align center
+					a
+						span
+							font-size 1.3rem
+							color gris_C
+	&__informationContainer
+		background-color body
+		position relative
+		padding 5px
+		margin-bottom 1em
+		&--box
+			background-color white
+			padding 1em
+			border 1px solid
+			border-color #ebedf0
+			.Title
+				padding-bottom 10px
+				width 90%
+				h2
+					font-weight bold
+					text-transform uppercase
+					font-size 1.5em
+					color gris_D
+			.RedesSociales
+				padding-top 3em
+			.Data
+				width 90%
+				&__list
+					display flex
+					flex-wrap wrap
+					&--left
+						width 50%
+						padding-left 2em 
+						padding-right 10px
+						border-top 1px solid gris_B
+						p, label
+							padding 1em 0
+							color gris_D
+							white-space nowrap
+							overflow hidden
+							text-overflow ellipsis
+							margin 0
+							display inline-block
+							font-weight bold
+							width 100%
+						.imageUser
+							padding 12px 0
+					&--right
+						width 50%
+						border-top 1px solid gris_B
+						div, p, input
+							margin 1em 0
+							color gris_D
+							font-weight lighter
+							width 100%
+						.labelInput
+							cursor pointer
+							color gris_D
+							margin 0
+							padding 1em 0
+							.ButtonInput
+								margin 0
+								color gris_C
+								white-space nowrap
+								overflow hidden
+								text-overflow ellipsis
+								width 100%
+								max-width 190px
+								border 2px solid gris_D
+								border-radius 100px
+								padding .2em .7em
+						.inputAvatar
+							width 0.1px
+							height 0.1px
+							opacity 0
+							overflow hidden
+							position absolute
+							z-index -1
+						.btnNotification
+							display flex
+							flex-wrap wrap
+							align-items items
+							margin 0
+							&__box
+								margin 13px 0
+								display flex
+								flex-wrap wrap
+								width 80px
+								&--yes
+									width 50%
+									margin 0
+								&--not
+									width 50%
+									margin 0
+							&__yes, &__not
+								padding 3px
+								text-align center
+								display block
+								cursor pointer
+								color gris_C
+								background-color gris_A
+								font-weight normal
+								margin 0
+								font-size 1em
+								transition all 0s ease
+								&:hover
+									color verde_B									
+								&:before
+									content ""
+									display block
+									//width 200px
+									//height 200px
+							input[type="radio"]
+								display none
+							input[type="radio"]:checked
+								/*&+label:before
+									display none*/
+								&+label
+									//padding 5px 15px
+									background-color verde_B
+									color blanco_A
+									//border 2px solid verde_B
+									//margin-top -2px
+									/*&:before
+										display none*/
+						input[type="text"], input[type="email"], input[type="number"]
+							border 0
+							outline none
+							background-color white
+							color gris_D
+							font-weight lighter
+							white-space nowrap
+							overflow hidden
+							text-overflow ellipsis
+					&--btnSubmit
+						text-align center
+						border-top 1px solid gris_B
+						padding-top 1em
+						input
+							outline none
+							color blanco_A
+							background-color verde_B
+							padding .2em .7em
+							border-radius 100px
+							border 0
+
+@media screen and (min-width 767px)
+	.EditPerfil
+		&__container
+			Box(30px, transparent, transparent, 0, 2em)
+		&__Box
+			width 29%
+			position fixed
+			max-width 220px
+			&--portrate
+				.Portrate
+					margin-bottom 10px
+					border 1px solid
+					border-color gris_A
+					background-image none
+					background-color white
+					border-radius 10px
+					&__avatar
+						width 100%
+						border-radius 10px 10px 0 0
+						height 200px
+					&__info
+						text-align left
+						width 100%
+						padding .5em
+						border-top 1px solid gris_B
+						&--name
+							h2
+								font-size 18px
+						&--grade
+							p
+								font-size 15px
+								font-weight lighter
+			&--navMobile
+				display none
+			&--navigate
+				display block
+				background-color white
+				border 1px solid
+				border-color gris_A
+				padding 5px
+				border-radius 10px
+				margin-bottom 10px
+				.list
+					list-style none
+					margin 0
+					li
+						min-width 100px
+						padding 5px
+						a
+							text-decoration none
+							color gris_E
+							font-weight lighter
+							font-size 1rem
+							span
+								margin-right 10px
+		&__informationContainer
+			width 69%
+			padding-bottom 2em
+			padding 0 5px
+			float right
+			&--box
+				.editInformation
+					top 10px
+					right 10px

@@ -1,0 +1,34 @@
+<header class="plataform">
+	<div ng-include=" './templates/menu.html' "></div>
+	<div>
+		<div class="container">
+			<div class="row">
+				<nav class="col-xs-12 col-ms-6 col-ms-offset-3 col-md-4 col-md-offset-4">
+					<ul  class="nav nav-tabs">
+						<li role="presentation" class="active"><a>Todos</a></li>
+						<li role="presentation"><a href="#/plataforma/cursos/mis-cursos">Mis Cursos</a></li>
+						<li role="presentation"><a href="#/plataforma/cursos/completados">Completados</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container">
+	<div class="row">
+		<section class="courses_plataform">
+			<div>
+			  <article ng-repeat="course in courses"  class="com-xs-12 col-ms-6 col-md-4">
+			    <img src="./images/{{course.cover.path}}" width="60"/>
+			    <h3><a href="#/plataforma/cursos/detail/{{course._id}}">{{course.title}}</a></h3>
+			    <div>
+			      <p>Slogan: {{course.slogan}}</p>
+			      <p>Promedio Rate:{{course.promedioRate}}</p>
+			      <p>Tags: <span ng-repeat="tag in course.tags">{{tag}}</span></p>
+			      <p>Descripción: {{course.description}}</p>
+			    </div>
+			  </article>
+			</div>
+		</section>
+	</div>
+</div>
