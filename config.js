@@ -8,8 +8,8 @@ var config = {
 	//	secret: '7c9ed9f27ae311f680d4ca44326c0825'
 	//},
 	facebook:{
-	 	id: '1721434554779528',
-	 	secret: '55bece183c373430917a8828ef928bd4'
+	 	id: '894467093989200',
+	 	secret: '3dd34f64977ef4281934aea1e1917d6a'
 	},
 	admin:{
 		user : 'admin',

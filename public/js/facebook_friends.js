@@ -89,7 +89,7 @@ $.ajax({
 // App Id SDK Facebook
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1721434554779528',
+    appId      : '894467093989200',
     xfbml      : true,
     version    : 'v2.5'
   })

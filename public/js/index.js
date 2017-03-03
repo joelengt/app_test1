@@ -154,7 +154,7 @@ myApp.config(['$routeProvider'/*, '$locationProvider'*/, '$facebookProvider',fun
 		enabled: true,
 		requireBase: false,
 	});*/
-	$facebookProvider.setAppId('1721434554779528').setPermissions(['email','user_friends']).setVersion("v2.5");
+	$facebookProvider.setAppId('894467093989200').setPermissions(['email','user_friends']).setVersion("v2.5");
 }])
 .run(['$rootScope', '$window', function($rootScope, $window) {
 	// window.fbAsyncInit = function() {
