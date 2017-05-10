@@ -1,0 +1,24 @@
+Tareas
+
+---
+
+> Culqi
+
+- Coregir a pagar precio a dolares
+- colocar credenciales de tabi
+
+---
+
+buscar imagenes
+
+---
+
+> Filtrar los paquetes a seleccionar por
+	* limite de edad 75 a 85 en un aumento del 50% de la tarifa
+
+---
+
+chat plugin
+generador de descuento
+
+---

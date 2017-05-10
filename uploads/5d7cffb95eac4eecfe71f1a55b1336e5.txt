@@ -1,0 +1,96 @@
+cat .git/HEAD
+
+
+cat .git/refs/heads/master
+
+cat .git/refs/heads/test
+
+
+git log --oneline
+git log --oneline --graph --all
+
+// move branch esptific
+git log --oneline -3
+
+
+git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+// Make pretty alias
+cd ~
+vim .gitconfig
+
+like this
+---
+
+co = checkout
+ ci = commit
+ st = status
+ br = branch
+ hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+ type = cat-file -t
+ dump = cat-file -p
+
+--
+check commit
+
+git show HEAD
+
+
+git show commit_name
+git show dadwads7ad987a8fds7f8sdfsdf78sf
+
+
+
+// save temporal changes with try to change branch before to commits
+
+corregir commit 
+
+git commit --amend -m "your new message"
+
+// quitar archivo del stagin Are
+
+git checkout
+
+
+
+
+// comporar dos commit o ramas
+git diff master..test_branch
+
+git diff --color-words master..test_branch
+
+
+// Ver el padre de una rama de la cual se fusiono
+git branch --merged
+
+
+// delete  branch 
+git checkout test_branch
+git branch --delete test_branch
+git branch -d test_branch
+
+
+// Force to delete branch if is necesary
+git branch -D test_branch
+
+
+
+
+// Pretty commans to create to prrety git
+
+export PS1='$(__git_ps1 "%s") > '
+
+
+// Merge Comflicts
+
+
+whe i don't want work with this merging
+git merge --abort
+
+
+
+
+
+
+
+

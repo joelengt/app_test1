@@ -1,0 +1,79 @@
+** Try and learn new tools to workflow **
+
+> browserify
+Usar npm en frontend
+Transpiler con babels ECMAScript
+
+> Webpackage
+https://webpack.github.io/docs/tutorials/getting-started/
+> Constructor de modulo de un lado a otro para produccion
+
+* Probar obtimizadores de codigo, uglis, compress
+
+> yeoman.io
+http://yeoman.io/
+Inicializar rapidamente los proyectos con las cosas basicas de instalacion, test, y herramientas
+
+> gulp
+> brower
+
+------------------------------------------------
+
+Try >> 
+
+** reactjs **
+** php **
+** python **
+** ruby **
+** swift3  + xCode **
+** java + Android Studio **
+
+------------------------------------------------
+
+**  NodeJS **
+
+**  Testing y Debuging code **
+- Unit Testing TDD, BDD
+- Debugging process code
+- Lingting
+
+**  DB ** 
+- MongoDB
+- MySQL
+- PostgreSQL
+- Redis
+- Pasar de excel a SQL
+* Backups 
+* Restablecer backups
+* (Manual y automatico)
+
+** Seguridad Informatica **
+- Token y autentificacion en CROSS -> anti CSRF
+- "Evitar inyeccion SQL" -> sanitaze nodejs 
+- "Limpiar impresion, XSS" -> sanitaze html in nodejs (XSS)
+- contraseñas jws
+- "Evitar Span" -> capchas o bloqueo de usuario por intentos de envio por ip
+- NGINX
+
+**  Rendimiento y Escalabilidad balance de cargas **
+-  Balance de cargas con redis + sockets room by port)
+-  cluster
+
+** Deployment **
+FTP, Git ssh
+Digital Ocean
+AWS   (EC2, S3, RDS, DymaicDB)
+RethinkDB
+
+** Herramienta para ver el estado del servidor = new relic
+** Herramienta medir la capacidad del servidor y evaluar rendimiento
+
+- new relic
+- firebase
+- google analytic
+
+- Terminal de linux
+- Kali Linux
+- scraping
+
+** Arduino y Rashberry Pi **

@@ -27,7 +27,7 @@ function middleware (req, res, next) {
 var config = require('./config')
 
 //Conexión con Mongodb
-mongoose.connect(config.mongodb.local , function (err) {
+mongoose.connect(config.mongodb.mlab , function (err) {
 	if(err) {
 		return console.log('Error al connectar database: ' + err)
 	}

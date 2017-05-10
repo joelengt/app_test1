@@ -1,0 +1,30 @@
+
+
+
+--> CSRF   => Cross Web Request Forgery -> Suplantan una peticion HTTP, como GET y obtiene un llamado con los parametros del usuario
+* Se soluciona con seguridad token
+
+--> Bitbucket
+
+
+--> Patroñes de diseño, pruebas unitarias, DOM (Darle ojo a esos tres)
+	--> Aprender más de JS "CevicheJS".
+
+	--> Patrones de diseño
+		http://www.yeikos.com/2014/12/patrones-de-diseno-en-javascript.html
+		https://www.video2brain.com/mx/tutorial/patrones-de-diseno-en-javascript
+		https://addyosmani.com/resources/essentialjsdesignpatterns/book/
+
+
+--> Pruebas Unitarias 
+	-> Mocha + Chai
+	-> Jasmine
+
+--> Documentación
+
+---
+
+--> Frontend => Levantar Stack de front (stylus, jade, gulp, wabpack, ecmas script, bootstrap, fuentes etc)
+
+
+

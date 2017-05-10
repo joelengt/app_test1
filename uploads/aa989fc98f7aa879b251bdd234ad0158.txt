@@ -1,0 +1,40 @@
+
+
+Consejos
+http://www.elladodelmal.com/2013/08/como-ser-hacker-o-como-aprender-hacking.html
+http://www.elladodelmal.com/2014/09/unos-consejos-para-ti-que-vas-la.html
+http://www.elladodelmal.com/2015/02/consejos-malignos-para-la-etapa.html
+
+
+Blogs:
+- http://www.elladodelmal.com
+- http://www.seguridadapple.com
+- http://blog.elevenpaths.com
+- http://www.securitybydefault.com
+- http://blog.segu-info.com.ar
+- http://hackplayers.com
+- http://flu-project.com
+
+
+Libros
+- Pentesting con FOCA
+http://0xword.com/es/libros/59-pentesting-con-foca.html
+
+- Hacking con Buscadores
+http://0xword.com/es/libros/20-libro-hacking-buscadores-google-bing-sodan-robtex.html
+
+- Hacking Web: SQL Injection
+http://0xword.com/es/libros/25-libro-hacking-aplicaciones-web-sql-injection.html
+
+- Ataques en redes de datos IPv4&IPv6
+http://0xword.com/es/libros/26-libro-ataques-redes-datos-ipv4-ipv6.html
+
+- Libros para aprender
+http://www.elladodelmal.com/2015/01/0xword-abre-para-las-compras-de-ultima.html
+
+
+
+Cursos:
+- The Security Sentinel
+
+https://thesecuritysentinel.es/

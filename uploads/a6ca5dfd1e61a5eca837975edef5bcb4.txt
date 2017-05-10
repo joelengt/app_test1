@@ -1,0 +1,173 @@
+
+** Conceptos de Programación **
+
+> POO + SOLID
+> Patrones de Diseño
+> UNIT Testing
+
+------------------------------------------------
+
+>> Languajes  <<
+
+** js **
+** nodejs **
+** php + laravel **
+
+** Backbone **
+** reactjs **
+
+** Angular2 **
+
+** Objective-C, swift3  + xCode **
+
+** python **
+** ruby **
+
+** java + Android Studio **
+
+------------------------------------------------
+
+**  NodeJS **
+
+**  Testing y Debugging code **
+- Unit Testing TDD, BDD
+- Debugging process code
+- Lingting
+
+**  DB ** 
+- MongoDB
+- MySQL
+- PostgreSQL
+- Pasar de excel a SQL y usarlos
+* Backups 
+* Restablecer backups
+- lightSQL
+* (Manual y automatico)
+
+** Arquitectura MVC: 
+> https://felixsanz.com/articulos/convierte-express-4-en-un-framework-mvc
++ Render de web pack a ECMScript 6 
+Patrones de diseño y orden
+> https://code.tutsplus.com/tutorials/build-a-complete-mvc-website-with-expressjs--net-34168
+> SOLID
+-> Go to Learn FireBase (Get Start 60min)   (HERE)
+    https://codelabs.developers.google.com/codelabs/firebase-web/#1
+
+** Seguridad Informatica **
+-  Token, refresh token y autentificación en CROSS -> anti CSRF
+-  contraseñas encriptadas con bcrypt y recuperar cuenta, con proceso de reset al email
+- "Limpiar impresión, XSS" -> sanitaze html in nodejs (XSS)
+- "Evitar inyección SQL" -> sanitaze nodejs
+
+** Servicios Web **
+    - Como crear un propio servicio web que vote xml (solo xml, json to xml)
+    - Como consumir un servicio web en SOAP CON xml (leer xml y convertirlo a json)
+    * nodejs y soap -> https://github.com/vpulim/node-soap
+
+** Microservicios **
+    https://platzi.com/blog/microservicios-en-node-con-micro/
+
+** Learn More
+ - Carlos Azaustre
+ - Codigo Facilito
+ - Platzi 2015 - 2016
+
+
+**  Rendimiento y Escalabilidad balance de cargas **
+- No usar pm2 o daemon, usar el propio sistema del arraque
+- Balance de cargas con redis + sockets room by port)
+- "Evitar Spam" -> capchas o bloqueo de usuario por intentos de envio por ip
+-  More NGINX
+
+---------
+
+** Frontend **
+    
+    - BackboneJS
+
+    - Flexbox
+
+    - Web Componens
+    	https://www.icloud.com/keynote/0Ogvo8q0cusLb2npLmlDf-6Vw#El_futuro_de_la_web
+
+    - Polymer
+    	https://www.icloud.com/keynote/0CiohfrntexyLOsLHp-NWrb4w#PolymerMX
+    	https://codepicnic.com/consoles/polymer-demo-i-1484189108
+    
+    - ReactJS
+    
+    - Angular2
+        - type script
+
+    > Redux
+
+    - https://github.com/sergiodxa/redux-in-spanish
+    - https://egghead.io/lessons/javascript-redux-the-single-immutable-state-tree?course=getting-started-with-redux
+
+    > Impresionante JS
+        https://github.com/sergiodxa/impresionante-javascript
+
+--------
+
+** Tools **
+
+> browserify
+Usar npm en frontend
+Transpiler con babels ECMAScript
+
+> Webpackage
+https://webpack.github.io/docs/tutorials/getting-started/
+> Constructor de modulo de un lado a otro para produccion
+
+* Probar obtimizadores de codigo, uglis, compress
+
+> gulp
+> brower
+
+--------
+
+** PHP + Laravel **
+- Web
+- Codigo Facilito
+
+-------
+
+** Objective-C, Switf + xCODE **
+- Learn language and make first app list
+
+------
+
+***********
+** DevOS **
+***********
+
+** Vagrant **
+** Docker **
+** new relic **
+** jenkins **
+
+** Firebase modo pro **
+
+FTP, Git ssh (Automatizar, usar servicios)
+
+Digital Ocean
+AWS   (EC2, S3, RDS, DynamicDB)
+RethinkDB
+
+- Terminal de linux
+- Kali Linux
+- scraping
+
+------------
+
+** Herramienta para ver el estado del servidor = new relic
+** Herramienta medir la capacidad del servidor y evaluar rendimiento
+
+- new relic
+- firebase
+- google analytic
+- https://landscape.canonical.com/
+
+------------
+
+** Arduino y Rashberry Pi **
