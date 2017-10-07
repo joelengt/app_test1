@@ -1,12 +1,6 @@
 # Ascent (V 0.0.1)
 Aplición educativa para ayudar a ascender a los policias (oficiales , sub-oficiales) en su carrera.
 
-## Descarga
-Para descargar en proyecto con todo el avance y ramas, necesitas bajarlo con git, desde la consola.
-```
-git clone https://github.com/Fernandocq16/Ascent.git
-```
-
 ## Instalación
 Para iniciar el proyecto, necesitamos tener instalado [NodeJs](https://nodejs.org/en/download/) v4.4.2. Versión estable para correrla en producción.
 Por el momento también es necesario descargar [MongoDB](https://www.mongodb.org/), para correrlo en local.
